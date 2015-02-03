@@ -58,6 +58,35 @@ namespace BO
                 }
             }
         }
+
+        private DateTime? _rappelEnvoye;
+        public DateTime? RappelEnvoye
+        {
+            get { return _rappelEnvoye; }
+            set { _rappelEnvoye = value; }
+        }
         
+        // Constructeur
+        public Facture()
+        {
+            this.Archive = null;
+            this.CodeClients = null;
+            this.DateFacture = null;
+            this.Etat = null;
+            this.NumFacture = null;
+            this.RappelEnvoye = null;
+            this.TotalFacture = null;
+        }
+
+        public Facture(DataRow maFacture)
+        {
+            this.Archive = bool.Parse(maFacture["Archive"].ToString());
+            this.CodeClients = int.Parse(maFacture["CodeClients"].ToString());
+            this.DateFacture = DateTime.Parse(maFacture["DateFacture"].ToString());
+            this.Etat = int.Parse(maFacture["Etat"].ToString());
+            this.NumFacture = int.Parse(maFacture["NumFacture"].ToString());
+            this.RappelEnvoye = DateTime.Parse(maFacture["RappelEnvoye"].ToString());
+            this.TotalFacture = float.Parse(maFacture["TotalFacture"].ToString());
+        }
     }
 }
