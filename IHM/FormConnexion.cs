@@ -21,12 +21,11 @@ namespace clinique
         private void BTN_ConnexionValider_Click(object sender, EventArgs e)
         {
             EcranPrincipal _ecranPrincipale;
-            bool truite = mgtUsersLogins.Authentification(
+            bool authentification = mgtUsersLogins.Authentification(
                 TXT_ConnxionNom.Text, TXT_ConnexionMdp.Text);
-            if (truite == true)
+            if (authentification == true)
             {
                 _ecranPrincipale = new EcranPrincipal();
-                _ecranPrincipale.MdiParent = this;
                 _ecranPrincipale.Show();
             }
             else

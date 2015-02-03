@@ -4,16 +4,16 @@ using System.Data.Common;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
-using System.Data.Common;
 using System.Configuration;
 using System.Data;
+using System.Data.SqlClient;
 
 namespace DAL
 {
     public class ConnectionBDD
     {
 
-        private static IDbConnection _cnx;
+        private static IDbConnection cnx;
 
         public static DbConnection SeConnecter()
         {
@@ -26,25 +26,34 @@ namespace DAL
             return cnx;
         }
 
-        public static IDbConnection seConnecter2()
+        public static IDbCommand creerRequete(string requete)
         {
-            try
+            IDbCommand cmd = cnx.CreateCommand();
+            cmd.CommandText = requete;
+            cmd.CommandType = CommandType.Text;
+            return cmd;
+        }
+
+        public static IDbCommand creerProcedureStockee(string requete)
+        {
+            IDbCommand cmd = cnx.CreateCommand();
+            cmd.CommandText = requete;
+            cmd.CommandType = CommandType.StoredProcedure;
+            return cmd;
+        }
+
+        public static void creerParametre(IDbCommand cmd, string nomParametre, object valeur, ParameterDirection direction = ParameterDirection.Input, DbType type = DbType.String, int taille = 0)
+        {
+            IDbDataParameter param = cmd.CreateParameter();
+            param.ParameterName = nomParametre;
+            param.Value = valeur;
+            param.DbType = type;
+            param.Direction = direction;
+            if (taille > 0)
             {
-                if (((_cnx == null)
-                            || ((_cnx.State == ConnectionState.Closed)
-                            || (_cnx.State == ConnectionState.Broken))))
-                {
-                    ConnectionStringSettings settings = ConfigurationManager.ConnectionStrings["BDD_Clinique"];
-                    _cnx = DbProviderFactories.GetFactory(settings.ProviderName).CreateConnection();
-                    _cnx.ConnectionString = settings.ConnectionString;
-                    _cnx.Open();
-                }
-                return _cnx;
+                param.Size = taille;
             }
-            catch (Exception ex)
-            {
-                throw new ApplicationException(string.Format("Une erreur est survenue à la connexion à la base de données : {0}", ex.Message));
-            }
+            cmd.Parameters.Add(param);
         }
     }
 }

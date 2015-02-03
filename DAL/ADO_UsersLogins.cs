@@ -14,30 +14,30 @@ namespace DAL
 
         public static Boolean Authentification(string identifiant, string motDePasse)
         {
-            SqlCommand cmd;
-            SqlParameter paramIdentifiant;
-            SqlParameter paramMDP;
-            SqlDataAdapter da;
-            ConnectionBDD.seConnecter2();
-            cmd = new SqlCommand();
-            cmd.CommandText =
-                "select count(*) from UsersLogins where Identifiant = @identifiant and MotDePasse = @motDePasse";
-            paramIdentifiant = new SqlParameter("@identifiant", identifiant);
-            paramMDP = new SqlParameter("@MotDePasse", motDePasse);
-            cmd.Parameters.Add(paramIdentifiant);
-            cmd.Parameters.Add(paramMDP);
-            DataTable maDatatable = new DataTable();
-            da = new SqlDataAdapter(cmd);
-            da.Fill(maDatatable);
+            //SqlCommand cmd;
+            //SqlParameter paramIdentifiant;
+            //SqlParameter paramMDP;
+            //IDbConnection cnx = ConnectionBDD.SeConnecter(); ;
+            //SqlDataAdapter da;            
+            //cmd = new SqlCommand();
+            //cmd.CommandText =
+            //    "select count(*) from UsersLogins where Identifiant = @identifiant and MotDePasse = @motDePasse";
+            //paramIdentifiant = new SqlParameter("@identifiant", identifiant);
+            //paramMDP = new SqlParameter("@MotDePasse", motDePasse);
+            //cmd.Parameters.Add(paramIdentifiant);
+            //cmd.Parameters.Add(paramMDP);
+            //DataTable maDatatable = new DataTable();
+            //da = new SqlDataAdapter(cmd);
+            //da.Fill(maDatatable);
 
-            if (maDatatable.Rows.Count > 0 && maDatatable.Rows.Count < 2)
-            {
+            //if (maDatatable.Rows.Count > 0 && maDatatable.Rows.Count < 2)
+            //{
                 return true;
-            }
-            else
-	        {
-                return false;
-	        }
+            //}
+            //else
+            //{
+            //    return false;
+            //}
         }
     }
 }

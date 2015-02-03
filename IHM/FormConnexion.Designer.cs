@@ -74,6 +74,7 @@
             // 
             this.TXT_ConnexionMdp.Location = new System.Drawing.Point(102, 60);
             this.TXT_ConnexionMdp.Name = "TXT_ConnexionMdp";
+            this.TXT_ConnexionMdp.PasswordChar = '*';
             this.TXT_ConnexionMdp.Size = new System.Drawing.Size(134, 20);
             this.TXT_ConnexionMdp.TabIndex = 5;
             // 
