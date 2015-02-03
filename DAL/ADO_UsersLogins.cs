@@ -11,16 +11,14 @@ namespace DAL
 {
     public class ADO_UsersLogins
     {
-        public static DataTable Authentification(string identifiant, string motDePasse)
+        public static bool Authentification(string identifiant, string motDePasse)
         {
             using (DbConnection cnx = ConnectionBDD.SeConnecter())
             {
                 SqlParameter monParametre;
-                SqlDataAdapter monAdapter = new SqlDataAdapter();
-                DataTable resultat = new DataTable();
 
                 SqlCommand cmd = (SqlCommand) cnx.CreateCommand();
-                cmd.CommandText = " SELECT Id " +
+                cmd.CommandText = " SELECT COUNT(*) " +
                                   " FROM UsersLogins " +
                                   " WHERE Identifiant = @identifiant " +
                                   " AND MotDePasse = @motDePasse ";
@@ -29,11 +27,15 @@ namespace DAL
                 cmd.Parameters.Add(monParametre);
                 monParametre = new SqlParameter("@motDePasse", motDePasse);
                 cmd.Parameters.Add(monParametre);
-
-                monAdapter.SelectCommand = cmd;
-                monAdapter.Fill(resultat);
-
-                return resultat;
+                
+                if (int.Parse(cmd.ExecuteScalar().ToString()) > 0)
+	            {
+                    return true;
+	            }
+                else
+	            {
+                    return false;
+	            }
             }
         }
     }

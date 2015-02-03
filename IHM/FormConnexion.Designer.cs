@@ -37,7 +37,7 @@
             // 
             // BTN_ConnexionValider
             // 
-            this.BTN_ConnexionValider.Location = new System.Drawing.Point(147, 116);
+            this.BTN_ConnexionValider.Location = new System.Drawing.Point(89, 120);
             this.BTN_ConnexionValider.Name = "BTN_ConnexionValider";
             this.BTN_ConnexionValider.Size = new System.Drawing.Size(89, 27);
             this.BTN_ConnexionValider.TabIndex = 0;
