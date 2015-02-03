@@ -12,22 +12,7 @@ namespace BLL
     {
         public static bool Authentification(string pLogin, string pMotDePasse)
         {
-            DataTable mesDonnes = new DataTable();
-            mesDonnes = ADO_UsersLogins.Authentification(pLogin, pMotDePasse);
-
-            foreach (DataRow occurence in mesDonnes.Rows)
-            {
-                if (String.IsNullOrWhiteSpace(occurence["Id"].ToString()))
-                {
-                    return false;
-                }
-                else
-                {
-                    return true;
-                }
-            }
-
-            return false;
+            return ADO_UsersLogins.Authentification(pLogin, pMotDePasse);
         }
     }
 }

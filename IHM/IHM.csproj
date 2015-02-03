@@ -94,6 +94,12 @@
     <Compile Include="EcranPrincipal.Designer.cs">
       <DependentUpon>EcranPrincipal.cs</DependentUpon>
     </Compile>
+    <Compile Include="EcranPriseRendezVous.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="EcranPriseRendezVous.Designer.cs">
+      <DependentUpon>EcranPriseRendezVous.cs</DependentUpon>
+    </Compile>
     <Compile Include="EcranVeterinaires.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -123,6 +129,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="EcranPrincipal.resx">
       <DependentUpon>EcranPrincipal.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="EcranPriseRendezVous.resx">
+      <DependentUpon>EcranPriseRendezVous.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="EcranVeterinaires.resx">
       <DependentUpon>EcranVeterinaires.cs</DependentUpon>
