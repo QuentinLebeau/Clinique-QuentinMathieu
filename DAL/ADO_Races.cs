@@ -12,7 +12,6 @@ namespace DAL
         public static DataTable GetAll()
         {
             DataTable maDatatable = new DataTable();
-            //test
             return maDatatable;
         }
     }

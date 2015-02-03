@@ -7,6 +7,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using BLL;
 
 namespace clinique
 {
@@ -19,7 +20,19 @@ namespace clinique
 
         private void BTN_ConnexionValider_Click(object sender, EventArgs e)
         {
-
+            EcranPrincipal _ecranPrincipale;
+            bool truite = mgtUsersLogins.Authentification(
+                TXT_ConnxionNom.Text, TXT_ConnexionMdp.Text);
+            if (truite == true)
+            {
+                _ecranPrincipale = new EcranPrincipal();
+                _ecranPrincipale.MdiParent = this;
+                _ecranPrincipale.Show();
+            }
+            else
+            {
+                Console.WriteLine("truite");
+            }
         }
     }
 }

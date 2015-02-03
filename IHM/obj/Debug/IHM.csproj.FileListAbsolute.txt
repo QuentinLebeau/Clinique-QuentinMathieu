@@ -102,3 +102,6 @@ C:\Users\d1410alheincm\Desktop\Clinique\IHM\obj\Debug\clinique.EcranVeterinaires
 C:\Users\d1410alheincm\Desktop\Clinique\IHM\obj\Debug\clinique.FormConnexion.resources
 C:\Users\d1410alheincm\Desktop\Clinique\IHM\obj\Debug\Clinique.Properties.Resources.resources
 C:\Users\d1410alheincm\Desktop\Clinique\IHM\obj\Debug\IHM.csproj.GenerateResource.Cache
+C:\Users\d1410alheincm\Desktop\Clinique\IHM\bin\Debug\DAL.dll
+C:\Users\d1410alheincm\Desktop\Clinique\IHM\bin\Debug\DAL.pdb
+C:\Users\d1410alheincm\Desktop\Clinique\IHM\bin\Debug\DAL.xml
