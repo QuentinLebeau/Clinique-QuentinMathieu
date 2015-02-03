@@ -15,3 +15,9 @@ C:\Users\d1410alheincm\Desktop\Clinique\BO\bin\Debug\BO.pdb
 C:\Users\d1410alheincm\Desktop\Clinique\BO\obj\Debug\BO.csprojResolveAssemblyReference.cache
 C:\Users\d1410alheincm\Desktop\Clinique\BO\obj\Debug\BO.dll
 C:\Users\d1410alheincm\Desktop\Clinique\BO\obj\Debug\BO.pdb
+C:\Users\d1409LEBEAUq\Desktop\Clinique\BO\bin\Debug\BO.dll.config
+C:\Users\d1409LEBEAUq\Desktop\Clinique\BO\bin\Debug\BO.dll
+C:\Users\d1409LEBEAUq\Desktop\Clinique\BO\bin\Debug\BO.pdb
+C:\Users\d1409LEBEAUq\Desktop\Clinique\BO\obj\Debug\BO.csprojResolveAssemblyReference.cache
+C:\Users\d1409LEBEAUq\Desktop\Clinique\BO\obj\Debug\BO.dll
+C:\Users\d1409LEBEAUq\Desktop\Clinique\BO\obj\Debug\BO.pdb
