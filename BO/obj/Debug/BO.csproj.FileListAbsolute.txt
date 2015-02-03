@@ -9,3 +9,9 @@ E:\Cours ENI\ProjetC#\Clinique\Clinique\BO\bin\Debug\BO.dll.config
 E:\Cours ENI\ProjetC#\Clinique\Clinique\BO\bin\Debug\BO.dll
 E:\Cours ENI\ProjetC#\Clinique\Clinique\BO\bin\Debug\BO.pdb
 E:\Cours ENI\ProjetC#\Clinique\Clinique\BO\obj\Debug\BO.pdb
+C:\Users\d1410alheincm\Desktop\Clinique\BO\bin\Debug\BO.dll.config
+C:\Users\d1410alheincm\Desktop\Clinique\BO\bin\Debug\BO.dll
+C:\Users\d1410alheincm\Desktop\Clinique\BO\bin\Debug\BO.pdb
+C:\Users\d1410alheincm\Desktop\Clinique\BO\obj\Debug\BO.csprojResolveAssemblyReference.cache
+C:\Users\d1410alheincm\Desktop\Clinique\BO\obj\Debug\BO.dll
+C:\Users\d1410alheincm\Desktop\Clinique\BO\obj\Debug\BO.pdb

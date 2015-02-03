@@ -20,3 +20,14 @@ E:\Cours ENI\ProjetC#\Clinique\Clinique\BLL\bin\Debug\DAL.xml
 E:\Cours ENI\ProjetC#\Clinique\Clinique\BLL\obj\Debug\BLL.csprojResolveAssemblyReference.cache
 E:\Cours ENI\ProjetC#\Clinique\Clinique\BLL\obj\Debug\BLL.dll
 E:\Cours ENI\ProjetC#\Clinique\Clinique\BLL\obj\Debug\BLL.pdb
+C:\Users\d1410alheincm\Desktop\Clinique\BLL\bin\Debug\BLL.dll
+C:\Users\d1410alheincm\Desktop\Clinique\BLL\bin\Debug\BLL.pdb
+C:\Users\d1410alheincm\Desktop\Clinique\BLL\bin\Debug\BO.dll
+C:\Users\d1410alheincm\Desktop\Clinique\BLL\bin\Debug\DAL.dll
+C:\Users\d1410alheincm\Desktop\Clinique\BLL\bin\Debug\BO.pdb
+C:\Users\d1410alheincm\Desktop\Clinique\BLL\bin\Debug\BO.xml
+C:\Users\d1410alheincm\Desktop\Clinique\BLL\bin\Debug\DAL.pdb
+C:\Users\d1410alheincm\Desktop\Clinique\BLL\bin\Debug\DAL.xml
+C:\Users\d1410alheincm\Desktop\Clinique\BLL\obj\Debug\BLL.csprojResolveAssemblyReference.cache
+C:\Users\d1410alheincm\Desktop\Clinique\BLL\obj\Debug\BLL.dll
+C:\Users\d1410alheincm\Desktop\Clinique\BLL\obj\Debug\BLL.pdb

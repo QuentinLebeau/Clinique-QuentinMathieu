@@ -14,3 +14,11 @@ E:\Cours ENI\ProjetC#\Clinique\Clinique\DAL\bin\Debug\BO.xml
 E:\Cours ENI\ProjetC#\Clinique\Clinique\DAL\obj\Debug\DAL.csprojResolveAssemblyReference.cache
 E:\Cours ENI\ProjetC#\Clinique\Clinique\DAL\obj\Debug\DAL.dll
 E:\Cours ENI\ProjetC#\Clinique\Clinique\DAL\obj\Debug\DAL.pdb
+C:\Users\d1410alheincm\Desktop\Clinique\DAL\bin\Debug\DAL.dll
+C:\Users\d1410alheincm\Desktop\Clinique\DAL\bin\Debug\DAL.pdb
+C:\Users\d1410alheincm\Desktop\Clinique\DAL\bin\Debug\BO.dll
+C:\Users\d1410alheincm\Desktop\Clinique\DAL\bin\Debug\BO.pdb
+C:\Users\d1410alheincm\Desktop\Clinique\DAL\bin\Debug\BO.xml
+C:\Users\d1410alheincm\Desktop\Clinique\DAL\obj\Debug\DAL.csprojResolveAssemblyReference.cache
+C:\Users\d1410alheincm\Desktop\Clinique\DAL\obj\Debug\DAL.dll
+C:\Users\d1410alheincm\Desktop\Clinique\DAL\obj\Debug\DAL.pdb
