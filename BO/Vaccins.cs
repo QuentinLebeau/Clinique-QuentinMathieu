@@ -7,7 +7,7 @@ using System.Threading.Tasks;
 
 namespace BO
 {
-    class Vaccins
+    public class Vaccins
     {
         private int? _codeVaccin;
 
