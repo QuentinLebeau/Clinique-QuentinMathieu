@@ -26,6 +26,7 @@ namespace DAL
             return cnx;
         }
 
+
         public static IDbCommand creerRequete(string requete)
         {
             IDbCommand cmd = cnx.CreateCommand();

@@ -21,7 +21,7 @@ namespace clinique
         private void BTN_ConnexionValider_Click(object sender, EventArgs e)
         {
             EcranPrincipal _ecranPrincipale;
-            bool authentification = mgtUsersLogins.Authentification(
+            bool authentification = MgtUsersLogins.Authentification(
                 TXT_ConnxionNom.Text, TXT_ConnexionMdp.Text);
             if (authentification == true)
             {

@@ -105,3 +105,15 @@ C:\Users\d1410alheincm\Desktop\Clinique\IHM\obj\Debug\IHM.csproj.GenerateResourc
 C:\Users\d1410alheincm\Desktop\Clinique\IHM\bin\Debug\DAL.dll
 C:\Users\d1410alheincm\Desktop\Clinique\IHM\bin\Debug\DAL.pdb
 C:\Users\d1410alheincm\Desktop\Clinique\IHM\bin\Debug\DAL.xml
+C:\Users\d1409LEBEAUq\Desktop\Clinique\IHM\bin\Debug\EcranAnimaux.resx
+C:\Users\d1409LEBEAUq\Desktop\Clinique\IHM\bin\Debug\EcranAnimaux.cs
+C:\Users\d1409LEBEAUq\Desktop\Clinique\IHM\bin\Debug\EcranAnimaux.Designer.cs
+C:\Users\d1409LEBEAUq\Desktop\Clinique\IHM\bin\Debug\EcranClients.cs
+C:\Users\d1409LEBEAUq\Desktop\Clinique\IHM\bin\Debug\EcranClients.Designer.cs
+C:\Users\d1409LEBEAUq\Desktop\Clinique\IHM\bin\Debug\DAL.dll
+C:\Users\d1409LEBEAUq\Desktop\Clinique\IHM\bin\Debug\DAL.pdb
+C:\Users\d1409LEBEAUq\Desktop\Clinique\IHM\bin\Debug\DAL.xml
+C:\Users\d1409LEBEAUq\Desktop\Clinique\IHM\obj\Debug\Clinique.EcranAgenda.resources
+C:\Users\d1409LEBEAUq\Desktop\Clinique\IHM\obj\Debug\Clinique.EcranAnimaux.resources
+C:\Users\d1409LEBEAUq\Desktop\Clinique\IHM\obj\Debug\Clinique.EcranClients.resources
+C:\Users\d1409LEBEAUq\Desktop\Clinique\IHM\obj\Debug\Clinique.EcranConsultation.resources
