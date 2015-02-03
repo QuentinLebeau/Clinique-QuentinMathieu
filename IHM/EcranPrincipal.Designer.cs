@@ -138,6 +138,7 @@
             this.vétérinairesCTRLTToolStripMenuItem.Name = "vétérinairesCTRLTToolStripMenuItem";
             this.vétérinairesCTRLTToolStripMenuItem.Size = new System.Drawing.Size(301, 22);
             this.vétérinairesCTRLTToolStripMenuItem.Text = "Vétérinaires   CTRL - T";
+            this.vétérinairesCTRLTToolStripMenuItem.Click += new System.EventHandler(this.vétérinairesCTRLTToolStripMenuItem_Click);
             // 
             // miseÀJourDuBarèmeDeTarificationToolStripMenuItem
             // 

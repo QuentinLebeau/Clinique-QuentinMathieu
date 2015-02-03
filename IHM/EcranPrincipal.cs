@@ -21,5 +21,13 @@ namespace clinique
         {
 
         }
+
+        private void vétérinairesCTRLTToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            EcranVeterinaires _ecranVeterinaire;
+            _ecranVeterinaire = new EcranVeterinaires();
+            _ecranVeterinaire.MdiParent = this;
+            _ecranVeterinaire.Show();
+        }
     }
 }

@@ -27,6 +27,7 @@ namespace clinique
             {
                 _ecranPrincipale = new EcranPrincipal();
                 _ecranPrincipale.Show();
+                
             }
             else
             {

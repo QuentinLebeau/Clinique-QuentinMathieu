@@ -10,8 +10,8 @@ namespace BO
     public class Veterinaires
     {
         // Attributs
-        private int? _codeVeto;
-        public int? CodeVeto
+        private Guid? _codeVeto;
+        public Guid? CodeVeto
         {
             get { return _codeVeto; }
             set { _codeVeto = value; }
@@ -47,10 +47,22 @@ namespace BO
             this.NomVeto = null;
         }
 
+        /// <summary>
+        /// construire une instance de veto initialisée
+        /// </summary>
+        public Veterinaires(Guid codeVeto, string nomVeto, string motPasse, bool archive)
+        {
+            this.CodeVeto = codeVeto;
+            this.NomVeto = nomVeto;
+            this.MotPasse = motPasse;
+            this.Archive = archive;
+        }
+
+
         public Veterinaires(DataRow monVeto)
         {
             this.Archive = bool.Parse(monVeto["Archive"].ToString());
-            this.CodeVeto = int.Parse(monVeto["CodeVeto"].ToString());
+            this.CodeVeto = Guid.Parse(monVeto["CodeVeto"].ToString());
             this.MotPasse = monVeto["MotPasse"].ToString();
             this.NomVeto = monVeto["NomVeto"].ToString();
         }
