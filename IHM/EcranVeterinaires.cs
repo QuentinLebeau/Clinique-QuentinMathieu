@@ -15,6 +15,11 @@ namespace clinique
 {
     public partial class EcranVeterinaires : Form
     {
+        public void PassValue(Veterinaires veto)
+        {
+            veto = (Veterinaires)DataGridVeto.CurrentRow.DataBoundItem;
+        }
+
         public EcranVeterinaires()
         {
             //tets
