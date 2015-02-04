@@ -84,6 +84,7 @@
             this.priseDeRendezvousToolStripMenuItem.Name = "priseDeRendezvousToolStripMenuItem";
             this.priseDeRendezvousToolStripMenuItem.Size = new System.Drawing.Size(261, 22);
             this.priseDeRendezvousToolStripMenuItem.Text = "Prise de rendez-vous    CTRL - P";
+            this.priseDeRendezvousToolStripMenuItem.Click += new System.EventHandler(this.priseDeRendezvousToolStripMenuItem_Click);
             // 
             // dossierClientAnimauxCTRLAToolStripMenuItem
             // 

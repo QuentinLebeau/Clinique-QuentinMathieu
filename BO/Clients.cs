@@ -10,8 +10,8 @@ namespace BO
     public class Clients
     {
         // Attributs
-        private int? _codeClient;
-        public int? CodeClient
+        private Guid? _codeClient;
+        public Guid? CodeClient
         {
             get { return _codeClient; }
             set { _codeClient = value; }
@@ -22,6 +22,13 @@ namespace BO
         {
             get { return _nomClient; }
             set { _nomClient = value; }
+        }
+
+        private string _prenomClient;
+        public string PrenomClient
+        {
+            get { return _prenomClient; }
+            set { _prenomClient = value; }
         }
 
         private string _adresse1;
@@ -98,6 +105,7 @@ namespace BO
             this.CodePostal = null;
             this.Email = null;
             this.NomClient = null;
+            this.PrenomClient = null;
             this.NumTel = null;
             this.Remarque = null;
             this.Ville = null;
@@ -110,13 +118,19 @@ namespace BO
             this.Adresse2 = monClient["Adresse2"].ToString();
             this.Archive = Boolean.Parse(monClient["Archive"].ToString());
             this.Assurance = monClient["Assurance"].ToString();
-            this.CodeClient = int.Parse(monClient["CodeClient"].ToString());
+            this.CodeClient = Guid.Parse(monClient["CodeClient"].ToString());
             this.CodePostal = monClient["CodePostal"].ToString();
             this.Email = monClient["Email"].ToString();
             this.NomClient = monClient["NomClient"].ToString();
+            this.PrenomClient = monClient["PrenomClient"].ToString();
             this.NumTel = monClient["NumTel"].ToString();
             this.Remarque = monClient["Remarque"].ToString();
             this.Ville = monClient["Ville"].ToString();
-        }   
+        }
+
+        public override string ToString()
+        {
+            return this.NomClient + " " + this.PrenomClient;
+        }
     }
 }

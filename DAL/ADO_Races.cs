@@ -12,25 +12,31 @@ namespace DAL
 {
     public class ADO_Races
     {
-        public static DataTable GetAll()
+        public static List<Races> GetAll()
         {
             using (DbConnection cnx = ConnectionBDD.SeConnecter())
             {
                 SqlDataAdapter monAdapter = new SqlDataAdapter();
-                DataTable resultat = new DataTable();
+                DataTable maDataTable = new DataTable();
+                List<Races> listeRace = new List<Races>();
 
                 SqlCommand cmd = (SqlCommand)cnx.CreateCommand();
                 cmd.CommandText = " SELECT * " +
                                   " FROM Races ";
 
                 monAdapter.SelectCommand = cmd;
-                monAdapter.Fill(resultat);
+                monAdapter.Fill(maDataTable);
 
-                return resultat;
+                foreach (DataRow uneRace in maDataTable.Rows)
+                {
+                    listeRace.Add(new Races(uneRace));
+                }
+
+                return listeRace;
             }
         }
 
-        public static DataTable GetOne(Races maRace)
+        public static Races GetOne(Races maRace)
         {
             using (DbConnection cnx = ConnectionBDD.SeConnecter())
             {
@@ -52,11 +58,11 @@ namespace DAL
                 monAdapter.SelectCommand = cmd;
                 monAdapter.Fill(resultat);
 
-                return resultat;
+                return new Races(resultat.Rows[0]);
             }
         }
 
-        public static void Ajouter(Races maRace)
+        public static void Add(Races maRace)
         {
             using (DbConnection cnx = ConnectionBDD.SeConnecter())
             {
@@ -82,7 +88,8 @@ namespace DAL
             }
         }
 
-        public static void Modifier(Races maRace)
+        // Attention, modification de la clé primaire, risque d'erreurs !
+        public static void Update(Races maNouvelleRace, Races monAncienneRace)
         {
             using (DbConnection cnx = ConnectionBDD.SeConnecter())
             {
@@ -90,11 +97,17 @@ namespace DAL
 
                 SqlCommand cmd = (SqlCommand)cnx.CreateCommand();
                 cmd.CommandText = " UPDATE Races " +
-                                  " SET (Race = @race, Espece = @espece); ";
+                                  " SET (Race = @nouvelleRace, Espece = @nouvelleEspece) " +
+                                  " WHERE Race = @ancienneRace " +
+                                  " AND Espece = @ancienneEspece ;";
 
-                monParametre = new SqlParameter("@race", maRace.Race);
+                monParametre = new SqlParameter("@nouvelleRace", maNouvelleRace.Race);
                 cmd.Parameters.Add(monParametre);
-                monParametre = new SqlParameter("@espece", maRace.Espece);
+                monParametre = new SqlParameter("@nouvelleEspece", maNouvelleRace.Espece);
+                cmd.Parameters.Add(monParametre);
+                monParametre = new SqlParameter("@ancienneRace", monAncienneRace.Race);
+                cmd.Parameters.Add(monParametre);
+                monParametre = new SqlParameter("@ancienneEspece", monAncienneRace.Espece);
                 cmd.Parameters.Add(monParametre);
 
                 try
@@ -108,7 +121,7 @@ namespace DAL
             }
         }
 
-        public static void Supprimer(Races maRace)
+        public static void Delete(Races maRace)
         {
             using (DbConnection cnx = ConnectionBDD.SeConnecter())
             {
