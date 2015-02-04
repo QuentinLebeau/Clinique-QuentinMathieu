@@ -15,14 +15,11 @@ namespace Clinique
 {
     public partial class ecranReinitialisation : Form
     {
+
         public ecranReinitialisation()
         {
             InitializeComponent();
-        }
-
-        public void recupCode(Veterinaires veto)
-        {
-            Veterinaires _veto = veto;
+            combo_reinit_nom.DataSource = MgtVeterinaires.getVeto();
         }
 
         private void BTN_reinit_valider_Click(object sender, EventArgs e, Veterinaires veto)

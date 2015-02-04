@@ -31,11 +31,11 @@
             this.LBL_reinit_nomVeto = new System.Windows.Forms.Label();
             this.LBL_reinit_MDP1 = new System.Windows.Forms.Label();
             this.LBL_reinit_confirme = new System.Windows.Forms.Label();
-            this.TXT_reinit_nom = new System.Windows.Forms.TextBox();
             this.TXT_reinit_NouveauMDP = new System.Windows.Forms.TextBox();
             this.TXT_reinit_confirmMDP = new System.Windows.Forms.TextBox();
             this.BTN_reinit_valider = new System.Windows.Forms.Button();
             this.BTN_reinit_annuler = new System.Windows.Forms.Button();
+            this.combo_reinit_nom = new System.Windows.Forms.ComboBox();
             this.SuspendLayout();
             // 
             // LBL_reinit_nomVeto
@@ -64,13 +64,6 @@
             this.LBL_reinit_confirme.Size = new System.Drawing.Size(128, 13);
             this.LBL_reinit_confirme.TabIndex = 2;
             this.LBL_reinit_confirme.Text = "Confirmer le mot de passe";
-            // 
-            // TXT_reinit_nom
-            // 
-            this.TXT_reinit_nom.Location = new System.Drawing.Point(140, 34);
-            this.TXT_reinit_nom.Name = "TXT_reinit_nom";
-            this.TXT_reinit_nom.Size = new System.Drawing.Size(100, 20);
-            this.TXT_reinit_nom.TabIndex = 3;
             // 
             // TXT_reinit_NouveauMDP
             // 
@@ -105,16 +98,24 @@
             this.BTN_reinit_annuler.UseVisualStyleBackColor = true;
             this.BTN_reinit_annuler.Click += new System.EventHandler(this.BTN_reinit_annuler_Click);
             // 
+            // combo_reinit_nom
+            // 
+            this.combo_reinit_nom.FormattingEnabled = true;
+            this.combo_reinit_nom.Location = new System.Drawing.Point(119, 34);
+            this.combo_reinit_nom.Name = "combo_reinit_nom";
+            this.combo_reinit_nom.Size = new System.Drawing.Size(121, 21);
+            this.combo_reinit_nom.TabIndex = 8;
+            // 
             // ecranReinitialisation
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(246, 211);
+            this.Controls.Add(this.combo_reinit_nom);
             this.Controls.Add(this.BTN_reinit_annuler);
             this.Controls.Add(this.BTN_reinit_valider);
             this.Controls.Add(this.TXT_reinit_confirmMDP);
             this.Controls.Add(this.TXT_reinit_NouveauMDP);
-            this.Controls.Add(this.TXT_reinit_nom);
             this.Controls.Add(this.LBL_reinit_confirme);
             this.Controls.Add(this.LBL_reinit_MDP1);
             this.Controls.Add(this.LBL_reinit_nomVeto);
@@ -130,10 +131,10 @@
         private System.Windows.Forms.Label LBL_reinit_nomVeto;
         private System.Windows.Forms.Label LBL_reinit_MDP1;
         private System.Windows.Forms.Label LBL_reinit_confirme;
-        private System.Windows.Forms.TextBox TXT_reinit_nom;
         private System.Windows.Forms.TextBox TXT_reinit_NouveauMDP;
         private System.Windows.Forms.TextBox TXT_reinit_confirmMDP;
         private System.Windows.Forms.Button BTN_reinit_valider;
         private System.Windows.Forms.Button BTN_reinit_annuler;
+        private System.Windows.Forms.ComboBox combo_reinit_nom;
     }
 }

@@ -15,11 +15,7 @@ namespace clinique
 {
     public partial class EcranVeterinaires : Form
     {
-        public void PassValue(Veterinaires veto)
-        {
-            veto = (Veterinaires)DataGridVeto.CurrentRow.DataBoundItem;
-        }
-
+      
         public EcranVeterinaires()
         {
             //tets
@@ -52,8 +48,12 @@ namespace clinique
             Veterinaires veto = (Veterinaires)DataGridVeto.CurrentRow.DataBoundItem;
             ecranReinitialisation _ecranReinit;
             _ecranReinit = new ecranReinitialisation();
-            _ecranReinit.recupCode(veto);
             _ecranReinit.Show();
+        }
+
+        public void DataGridVeto_CellContentClick(object sender, DataGridViewCellEventArgs e)
+        {
+
         }
     }
 }
