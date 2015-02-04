@@ -207,6 +207,7 @@
             this.DATE_RendezVous.Name = "DATE_RendezVous";
             this.DATE_RendezVous.Size = new System.Drawing.Size(174, 20);
             this.DATE_RendezVous.TabIndex = 0;
+            this.DATE_RendezVous.ValueChanged += new System.EventHandler(this.DATE_RendezVous_ValueChanged);
             // 
             // COMBO_Animal
             // 
@@ -279,7 +280,6 @@
             this.Controls.Add(this.groupBoxPour);
             this.Name = "EcranPriseRendezVous";
             this.Text = "EcranPriseRendezVous";
-            this.Load += new System.EventHandler(this.EcranPriseRendezVous_Load);
             this.groupBoxPour.ResumeLayout(false);
             this.groupBoxPour.PerformLayout();
             this.groupBoxPar.ResumeLayout(false);
