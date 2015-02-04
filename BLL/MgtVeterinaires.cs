@@ -14,5 +14,21 @@ namespace BLL
         {
             return ADO_Veterinaires.getListeVeto();
         }
+
+        public static void ajouterVeto(string nomVeto, string prenomVeto, string motPasse)
+        {
+            ADO_Veterinaires.ajouterVeto(nomVeto, prenomVeto, motPasse);
+        }
+
+        public static void supprimerVeto(Veterinaires veto)
+        {
+            ADO_Veterinaires.supprimerVeto(veto);
+        }
+
+        public static void reinitialiserMotPasseVeto(Veterinaires veto, string newCode, 
+                                                     string confirmMDP)
+        {
+            ADO_Veterinaires.reinitialiserMotPasseVeto(veto, newCode, confirmMDP);
+        }
     }
 }

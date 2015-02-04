@@ -89,6 +89,7 @@
             this.BTN_ReinitialiserVeto.Size = new System.Drawing.Size(75, 23);
             this.BTN_ReinitialiserVeto.TabIndex = 2;
             this.BTN_ReinitialiserVeto.UseVisualStyleBackColor = true;
+            this.BTN_ReinitialiserVeto.Click += new System.EventHandler(this.BTN_ReinitialiserVeto_Click);
             // 
             // BTN_SupprimerVeto
             // 
@@ -97,6 +98,7 @@
             this.BTN_SupprimerVeto.Size = new System.Drawing.Size(75, 23);
             this.BTN_SupprimerVeto.TabIndex = 1;
             this.BTN_SupprimerVeto.UseVisualStyleBackColor = true;
+            this.BTN_SupprimerVeto.Click += new System.EventHandler(this.BTN_SupprimerVeto_Click);
             // 
             // BTN_ajouterVeto
             // 
@@ -105,6 +107,7 @@
             this.BTN_ajouterVeto.Size = new System.Drawing.Size(75, 23);
             this.BTN_ajouterVeto.TabIndex = 0;
             this.BTN_ajouterVeto.UseVisualStyleBackColor = true;
+            this.BTN_ajouterVeto.Click += new System.EventHandler(this.BTN_ajouterVeto_Click);
             // 
             // DataGridVeto
             // 
