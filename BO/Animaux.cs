@@ -4,14 +4,15 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Data;
+using System.Data.SqlClient;
 
 namespace BO
 {
     public class Animaux
     {
         // Attributs
-        private int? _codeAnimal;
-        public int? CodeAnimal
+        private Guid? _codeAnimal;
+        public Guid? CodeAnimal
         {
             get { return _codeAnimal; }
             set { _codeAnimal = value; }
@@ -24,8 +25,8 @@ namespace BO
             set { _nomAnimal = value; }
         }
 
-        private char _sexe;
-        public char Sexe
+        private char? _sexe;
+        public char? Sexe
         {
             get { return _sexe; }
             set { _sexe = value; }
@@ -45,8 +46,8 @@ namespace BO
             set { _race = value; }
         }
 
-        private int? _codeClient;
-        public int? CodeClient
+        private Guid? _codeClient;
+        public Guid? CodeClient
         {
             get { return _codeClient; }
             set { _codeClient = value; }
@@ -83,7 +84,7 @@ namespace BO
             this.Couleur = null;
             this.NomAnimal = null;
             this.Race = new Races();
-            this.Sexe = ' ';
+            this.Sexe = null;
             this.Tatouage = null;
         }
 
@@ -91,15 +92,18 @@ namespace BO
         {
             this.Antecedents = monAnimal["Antecedents"].ToString();
             this.Archive = Boolean.Parse(monAnimal["Archive"].ToString());
-            this.CodeAnimal = int.Parse(monAnimal["CodeAnimal"].ToString());
-            this.CodeClient = int.Parse(monAnimal["CodeClient"].ToString());
+            this.CodeAnimal = Guid.Parse(monAnimal["CodeAnimal"].ToString());
+            this.CodeClient = Guid.Parse(monAnimal["CodeClient"].ToString());
             this.Couleur = monAnimal["Couleur"].ToString();
-            this.NomAnimal = monAnimal["Couleur"].ToString();
+            this.NomAnimal = monAnimal["NomAnimal"].ToString();
             this.Race = new Races(monAnimal["Race"].ToString(), monAnimal["Espece"].ToString());
             this.Sexe = char.Parse(monAnimal["Sexe"].ToString());
             this.Tatouage = monAnimal["Tatouage"].ToString();
         }
 
-
+        public override string ToString()
+        {
+            return this.NomAnimal;
+        }
     }
 }

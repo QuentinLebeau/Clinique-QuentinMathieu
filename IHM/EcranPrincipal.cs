@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Clinique;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -28,6 +29,14 @@ namespace clinique
             _ecranVeterinaire = new EcranVeterinaires();
             _ecranVeterinaire.MdiParent = this;
             _ecranVeterinaire.Show();
+        }
+
+        private void priseDeRendezvousToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            EcranPriseRendezVous monEcran;
+            monEcran = new EcranPriseRendezVous();
+            monEcran.MdiParent = this;
+            monEcran.Show();
         }
     }
 }
