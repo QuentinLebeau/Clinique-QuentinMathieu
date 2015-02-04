@@ -66,14 +66,18 @@ namespace BO
             this.MotPasse = motPasse;
             this.Archive = archive;
         }
-
-
+        
         public Veterinaires(DataRow monVeto)
         {
             this.Archive = bool.Parse(monVeto["Archive"].ToString());
             this.CodeVeto = Guid.Parse(monVeto["CodeVeto"].ToString());
             this.MotPasse = monVeto["MotPasse"].ToString();
             this.NomVeto = monVeto["NomVeto"].ToString();
+        }
+
+        public override string ToString()
+        {
+            return this.NomVeto;
         }
     }
 }

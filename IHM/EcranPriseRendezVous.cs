@@ -25,6 +25,10 @@ namespace Clinique
             COMBO_Client.DataSource = monMgtClient.AfficherTout();
             monClientSelectionne = (Clients)COMBO_Client.Items[0];
             COMBO_Animal.DataSource = monMgtAnimal.AfficherTout().FindAll(t => t.CodeClient == monClientSelectionne.CodeClient);
+            COMBO_Veto.DataSource = MgtVeterinaires.getVeto();
+
+            DATE_RendezVous.MinDate = DateTime.Now;
+            //COMBO_Heure.DataSource = new List<DateTime>({DateTime.
         }
 
         private void EcranPriseRendezVous_Load(object sender, EventArgs e)
