@@ -31,3 +31,4 @@ C:\Users\d1409LEBEAUq\Desktop\Clinique\DAL\obj\Debug\DAL.csprojResolveAssemblyRe
 C:\Users\d1409LEBEAUq\Desktop\Clinique\DAL\obj\Debug\DAL.dll
 C:\Users\d1409LEBEAUq\Desktop\Clinique\DAL\obj\Debug\DAL.pdb
 C:\Users\d1410alheincm\Desktop\Clinique\DAL\bin\Debug\DAL.dll.config
+C:\Users\d1409LEBEAUq\Desktop\Clinique\DAL\bin\Debug\DAL.dll.config

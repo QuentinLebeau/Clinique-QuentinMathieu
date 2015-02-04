@@ -121,3 +121,5 @@ C:\Users\d1409LEBEAUq\Desktop\Clinique\IHM\obj\Debug\Clinique.EcranPriseRendezVo
 C:\Users\d1410alheincm\Desktop\Clinique\IHM\obj\Debug\Clinique.EcranPriseRendezVous.resources
 C:\Users\d1410alheincm\Desktop\Clinique\IHM\obj\Debug\Clinique.EcranVetoAjouter.resources
 C:\Users\d1410alheincm\Desktop\Clinique\IHM\obj\Debug\Clinique.ecranReinitialisation.resources
+C:\Users\d1409LEBEAUq\Desktop\Clinique\IHM\obj\Debug\Clinique.ecranReinitialisation.resources
+C:\Users\d1409LEBEAUq\Desktop\Clinique\IHM\obj\Debug\Clinique.EcranVetoAjouter.resources

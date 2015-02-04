@@ -49,6 +49,7 @@ namespace clinique
             ecranReinitialisation _ecranReinit;
             _ecranReinit = new ecranReinitialisation();
             _ecranReinit.Show();
+            DataGridVeto.DataSource = MgtVeterinaires.getVeto();
         }
 
         public void DataGridVeto_CellContentClick(object sender, DataGridViewCellEventArgs e)

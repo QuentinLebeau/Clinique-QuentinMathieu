@@ -87,6 +87,7 @@
             this.BTN_reinit_valider.TabIndex = 6;
             this.BTN_reinit_valider.Text = "Valider";
             this.BTN_reinit_valider.UseVisualStyleBackColor = true;
+            this.BTN_reinit_valider.Click += new System.EventHandler(this.BTN_reinit_valider_Click);
             // 
             // BTN_reinit_annuler
             // 

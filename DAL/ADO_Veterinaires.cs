@@ -116,7 +116,7 @@ namespace DAL
 	            {
                     SqlParameter monParametre;
                     SqlCommand cmd = (SqlCommand)cnx.CreateCommand();
-                    cmd.CommandText = "update Veterinaires set MotPasse = @MotPasse where CodeVeto = @coceVeto";
+                    cmd.CommandText = "update Veterinaires set MotPasse = @MotPasse where CodeVeto = @codeVeto";
                     monParametre = new SqlParameter("@MotPasse", pNouveauCode);
                     cmd.Parameters.Add(monParametre);
                     monParametre = new SqlParameter("@codeVeto", veto.CodeVeto);
