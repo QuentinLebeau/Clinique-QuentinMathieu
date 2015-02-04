@@ -4,6 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Data;
+using System.ComponentModel;
 
 namespace BO
 {
@@ -11,6 +12,8 @@ namespace BO
     {
         // Attributs
         private Guid? _codeVeto;
+
+        [Browsable(false)]
         public Guid? CodeVeto
         {
             get { return _codeVeto; }
@@ -18,6 +21,8 @@ namespace BO
         }
 
         private string _nomVeto;
+
+        [DisplayName("Code Nom")]
         public string NomVeto
         {
             get { return _nomVeto; }
@@ -25,6 +30,8 @@ namespace BO
         }
 
         private string _motPasse;
+
+        [DisplayName("Mot de passe")]
         public string MotPasse
         {
             get { return _motPasse; }
@@ -32,6 +39,8 @@ namespace BO
         }
 
         private bool? _archive;
+
+        [Browsable(false)]
         public bool? Archive
         {
             get { return _archive; }
