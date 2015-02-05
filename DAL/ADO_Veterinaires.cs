@@ -53,6 +53,7 @@ namespace DAL
                 monAdapter.SelectCommand = cmd;
                 monAdapter.Fill(resultat);
 
+
                 return unVeto;
             }
         }
@@ -61,6 +62,7 @@ namespace DAL
         {
             using (DbConnection cnx = ConnectionBDD.SeConnecter())
             {
+                string login;
                 List<Veterinaires> listeVeto = new List<Veterinaires>();
                 SqlDataAdapter monAdapter = new SqlDataAdapter();
                 DataTable resultat = new DataTable();
@@ -69,11 +71,14 @@ namespace DAL
                 pPrenomVeto = pPrenomVeto[0].ToString().ToUpper()
                     + pPrenomVeto.Substring(1).ToLower();
                 pMotPasse = pMotPasse.ToUpper();
+                login = pNomVeto[0].ToString().ToUpper() + pPrenomVeto.ToLower();
                 SqlCommand cmd = (SqlCommand)cnx.CreateCommand();
-                cmd.CommandText = " exec ajout_Veterinaire @nomVeto, @motPasse, 0";
+                cmd.CommandText = " exec ajout_Veterinaire @nomVeto, @motPasse, 0 ; exec ajout_UsersLogins @login, @motPasse";
                 monParametre = new SqlParameter("@nomVeto", pNomVeto + ' ' + pPrenomVeto);
                 cmd.Parameters.Add(monParametre);
                 monParametre = new SqlParameter("@motPasse", pMotPasse);
+                cmd.Parameters.Add(monParametre);
+                monParametre = new SqlParameter("@login", login);
                 cmd.Parameters.Add(monParametre);
                 monAdapter.SelectCommand = cmd;
                 monAdapter.Fill(resultat);

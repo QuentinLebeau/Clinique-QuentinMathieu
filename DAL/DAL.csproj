@@ -42,6 +42,8 @@
   <ItemGroup>
     <Compile Include="ADO_Animal.cs" />
     <Compile Include="ADO_Clients.cs" />
+    <Compile Include="ADO_Consultations.cs" />
+    <Compile Include="ADO_LigneConsultations.cs" />
     <Compile Include="ADO_UsersLogins.cs" />
     <Compile Include="ADO_Veterinaires.cs" />
     <Compile Include="BDD_CliniqueDataSet.Designer.cs">

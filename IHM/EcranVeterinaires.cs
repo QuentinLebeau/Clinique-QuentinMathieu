@@ -22,7 +22,7 @@ namespace clinique
             InitializeComponent();
         }
 
-        private void EcranVeterinaires_Load(object sender, EventArgs e)
+        public void EcranVeterinaires_Load(object sender, EventArgs e)
         {
 
             DataGridVeto.DataSource = MgtVeterinaires.getVeto();
