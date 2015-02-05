@@ -42,16 +42,24 @@ namespace DAL
             {
                 Veterinaires unVeto = new Veterinaires();
                 SqlDataAdapter monAdapter = new SqlDataAdapter();
-                DataTable resultat = new DataTable();
+                DataTable maDataTable = new DataTable();
                 SqlParameter monParametre;
+
                 SqlCommand cmd = (SqlCommand)cnx.CreateCommand();
                 cmd.CommandText = " SELECT * " +
                                   " FROM Veterinaires" +
                                   " WHERE CodeVeto = @codeVeto";
+
                 monParametre = new SqlParameter("@codeVeto", pCodeVeto);
                 cmd.Parameters.Add(monParametre);
+
                 monAdapter.SelectCommand = cmd;
-                monAdapter.Fill(resultat);
+                monAdapter.Fill(maDataTable);
+
+                foreach (DataRow uneOccurence in maDataTable.Rows)
+                {
+                    unVeto = new Veterinaires(uneOccurence);
+                }
 
                 return unVeto;
             }

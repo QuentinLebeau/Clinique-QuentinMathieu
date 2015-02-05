@@ -17,7 +17,7 @@ namespace BLL
             return animauxDAL.GetAll();
         }
 
-        public Animaux AfficherUneSeul(int pCodeAnimal)
+        public Animaux AfficherUneSeul(Guid pCodeAnimal)
         {
             return animauxDAL.GetOne(pCodeAnimal);
         }

@@ -39,6 +39,7 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="MgtAgenda.cs" />
     <Compile Include="MgtAnimal.cs" />
     <Compile Include="MgtClient.cs" />
     <Compile Include="MgtRaces.cs" />

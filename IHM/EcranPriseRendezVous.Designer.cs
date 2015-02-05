@@ -157,6 +157,7 @@
             this.BTN_Urgence.TabIndex = 9;
             this.BTN_Urgence.Text = "Urgence";
             this.BTN_Urgence.UseVisualStyleBackColor = true;
+            this.BTN_Urgence.Click += new System.EventHandler(this.BTN_Urgence_Click);
             // 
             // label5
             // 
@@ -191,6 +192,7 @@
             this.COMBO_Heure.Name = "COMBO_Heure";
             this.COMBO_Heure.Size = new System.Drawing.Size(89, 21);
             this.COMBO_Heure.TabIndex = 5;
+            this.COMBO_Heure.SelectedIndexChanged += new System.EventHandler(this.COMBO_Heure_SelectedIndexChanged);
             // 
             // label54
             // 
@@ -245,6 +247,7 @@
             this.BTN_Valider.TabIndex = 5;
             this.BTN_Valider.Text = "Valider";
             this.BTN_Valider.UseVisualStyleBackColor = true;
+            this.BTN_Valider.Click += new System.EventHandler(this.BTN_Valider_Click);
             // 
             // BTN_Suppr
             // 

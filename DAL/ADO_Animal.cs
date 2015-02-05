@@ -46,7 +46,7 @@ namespace DAL
             }
         }
 
-        public Animaux GetOne(int pCodeAnimal)
+        public Animaux GetOne(Guid pCodeAnimal)
         {
             try
             {

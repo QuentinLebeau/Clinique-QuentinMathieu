@@ -40,6 +40,7 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="ADO_Agendas.cs" />
     <Compile Include="ADO_Animal.cs" />
     <Compile Include="ADO_Clients.cs" />
     <Compile Include="ADO_UsersLogins.cs" />

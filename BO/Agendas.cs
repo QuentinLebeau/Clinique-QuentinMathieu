@@ -10,8 +10,8 @@ namespace BO
     public class Agendas
     {
         // Attributs
-        private int? _codeVeto;
-        public int? CodeVeto
+        private Guid? _codeVeto;
+        public Guid? CodeVeto
         {
             get { return _codeVeto; }
             set { _codeVeto = value; }
@@ -21,34 +21,11 @@ namespace BO
         public DateTime? DateRDV
         {
             get { return _dateRDV; }
-            set 
-            { 
-                _dateRDV = value;
-                if (value.Value.Minute < 8)
-                {
-                    _dateRDV = new DateTime(value.Value.Year, value.Value.Month, value.Value.Day, value.Value.Hour, 0, 0);
-                }
-                else if (value.Value.Minute < 23)
-                {
-                    _dateRDV = new DateTime(value.Value.Year, value.Value.Month, value.Value.Day, value.Value.Hour, 15, 0);
-                }
-                else if (value.Value.Minute < 37)
-                {
-                    _dateRDV = new DateTime(value.Value.Year, value.Value.Month, value.Value.Day, value.Value.Hour, 30, 0);
-                }
-                else if (value.Value.Minute < 53)
-                {
-                    _dateRDV = new DateTime(value.Value.Year, value.Value.Month, value.Value.Day, value.Value.Hour, 45, 0);
-                }
-                else
-                {
-                    _dateRDV = new DateTime(value.Value.Year, value.Value.Month, value.Value.Day, value.Value.Hour, 0, 0);
-                }
-            }
+            set { _dateRDV = value; }
         }
 
-        private int? _codeAnimal;
-        public int? CodeAnimal
+        private Guid? _codeAnimal;
+        public Guid? CodeAnimal
         {
             get { return _codeAnimal; }
             set { _codeAnimal = value; }
@@ -64,8 +41,8 @@ namespace BO
 
         public Agendas(DataRow monAgenda)
         {
-            this.CodeAnimal = int.Parse(monAgenda["CodeAnimal"].ToString());
-            this.CodeVeto = int.Parse(monAgenda["CodeVeto"].ToString());
+            this.CodeAnimal = Guid.Parse(monAgenda["CodeAnimal"].ToString());
+            this.CodeVeto = Guid.Parse(monAgenda["CodeVeto"].ToString());
             this.DateRDV = DateTime.Parse(monAgenda["DateRdv"].ToString());
         }
     }
