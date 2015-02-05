@@ -40,6 +40,8 @@ namespace Clinique
 
                 throw new Exception("Problème dans les informations saisies. \n" + ex.Message);
             }
+            EcranVeterinaires _ecranVeto = new EcranVeterinaires();
+            _ecranVeto.EcranVeterinaires_Load(sender, e);
             this.Close();
         }
     }

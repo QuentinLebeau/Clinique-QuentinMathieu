@@ -116,6 +116,7 @@
             this.DataGridVeto.Name = "DataGridVeto";
             this.DataGridVeto.Size = new System.Drawing.Size(449, 184);
             this.DataGridVeto.TabIndex = 1;
+            this.DataGridVeto.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.DataGridVeto_CellContentClick);
             // 
             // EcranVeterinaires
             // 

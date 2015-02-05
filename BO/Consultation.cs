@@ -10,8 +10,8 @@ namespace BO
     public class Consultation
     {
         // Attributs
-        private int? _codeConsultation;
-        public int? CodeConsultation
+        private Guid? _codeConsultation;
+        public Guid? CodeConsultation
         {
             get { return _codeConsultation; }
             set { _codeConsultation = value; }
@@ -90,7 +90,7 @@ namespace BO
         {
             this.Archive = bool.Parse(maConsultation["Archive"].ToString());
             this.CodeAnimal = int.Parse(maConsultation["CodeAnimal"].ToString());
-            this.CodeConsultation = int.Parse(maConsultation["CodeConsultation"].ToString());
+            this.CodeConsultation = Guid.Parse(maConsultation["CodeConsultation"].ToString());
             this.CodeVeto = int.Parse(maConsultation["CodeVeto"].ToString());
             this.Commentaire = maConsultation["Commentaire"].ToString();
             this.DateConsultation = DateTime.Parse(maConsultation["DateConsultation"].ToString());

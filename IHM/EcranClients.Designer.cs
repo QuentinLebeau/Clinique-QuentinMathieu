@@ -28,15 +28,12 @@
         /// </summary>
         private void InitializeComponent()
         {
+            this.components = new System.ComponentModel.Container();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
-            this.BTN_clients_premier = new System.Windows.Forms.Button();
-            this.BTN_clients_precedent = new System.Windows.Forms.Button();
-            this.BTN_clients_suivant = new System.Windows.Forms.Button();
-            this.BTN_clients_dernier = new System.Windows.Forms.Button();
-            this.BTN_clients_ajouter = new System.Windows.Forms.Button();
-            this.BTN_clients_supprimer = new System.Windows.Forms.Button();
-            this.BTN_clients_recherche = new System.Windows.Forms.Button();
             this.TXT_clients_recherche = new System.Windows.Forms.TextBox();
+            this.BTN_clients_recherche = new System.Windows.Forms.Button();
+            this.BTN_clients_supprimer = new System.Windows.Forms.Button();
+            this.BTN_clients_ajouter = new System.Windows.Forms.Button();
             this.dataGrid_clients = new System.Windows.Forms.DataGridView();
             this.LBL_clients_code = new System.Windows.Forms.Label();
             this.LBL_clients_nom = new System.Windows.Forms.Label();
@@ -54,6 +51,8 @@
             this.BTN_clients_ajouter2 = new System.Windows.Forms.Button();
             this.BTN_clients_supprimer2 = new System.Windows.Forms.Button();
             this.BTN_clients_editer = new System.Windows.Forms.Button();
+            this.notifyIcon1 = new System.Windows.Forms.NotifyIcon(this.components);
+            this.navBar1 = new ControlsLibrary.NavBar();
             this.groupBox1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataGrid_clients)).BeginInit();
             this.SuspendLayout();
@@ -64,86 +63,46 @@
             this.groupBox1.Controls.Add(this.BTN_clients_recherche);
             this.groupBox1.Controls.Add(this.BTN_clients_supprimer);
             this.groupBox1.Controls.Add(this.BTN_clients_ajouter);
-            this.groupBox1.Controls.Add(this.BTN_clients_dernier);
-            this.groupBox1.Controls.Add(this.BTN_clients_suivant);
-            this.groupBox1.Controls.Add(this.BTN_clients_precedent);
-            this.groupBox1.Controls.Add(this.BTN_clients_premier);
-            this.groupBox1.Location = new System.Drawing.Point(0, 3);
+            this.groupBox1.Location = new System.Drawing.Point(406, 12);
             this.groupBox1.Name = "groupBox1";
-            this.groupBox1.Size = new System.Drawing.Size(599, 92);
+            this.groupBox1.Size = new System.Drawing.Size(205, 65);
             this.groupBox1.TabIndex = 0;
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "groupBox1";
             // 
-            // BTN_clients_premier
+            // TXT_clients_recherche
             // 
-            this.BTN_clients_premier.Location = new System.Drawing.Point(12, 20);
-            this.BTN_clients_premier.Name = "BTN_clients_premier";
-            this.BTN_clients_premier.Size = new System.Drawing.Size(75, 23);
-            this.BTN_clients_premier.TabIndex = 0;
-            this.BTN_clients_premier.Text = "Premier";
-            this.BTN_clients_premier.UseVisualStyleBackColor = true;
-            // 
-            // BTN_clients_precedent
-            // 
-            this.BTN_clients_precedent.Location = new System.Drawing.Point(93, 20);
-            this.BTN_clients_precedent.Name = "BTN_clients_precedent";
-            this.BTN_clients_precedent.Size = new System.Drawing.Size(75, 23);
-            this.BTN_clients_precedent.TabIndex = 1;
-            this.BTN_clients_precedent.Text = "Précédent";
-            this.BTN_clients_precedent.UseVisualStyleBackColor = true;
-            // 
-            // BTN_clients_suivant
-            // 
-            this.BTN_clients_suivant.Location = new System.Drawing.Point(174, 20);
-            this.BTN_clients_suivant.Name = "BTN_clients_suivant";
-            this.BTN_clients_suivant.Size = new System.Drawing.Size(75, 23);
-            this.BTN_clients_suivant.TabIndex = 2;
-            this.BTN_clients_suivant.Text = "Suivant";
-            this.BTN_clients_suivant.UseVisualStyleBackColor = true;
-            // 
-            // BTN_clients_dernier
-            // 
-            this.BTN_clients_dernier.Location = new System.Drawing.Point(255, 20);
-            this.BTN_clients_dernier.Name = "BTN_clients_dernier";
-            this.BTN_clients_dernier.Size = new System.Drawing.Size(75, 23);
-            this.BTN_clients_dernier.TabIndex = 3;
-            this.BTN_clients_dernier.Text = "Dernier";
-            this.BTN_clients_dernier.UseVisualStyleBackColor = true;
-            // 
-            // BTN_clients_ajouter
-            // 
-            this.BTN_clients_ajouter.Location = new System.Drawing.Point(387, 20);
-            this.BTN_clients_ajouter.Name = "BTN_clients_ajouter";
-            this.BTN_clients_ajouter.Size = new System.Drawing.Size(75, 23);
-            this.BTN_clients_ajouter.TabIndex = 4;
-            this.BTN_clients_ajouter.Text = "Ajouter";
-            this.BTN_clients_ajouter.UseVisualStyleBackColor = true;
-            // 
-            // BTN_clients_supprimer
-            // 
-            this.BTN_clients_supprimer.Location = new System.Drawing.Point(387, 49);
-            this.BTN_clients_supprimer.Name = "BTN_clients_supprimer";
-            this.BTN_clients_supprimer.Size = new System.Drawing.Size(75, 23);
-            this.BTN_clients_supprimer.TabIndex = 5;
-            this.BTN_clients_supprimer.Text = "Supprimer";
-            this.BTN_clients_supprimer.UseVisualStyleBackColor = true;
+            this.TXT_clients_recherche.Location = new System.Drawing.Point(98, 17);
+            this.TXT_clients_recherche.Name = "TXT_clients_recherche";
+            this.TXT_clients_recherche.Size = new System.Drawing.Size(100, 20);
+            this.TXT_clients_recherche.TabIndex = 7;
             // 
             // BTN_clients_recherche
             // 
-            this.BTN_clients_recherche.Location = new System.Drawing.Point(510, 49);
+            this.BTN_clients_recherche.Location = new System.Drawing.Point(98, 43);
             this.BTN_clients_recherche.Name = "BTN_clients_recherche";
             this.BTN_clients_recherche.Size = new System.Drawing.Size(75, 23);
             this.BTN_clients_recherche.TabIndex = 6;
             this.BTN_clients_recherche.Text = "Rechercher";
             this.BTN_clients_recherche.UseVisualStyleBackColor = true;
             // 
-            // TXT_clients_recherche
+            // BTN_clients_supprimer
             // 
-            this.TXT_clients_recherche.Location = new System.Drawing.Point(485, 22);
-            this.TXT_clients_recherche.Name = "TXT_clients_recherche";
-            this.TXT_clients_recherche.Size = new System.Drawing.Size(100, 20);
-            this.TXT_clients_recherche.TabIndex = 7;
+            this.BTN_clients_supprimer.Location = new System.Drawing.Point(17, 43);
+            this.BTN_clients_supprimer.Name = "BTN_clients_supprimer";
+            this.BTN_clients_supprimer.Size = new System.Drawing.Size(75, 23);
+            this.BTN_clients_supprimer.TabIndex = 5;
+            this.BTN_clients_supprimer.Text = "Supprimer";
+            this.BTN_clients_supprimer.UseVisualStyleBackColor = true;
+            // 
+            // BTN_clients_ajouter
+            // 
+            this.BTN_clients_ajouter.Location = new System.Drawing.Point(17, 14);
+            this.BTN_clients_ajouter.Name = "BTN_clients_ajouter";
+            this.BTN_clients_ajouter.Size = new System.Drawing.Size(75, 23);
+            this.BTN_clients_ajouter.TabIndex = 4;
+            this.BTN_clients_ajouter.Text = "Ajouter";
+            this.BTN_clients_ajouter.UseVisualStyleBackColor = true;
             // 
             // dataGrid_clients
             // 
@@ -283,11 +242,37 @@
             this.BTN_clients_editer.Text = "Editer";
             this.BTN_clients_editer.UseVisualStyleBackColor = true;
             // 
+            // notifyIcon1
+            // 
+            this.notifyIcon1.Text = "notifyIcon1";
+            this.notifyIcon1.Visible = true;
+            // 
+            // navBar1
+            // 
+            this.navBar1.ApresEnable = true;
+            this.navBar1.AvantEnable = true;
+            this.navBar1.ButtonBorder = 1;
+            this.navBar1.FlatStyle = System.Windows.Forms.FlatStyle.Standard;
+            this.navBar1.ImageDernier = null;
+            this.navBar1.ImagePrecedent = null;
+            this.navBar1.ImagePremier = null;
+            this.navBar1.ImageSuivant = null;
+            this.navBar1.Location = new System.Drawing.Point(0, -1);
+            this.navBar1.Name = "navBar1";
+            this.navBar1.Size = new System.Drawing.Size(400, 100);
+            this.navBar1.TabIndex = 18;
+            this.navBar1.TextDernier = ">|";
+            this.navBar1.TextPrecedent = "<";
+            this.navBar1.TextPremier = "|<";
+            this.navBar1.TextSuivant = ">";
+            this.navBar1.Navigation += new System.EventHandler<ControlsLibrary.NavBarEventArgs>(this.navBar1_Navigation);
+            // 
             // EcranClients
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(608, 416);
+            this.Controls.Add(this.navBar1);
             this.Controls.Add(this.BTN_clients_editer);
             this.Controls.Add(this.BTN_clients_supprimer2);
             this.Controls.Add(this.BTN_clients_ajouter2);
@@ -323,10 +308,6 @@
         private System.Windows.Forms.Button BTN_clients_recherche;
         private System.Windows.Forms.Button BTN_clients_supprimer;
         private System.Windows.Forms.Button BTN_clients_ajouter;
-        private System.Windows.Forms.Button BTN_clients_dernier;
-        private System.Windows.Forms.Button BTN_clients_suivant;
-        private System.Windows.Forms.Button BTN_clients_precedent;
-        private System.Windows.Forms.Button BTN_clients_premier;
         private System.Windows.Forms.DataGridView dataGrid_clients;
         private System.Windows.Forms.Label LBL_clients_code;
         private System.Windows.Forms.Label LBL_clients_nom;
@@ -344,5 +325,7 @@
         private System.Windows.Forms.Button BTN_clients_ajouter2;
         private System.Windows.Forms.Button BTN_clients_supprimer2;
         private System.Windows.Forms.Button BTN_clients_editer;
+        private System.Windows.Forms.NotifyIcon notifyIcon1;
+        private ControlsLibrary.NavBar navBar1;
     }
 }

@@ -10,8 +10,8 @@ namespace BO
     public class LignesConsultations
     {
         // Attributs
-        private int? _codeConsultation;
-        public int? CodeConsultation
+        private Guid _codeConsultation;
+        public Guid? CodeConsultation
         {
             get { return _codeConsultation; }
             set { _codeConsultation = value; }
@@ -76,7 +76,7 @@ namespace BO
 
          public LignesConsultations(DataRow maLigneConsultations)
         {
-            this.CodeConsultation = int.Parse(maLigneConsultations["CodeConsultation"].ToString());
+            this.CodeConsultation = Guid.Parse(maLigneConsultations["CodeConsultation"].ToString());
             this.NumLigne = int.Parse(maLigneConsultations["NumLigne"].ToString());
             this.CodeGroupement = maLigneConsultations["CodeGroupement"].ToString();
             this.DateVigueur = DateTime.Parse(maLigneConsultations["DateVigueur"].ToString());
