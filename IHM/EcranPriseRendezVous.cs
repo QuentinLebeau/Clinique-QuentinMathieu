@@ -14,45 +14,179 @@ namespace Clinique
 {
     public partial class EcranPriseRendezVous : Form
     {
+        #region "Evènements"
+
+        // Init
         public EcranPriseRendezVous()
         {
             InitializeComponent();
 
             MgtClient monMgtClient = new MgtClient();
             MgtAnimal monMgtAnimal = new MgtAnimal();
-            Clients monClientSelectionne;            
-            
+            Clients monClientSelectionne;
+            Veterinaires monVeto;
+
+            COMBO_Veto.DataSource = MgtVeterinaires.getVeto();
+            monVeto = (Veterinaires)COMBO_Veto.Items[0];
+
             COMBO_Client.DataSource = monMgtClient.AfficherTout();
             monClientSelectionne = (Clients)COMBO_Client.Items[0];
 
             COMBO_Animal.DataSource = monMgtAnimal.AfficherTout().FindAll(t => t.CodeClient == monClientSelectionne.CodeClient);
-
-            COMBO_Veto.DataSource = MgtVeterinaires.getVeto();
+            if (COMBO_Animal.Items.Count > 0)
+            {
+                COMBO_Animal.SelectedIndex = 0;
+            }
+            else
+            {
+                BTN_Suppr.Enabled = false;
+            }            
 
             DATE_RendezVous.MinDate = DateTime.Now;
 
+            dataGrid.Columns["CodeVeto"].Visible = false;
+            dataGrid.Columns["CodeAnimal"].Visible = false;
+
             ChangementDate();
+            ChargementDataGrid();
         }
 
+        // SelectedChanged
         private void COMBO_Client_SelectedIndexChanged(object sender, EventArgs e)
         {
             MgtAnimal monMgtAnimal = new MgtAnimal();
-            Clients monClientSelectionne;
-            monClientSelectionne = (Clients)COMBO_Client.SelectedItem;
+            MgtClient monMgtClient = new MgtClient();
+            Clients monClientSelectionne = (Clients)COMBO_Client.SelectedItem;
+
             COMBO_Animal.DataSource = monMgtAnimal.AfficherTout().FindAll(t => t.CodeClient == monClientSelectionne.CodeClient);
+            ChargementDataGrid();
+        }
+
+        private void DATE_RendezVous_ValueChanged(object sender, EventArgs e)
+        {
+            MgtClient monMgtClient = new MgtClient();
+            MgtAnimal monMgtAnimal = new MgtAnimal();
+            Clients monClientSelectionne;
+            Animaux monAnimal;
+            Veterinaires monVeto;
+
+            monVeto = (Veterinaires)COMBO_Veto.SelectedItem;
+            monAnimal = (Animaux)COMBO_Animal.SelectedItem;
+            monClientSelectionne = (Clients)COMBO_Client.SelectedItem;
+
+            ChangementDate();
+            ChargementDataGrid();
+        }
+
+        private void COMBO_Heure_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            ChangementDate(true);
+        }
+
+        private void COMBO_Veto_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            ChargementDataGrid();
+        }
+
+        // Click
+        private void BTN_Urgence_Click(object sender, EventArgs e)
+        {
+            Clients monClient = (Clients)COMBO_Client.SelectedItem;
+            Animaux monAnimal = (Animaux)COMBO_Animal.SelectedItem;
+            Veterinaires monVeto = (Veterinaires)COMBO_Veto.SelectedItem;
+            Agendas monAgenda = new Agendas();
+
+            monAgenda.CodeAnimal = monAnimal.CodeAnimal;
+            monAgenda.CodeVeto = monVeto.CodeVeto;
+            monAgenda.DateRDV = DateTime.Now;
+
+            MgtAgenda.Ajouter(monAgenda);
+
+            ChargementDataGrid();
+        }
+
+        private void BTN_Valider_Click(object sender, EventArgs e)
+        {
+            Clients monClient = (Clients)COMBO_Client.SelectedItem;
+            Animaux monAnimal = (Animaux)COMBO_Animal.SelectedItem;
+            Veterinaires monVeto = (Veterinaires)COMBO_Veto.SelectedItem;
+            Agendas monAgenda = new Agendas();
+
+            monAgenda.CodeAnimal = monAnimal.CodeAnimal;
+            monAgenda.CodeVeto = monVeto.CodeVeto;
+            try
+            {
+                monAgenda.DateRDV = new DateTime(DATE_RendezVous.Value.Year, DATE_RendezVous.Value.Month, DATE_RendezVous.Value.Day, (int)COMBO_Heure.SelectedValue, (int)COMBO_Minutes.SelectedValue, 0);
+            }
+            catch (Exception ex)
+            {
+                throw new Exception("Problème lors du passage de la date concernant l'ajout d'un RDV en urgence :\n" + ex.Message);
+            }
+
+            MgtAgenda.Ajouter(monAgenda);
+
+            ChargementDataGrid();
+        }
+
+        private void BTN_Suppr_Click(object sender, EventArgs e)
+        {
+            Agendas monAgenda = new Agendas();
+            monAgenda.CodeAnimal = (Guid)dataGrid.CurrentRow.Cells["CodeAnimal"].Value;
+            monAgenda.CodeVeto = (Guid)dataGrid.CurrentRow.Cells["CodeVeto"].Value;
+            monAgenda.DateRDV = (DateTime)dataGrid.CurrentRow.Cells["DateRDV"].Value;
+
+            MgtAgenda.Supprimer(monAgenda);
+
+            ChargementDataGrid();
+        }
+
+        private void BTN_AddAnimal_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void BTN_Annuler_Click(object sender, EventArgs e)
+        {
+            this.Close();
+        }
+
+        #endregion
+
+        #region "Méthodes et procedures"
+        
+        /// <summary>
+        /// Recharge la DataGrid
+        /// </summary>
+        private void ChargementDataGrid(bool estInitialisation = false)
+        {
+            if (!estInitialisation)
+            {
+                MgtClient monMgtClient = new MgtClient();
+                MgtAnimal monMgtAnimal = new MgtAnimal();
+                Clients monClientSelectionne;
+                Animaux monAnimal;
+                Veterinaires monVeto;
+
+                monVeto = (Veterinaires)COMBO_Veto.SelectedItem;
+                monAnimal = (Animaux)COMBO_Animal.SelectedItem;
+                monClientSelectionne = (Clients)COMBO_Client.SelectedItem;
+
+                dataGrid.DataSource = MgtAgenda.AfficherToutAvecDetail().FindAll(x => x.CodeVeto == monVeto.CodeVeto && x.DateRDV.Value.Date == DateTime.Parse(DATE_RendezVous.Value.ToString()).Date);
+            }
         }
 
         /// <summary>
+        /// Recharge les COMBO 'heure et de minutes suivant la sélectionde la date
         /// Remarque : Minuit n'est pas géré !
         /// </summary>
-        /// <param name="pHeureChanger"></param>
+        /// <param name="pHeureChanger">Détermine si l'utilisateur à sélectionner une autre heure dans la COMBO dédiée</param>
         private void ChangementDate(bool pHeureChanger = false)
         {
             DateTime dateSelectionnee;
             List<int> listeHeure = new List<int>();
             List<int> listeMinute = new List<int>();
             bool premierTour = true;
-            
+
             // Heure
             if (!pHeureChanger)
             {
@@ -83,11 +217,22 @@ namespace Clinique
                 }
 
                 COMBO_Heure.DataSource = listeHeure;
-            }            
+            }
 
             // Minute            
             dateSelectionnee = DateTime.Parse(DATE_RendezVous.Value.ToString());
-            int mesMinutes = dateSelectionnee.AddMinutes(10).Minute;
+            int mesMinutes;
+
+            if (dateSelectionnee.Day > DateTime.Now.Date.Day || DateTime.Now.Date.Minute >= 40 || (int)COMBO_Heure.SelectedItem > DateTime.Now.Hour)
+            {
+                mesMinutes = 0;
+                listeMinute.Add(mesMinutes);
+            }
+            else
+            {
+                mesMinutes = dateSelectionnee.AddMinutes(10).Minute;
+            }
+
             while (mesMinutes < 60)
             {
                 if (mesMinutes <= 10)
@@ -114,49 +259,7 @@ namespace Clinique
             COMBO_Minutes.DataSource = listeMinute;
         }
 
-        private void DATE_RendezVous_ValueChanged(object sender, EventArgs e)
-        {
-            ChangementDate();
-        }
-
-        private void COMBO_Heure_SelectedIndexChanged(object sender, EventArgs e)
-        {
-            ChangementDate(true);
-        }
-
-        private void BTN_Urgence_Click(object sender, EventArgs e)
-        {
-            Clients monClient = (Clients)COMBO_Client.SelectedItem;
-            Animaux monAnimal = (Animaux)COMBO_Animal.SelectedItem;
-            Veterinaires monVeto = (Veterinaires)COMBO_Veto.SelectedItem;
-            Agendas monAgenda = new Agendas();
-
-            monAgenda.CodeAnimal = monAnimal.CodeAnimal;
-            monAgenda.CodeVeto = monVeto.CodeVeto;
-            monAgenda.DateRDV = DateTime.Now;
-
-            MgtAgenda.Ajouter(monAgenda);
-        }
-
-        private void BTN_Valider_Click(object sender, EventArgs e)
-        {
-            Clients monClient = (Clients)COMBO_Client.SelectedItem;
-            Animaux monAnimal = (Animaux)COMBO_Animal.SelectedItem;
-            Veterinaires monVeto = (Veterinaires)COMBO_Veto.SelectedItem;
-            Agendas monAgenda = new Agendas();
-
-            monAgenda.CodeAnimal = monAnimal.CodeAnimal;
-            monAgenda.CodeVeto = monVeto.CodeVeto;
-            try
-            {
-                monAgenda.DateRDV = new DateTime(DATE_RendezVous.Value.Year, DATE_RendezVous.Value.Month, DATE_RendezVous.Value.Day, (int)COMBO_Heure.SelectedValue, (int)COMBO_Minutes.SelectedValue, 0);
-            }
-            catch (Exception ex)
-            {
-                throw new Exception("Problème lors du passage de la date concernant l'ajout d'un RDV en urgence :\n" + ex.Message);
-            }
-
-            MgtAgenda.Ajouter(monAgenda);
-        }
+        #endregion               
+               
     }
 }

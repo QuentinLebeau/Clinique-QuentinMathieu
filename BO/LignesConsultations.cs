@@ -10,7 +10,7 @@ namespace BO
     public class LignesConsultations
     {
         // Attributs
-        private Guid _codeConsultation;
+        private Guid? _codeConsultation;
         public Guid? CodeConsultation
         {
             get { return _codeConsultation; }

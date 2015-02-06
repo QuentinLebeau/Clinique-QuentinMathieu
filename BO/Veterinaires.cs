@@ -30,7 +30,7 @@ namespace BO
         }
 
         private string _motPasse;
-
+        
         [DisplayName("Mot de passe")]
         public string MotPasse
         {

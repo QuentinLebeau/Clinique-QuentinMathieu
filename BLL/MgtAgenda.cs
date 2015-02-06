@@ -15,6 +15,11 @@ namespace BLL
             return ADO_Agendas.GetAll();
         }
 
+        public static List<Agendas> AfficherToutAvecDetail()
+        {
+            return ADO_Agendas.GetAllWithDetail();
+        }
+
         public static Agendas AfficherUneSeul(Agendas monAgenda)
         {
             return ADO_Agendas.GetOne(monAgenda);

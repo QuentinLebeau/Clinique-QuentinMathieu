@@ -77,6 +77,7 @@
             this.BTN_AddAnimal.TabIndex = 3;
             this.BTN_AddAnimal.Text = "+";
             this.BTN_AddAnimal.UseVisualStyleBackColor = true;
+            this.BTN_AddAnimal.Click += new System.EventHandler(this.BTN_AddAnimal_Click);
             // 
             // BTN_AddClient
             // 
@@ -123,6 +124,7 @@
             this.COMBO_Veto.Name = "COMBO_Veto";
             this.COMBO_Veto.Size = new System.Drawing.Size(150, 21);
             this.COMBO_Veto.TabIndex = 5;
+            this.COMBO_Veto.SelectedIndexChanged += new System.EventHandler(this.COMBO_Veto_SelectedIndexChanged);
             // 
             // label3
             // 
@@ -257,6 +259,7 @@
             this.BTN_Suppr.TabIndex = 6;
             this.BTN_Suppr.Text = " Supprimer";
             this.BTN_Suppr.UseVisualStyleBackColor = true;
+            this.BTN_Suppr.Click += new System.EventHandler(this.BTN_Suppr_Click);
             // 
             // BTN_Annuler
             // 
@@ -266,6 +269,7 @@
             this.BTN_Annuler.TabIndex = 7;
             this.BTN_Annuler.Text = "Annuler";
             this.BTN_Annuler.UseVisualStyleBackColor = true;
+            this.BTN_Annuler.Click += new System.EventHandler(this.BTN_Annuler_Click);
             // 
             // EcranPriseRendezVous
             // 

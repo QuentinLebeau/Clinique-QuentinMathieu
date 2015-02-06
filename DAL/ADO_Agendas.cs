@@ -36,6 +36,40 @@ namespace DAL
             }
         }
 
+        public static List<Agendas> GetAllWithDetail()
+        {
+            using (DbConnection cnx = ConnectionBDD.SeConnecter())
+            {
+                SqlDataAdapter monAdapter = new SqlDataAdapter();
+                DataTable maDataTable = new DataTable();
+                List<Agendas> listeAgendas = new List<Agendas>();
+                Agendas monAgenda;
+
+                SqlCommand cmd = (SqlCommand)cnx.CreateCommand();
+                cmd.CommandText = " SELECT * " +
+                                 " FROM Agendas Ag " +
+                                 " INNER JOIN Veterinaires V ON Ag.CodeVeto = V.CodeVeto " +
+                                 " INNER JOIN Animaux An ON Ag.CodeAnimal = An.CodeAnimal " +
+                                 " INNER JOIN Clients C ON An.CodeClient = C.CodeClient ";
+
+                monAdapter.SelectCommand = cmd;
+                monAdapter.Fill(maDataTable);
+
+                foreach (DataRow unAgendas in maDataTable.Rows)
+                {
+                    monAgenda = new Agendas(unAgendas);
+                    monAgenda.NomAnimal = unAgendas["NomAnimal"].ToString();
+                    monAgenda.NomClient = unAgendas["NomClient"].ToString();
+                    monAgenda.PrenomClient = unAgendas["PrenomClient"].ToString();
+                    monAgenda.Race = unAgendas["Race"].ToString();
+
+                    listeAgendas.Add(monAgenda);
+                }
+
+                return listeAgendas;
+            }
+        }
+
         public static Agendas GetOne(Agendas monAgenda)
         {
             using (DbConnection cnx = ConnectionBDD.SeConnecter())
@@ -48,8 +82,8 @@ namespace DAL
                 cmd.CommandText = " SELECT * " +
                                   " FROM Agendas " +
                                   " WHERE CodeVeto = @CodeVeto " +
-                                  " WHERE DateRdv = @DateRdv " +
-                                  " WHERE CodeAnimal = @CodeAnimal ;";
+                                  " AND DateRdv = @DateRdv " +
+                                  " AND CodeAnimal = @CodeAnimal ;";
 
                 monParametre = new SqlParameter("@Agendas", monAgenda.CodeVeto);
                 cmd.Parameters.Add(monParametre);
