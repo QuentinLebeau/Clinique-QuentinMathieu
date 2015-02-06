@@ -11,6 +11,32 @@ namespace BLL
     public class MgtClient
     {
         ADO_Clients clientDAL = new ADO_Clients();
+        private List<Clients> _listeClients = new List<Clients>();
+        //ADO_Clients monADO = new ADO_Clients();
+
+        private static MgtClient _instance;
+        private MgtClient()
+        {
+            _listeClients = clientDAL.GetAll();
+        }
+
+        public static MgtClient GetInstance()
+        {
+            if (_instance == null)
+            {
+                _instance = new MgtClient();
+            }
+            else
+            {
+                _instance.clientDAL = new ADO_Clients();
+            }
+            return _instance;
+        }
+
+        public List<Clients> ClientsListe
+        {
+            get { return _listeClients; }
+        }
 
         public List<Clients> AfficherTout()
         {

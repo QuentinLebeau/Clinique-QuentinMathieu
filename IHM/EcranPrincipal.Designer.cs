@@ -190,6 +190,7 @@
             this.toolStripButtonClientAnimal.Name = "toolStripButtonClientAnimal";
             this.toolStripButtonClientAnimal.Size = new System.Drawing.Size(78, 20);
             this.toolStripButtonClientAnimal.Text = "toolStripButton1";
+            this.toolStripButtonClientAnimal.Click += new System.EventHandler(this.toolStripButtonClientAnimal_Click);
             // 
             // toolStripLabelClientAnimal
             // 

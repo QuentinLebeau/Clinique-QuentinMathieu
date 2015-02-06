@@ -41,18 +41,20 @@
             this.LBL_clients_adresse = new System.Windows.Forms.Label();
             this.LBL_clients_CDP = new System.Windows.Forms.Label();
             this.LBL_clients_ville = new System.Windows.Forms.Label();
-            this.textBox2 = new System.Windows.Forms.TextBox();
-            this.textBox3 = new System.Windows.Forms.TextBox();
-            this.textBox4 = new System.Windows.Forms.TextBox();
-            this.textBox5 = new System.Windows.Forms.TextBox();
-            this.textBox6 = new System.Windows.Forms.TextBox();
-            this.textBox7 = new System.Windows.Forms.TextBox();
-            this.textBox8 = new System.Windows.Forms.TextBox();
+            this.TXT_clients_code = new System.Windows.Forms.TextBox();
+            this.TXT_clients_nom = new System.Windows.Forms.TextBox();
+            this.TXT_clients_prenom = new System.Windows.Forms.TextBox();
+            this.TXT_clients_adresse1 = new System.Windows.Forms.TextBox();
+            this.TXT_clients_adresse2 = new System.Windows.Forms.TextBox();
+            this.TXT_clients_CP = new System.Windows.Forms.TextBox();
+            this.TXT_clients_ville = new System.Windows.Forms.TextBox();
             this.BTN_clients_ajouter2 = new System.Windows.Forms.Button();
             this.BTN_clients_supprimer2 = new System.Windows.Forms.Button();
             this.BTN_clients_editer = new System.Windows.Forms.Button();
             this.notifyIcon1 = new System.Windows.Forms.NotifyIcon(this.components);
-            this.navBar1 = new ControlsLibrary.NavBar();
+            this.NavBarre = new ControlsLibrary.NavBar();
+            this.BTN_clients_ValiderAjout = new System.Windows.Forms.Button();
+            this.BTN_client_AnnulerAjout = new System.Windows.Forms.Button();
             this.groupBox1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataGrid_clients)).BeginInit();
             this.SuspendLayout();
@@ -103,6 +105,7 @@
             this.BTN_clients_ajouter.TabIndex = 4;
             this.BTN_clients_ajouter.Text = "Ajouter";
             this.BTN_clients_ajouter.UseVisualStyleBackColor = true;
+            this.BTN_clients_ajouter.Click += new System.EventHandler(this.BTN_clients_ajouter_Click);
             // 
             // dataGrid_clients
             // 
@@ -166,54 +169,54 @@
             this.LBL_clients_ville.TabIndex = 7;
             this.LBL_clients_ville.Text = "Ville";
             // 
-            // textBox2
+            // TXT_clients_code
             // 
-            this.textBox2.Location = new System.Drawing.Point(68, 99);
-            this.textBox2.Name = "textBox2";
-            this.textBox2.Size = new System.Drawing.Size(100, 20);
-            this.textBox2.TabIndex = 8;
+            this.TXT_clients_code.Location = new System.Drawing.Point(68, 99);
+            this.TXT_clients_code.Name = "TXT_clients_code";
+            this.TXT_clients_code.Size = new System.Drawing.Size(100, 20);
+            this.TXT_clients_code.TabIndex = 8;
             // 
-            // textBox3
+            // TXT_clients_nom
             // 
-            this.textBox3.Location = new System.Drawing.Point(68, 129);
-            this.textBox3.Name = "textBox3";
-            this.textBox3.Size = new System.Drawing.Size(100, 20);
-            this.textBox3.TabIndex = 9;
+            this.TXT_clients_nom.Location = new System.Drawing.Point(68, 129);
+            this.TXT_clients_nom.Name = "TXT_clients_nom";
+            this.TXT_clients_nom.Size = new System.Drawing.Size(100, 20);
+            this.TXT_clients_nom.TabIndex = 9;
             // 
-            // textBox4
+            // TXT_clients_prenom
             // 
-            this.textBox4.Location = new System.Drawing.Point(68, 165);
-            this.textBox4.Name = "textBox4";
-            this.textBox4.Size = new System.Drawing.Size(100, 20);
-            this.textBox4.TabIndex = 10;
+            this.TXT_clients_prenom.Location = new System.Drawing.Point(68, 165);
+            this.TXT_clients_prenom.Name = "TXT_clients_prenom";
+            this.TXT_clients_prenom.Size = new System.Drawing.Size(100, 20);
+            this.TXT_clients_prenom.TabIndex = 10;
             // 
-            // textBox5
+            // TXT_clients_adresse1
             // 
-            this.textBox5.Location = new System.Drawing.Point(68, 195);
-            this.textBox5.Name = "textBox5";
-            this.textBox5.Size = new System.Drawing.Size(100, 20);
-            this.textBox5.TabIndex = 11;
+            this.TXT_clients_adresse1.Location = new System.Drawing.Point(68, 195);
+            this.TXT_clients_adresse1.Name = "TXT_clients_adresse1";
+            this.TXT_clients_adresse1.Size = new System.Drawing.Size(100, 20);
+            this.TXT_clients_adresse1.TabIndex = 11;
             // 
-            // textBox6
+            // TXT_clients_adresse2
             // 
-            this.textBox6.Location = new System.Drawing.Point(68, 221);
-            this.textBox6.Name = "textBox6";
-            this.textBox6.Size = new System.Drawing.Size(100, 20);
-            this.textBox6.TabIndex = 12;
+            this.TXT_clients_adresse2.Location = new System.Drawing.Point(68, 221);
+            this.TXT_clients_adresse2.Name = "TXT_clients_adresse2";
+            this.TXT_clients_adresse2.Size = new System.Drawing.Size(100, 20);
+            this.TXT_clients_adresse2.TabIndex = 12;
             // 
-            // textBox7
+            // TXT_clients_CP
             // 
-            this.textBox7.Location = new System.Drawing.Point(68, 247);
-            this.textBox7.Name = "textBox7";
-            this.textBox7.Size = new System.Drawing.Size(100, 20);
-            this.textBox7.TabIndex = 13;
+            this.TXT_clients_CP.Location = new System.Drawing.Point(68, 247);
+            this.TXT_clients_CP.Name = "TXT_clients_CP";
+            this.TXT_clients_CP.Size = new System.Drawing.Size(100, 20);
+            this.TXT_clients_CP.TabIndex = 13;
             // 
-            // textBox8
+            // TXT_clients_ville
             // 
-            this.textBox8.Location = new System.Drawing.Point(68, 276);
-            this.textBox8.Name = "textBox8";
-            this.textBox8.Size = new System.Drawing.Size(100, 20);
-            this.textBox8.TabIndex = 14;
+            this.TXT_clients_ville.Location = new System.Drawing.Point(68, 276);
+            this.TXT_clients_ville.Name = "TXT_clients_ville";
+            this.TXT_clients_ville.Size = new System.Drawing.Size(100, 20);
+            this.TXT_clients_ville.TabIndex = 14;
             // 
             // BTN_clients_ajouter2
             // 
@@ -223,6 +226,7 @@
             this.BTN_clients_ajouter2.TabIndex = 15;
             this.BTN_clients_ajouter2.Text = "Ajouter";
             this.BTN_clients_ajouter2.UseVisualStyleBackColor = true;
+            this.BTN_clients_ajouter2.Click += new System.EventHandler(this.BTN_clients_ajouter2_Click);
             // 
             // BTN_clients_supprimer2
             // 
@@ -232,57 +236,83 @@
             this.BTN_clients_supprimer2.TabIndex = 16;
             this.BTN_clients_supprimer2.Text = "Supprimer";
             this.BTN_clients_supprimer2.UseVisualStyleBackColor = true;
+            this.BTN_clients_supprimer2.Click += new System.EventHandler(this.BTN_clients_supprimer2_Click);
             // 
             // BTN_clients_editer
             // 
-            this.BTN_clients_editer.Location = new System.Drawing.Point(442, 360);
+            this.BTN_clients_editer.Location = new System.Drawing.Point(457, 360);
             this.BTN_clients_editer.Name = "BTN_clients_editer";
             this.BTN_clients_editer.Size = new System.Drawing.Size(75, 23);
             this.BTN_clients_editer.TabIndex = 17;
             this.BTN_clients_editer.Text = "Editer";
             this.BTN_clients_editer.UseVisualStyleBackColor = true;
+            this.BTN_clients_editer.Click += new System.EventHandler(this.BTN_clients_editer_Click);
             // 
             // notifyIcon1
             // 
             this.notifyIcon1.Text = "notifyIcon1";
             this.notifyIcon1.Visible = true;
             // 
-            // navBar1
+            // NavBarre
             // 
-            this.navBar1.ApresEnable = true;
-            this.navBar1.AvantEnable = true;
-            this.navBar1.ButtonBorder = 1;
-            this.navBar1.FlatStyle = System.Windows.Forms.FlatStyle.Standard;
-            this.navBar1.ImageDernier = null;
-            this.navBar1.ImagePrecedent = null;
-            this.navBar1.ImagePremier = null;
-            this.navBar1.ImageSuivant = null;
-            this.navBar1.Location = new System.Drawing.Point(0, -1);
-            this.navBar1.Name = "navBar1";
-            this.navBar1.Size = new System.Drawing.Size(400, 100);
-            this.navBar1.TabIndex = 18;
-            this.navBar1.TextDernier = ">|";
-            this.navBar1.TextPrecedent = "<";
-            this.navBar1.TextPremier = "|<";
-            this.navBar1.TextSuivant = ">";
-            this.navBar1.Navigation += new System.EventHandler<ControlsLibrary.NavBarEventArgs>(this.navBar1_Navigation);
+            this.NavBarre.ApresEnable = true;
+            this.NavBarre.AvantEnable = true;
+            this.NavBarre.ButtonBorder = 1;
+            this.NavBarre.FlatStyle = System.Windows.Forms.FlatStyle.Standard;
+            this.NavBarre.ImageDernier = null;
+            this.NavBarre.ImagePrecedent = null;
+            this.NavBarre.ImagePremier = null;
+            this.NavBarre.ImageSuivant = null;
+            this.NavBarre.Location = new System.Drawing.Point(0, -1);
+            this.NavBarre.Name = "NavBarre";
+            this.NavBarre.Size = new System.Drawing.Size(400, 100);
+            this.NavBarre.TabIndex = 18;
+            this.NavBarre.TextDernier = ">|";
+            this.NavBarre.TextPrecedent = "<";
+            this.NavBarre.TextPremier = "|<";
+            this.NavBarre.TextSuivant = ">";
+            this.NavBarre.Navigation += new System.EventHandler<ControlsLibrary.NavBarEventArgs>(this.NavBarre_Navigation);
+            // 
+            // BTN_clients_ValiderAjout
+            // 
+            this.BTN_clients_ValiderAjout.Location = new System.Drawing.Point(308, 389);
+            this.BTN_clients_ValiderAjout.Name = "BTN_clients_ValiderAjout";
+            this.BTN_clients_ValiderAjout.Size = new System.Drawing.Size(75, 23);
+            this.BTN_clients_ValiderAjout.TabIndex = 19;
+            this.BTN_clients_ValiderAjout.Text = "Valider";
+            this.BTN_clients_ValiderAjout.UseVisualStyleBackColor = true;
+            this.BTN_clients_ValiderAjout.Visible = false;
+            this.BTN_clients_ValiderAjout.Click += new System.EventHandler(this.BTN_clients_ValiderAjout_Click);
+            // 
+            // BTN_client_AnnulerAjout
+            // 
+            this.BTN_client_AnnulerAjout.Location = new System.Drawing.Point(406, 389);
+            this.BTN_client_AnnulerAjout.Name = "BTN_client_AnnulerAjout";
+            this.BTN_client_AnnulerAjout.Size = new System.Drawing.Size(75, 23);
+            this.BTN_client_AnnulerAjout.TabIndex = 20;
+            this.BTN_client_AnnulerAjout.Text = "Annuler";
+            this.BTN_client_AnnulerAjout.UseVisualStyleBackColor = true;
+            this.BTN_client_AnnulerAjout.Visible = false;
+            this.BTN_client_AnnulerAjout.Click += new System.EventHandler(this.BTN_client_AnnulerAjout_Click);
             // 
             // EcranClients
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(608, 416);
-            this.Controls.Add(this.navBar1);
+            this.Controls.Add(this.BTN_client_AnnulerAjout);
+            this.Controls.Add(this.BTN_clients_ValiderAjout);
+            this.Controls.Add(this.NavBarre);
             this.Controls.Add(this.BTN_clients_editer);
             this.Controls.Add(this.BTN_clients_supprimer2);
             this.Controls.Add(this.BTN_clients_ajouter2);
-            this.Controls.Add(this.textBox8);
-            this.Controls.Add(this.textBox7);
-            this.Controls.Add(this.textBox6);
-            this.Controls.Add(this.textBox5);
-            this.Controls.Add(this.textBox4);
-            this.Controls.Add(this.textBox3);
-            this.Controls.Add(this.textBox2);
+            this.Controls.Add(this.TXT_clients_ville);
+            this.Controls.Add(this.TXT_clients_CP);
+            this.Controls.Add(this.TXT_clients_adresse2);
+            this.Controls.Add(this.TXT_clients_adresse1);
+            this.Controls.Add(this.TXT_clients_prenom);
+            this.Controls.Add(this.TXT_clients_nom);
+            this.Controls.Add(this.TXT_clients_code);
             this.Controls.Add(this.LBL_clients_ville);
             this.Controls.Add(this.LBL_clients_CDP);
             this.Controls.Add(this.LBL_clients_adresse);
@@ -315,17 +345,19 @@
         private System.Windows.Forms.Label LBL_clients_adresse;
         private System.Windows.Forms.Label LBL_clients_CDP;
         private System.Windows.Forms.Label LBL_clients_ville;
-        private System.Windows.Forms.TextBox textBox2;
-        private System.Windows.Forms.TextBox textBox3;
-        private System.Windows.Forms.TextBox textBox4;
-        private System.Windows.Forms.TextBox textBox5;
-        private System.Windows.Forms.TextBox textBox6;
-        private System.Windows.Forms.TextBox textBox7;
-        private System.Windows.Forms.TextBox textBox8;
+        private System.Windows.Forms.TextBox TXT_clients_code;
+        private System.Windows.Forms.TextBox TXT_clients_nom;
+        private System.Windows.Forms.TextBox TXT_clients_prenom;
+        private System.Windows.Forms.TextBox TXT_clients_adresse1;
+        private System.Windows.Forms.TextBox TXT_clients_adresse2;
+        private System.Windows.Forms.TextBox TXT_clients_CP;
+        private System.Windows.Forms.TextBox TXT_clients_ville;
         private System.Windows.Forms.Button BTN_clients_ajouter2;
         private System.Windows.Forms.Button BTN_clients_supprimer2;
         private System.Windows.Forms.Button BTN_clients_editer;
         private System.Windows.Forms.NotifyIcon notifyIcon1;
-        private ControlsLibrary.NavBar navBar1;
+        private ControlsLibrary.NavBar NavBarre;
+        private System.Windows.Forms.Button BTN_clients_ValiderAjout;
+        private System.Windows.Forms.Button BTN_client_AnnulerAjout;
     }
 }

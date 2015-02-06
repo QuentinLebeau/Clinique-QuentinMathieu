@@ -8,6 +8,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using BLL;
 
 namespace clinique
 {
@@ -35,6 +36,14 @@ namespace clinique
         {
             EcranPriseRendezVous monEcran;
             monEcran = new EcranPriseRendezVous();
+            monEcran.MdiParent = this;
+            monEcran.Show();
+        }
+
+        private void toolStripButtonClientAnimal_Click(object sender, EventArgs e)
+        {
+            EcranClients monEcran;
+            monEcran = new EcranClients();
             monEcran.MdiParent = this;
             monEcran.Show();
         }
