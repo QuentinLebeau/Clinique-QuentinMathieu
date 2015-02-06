@@ -98,13 +98,13 @@ namespace DAL
                 cmd.Parameters.Add(monParametre);
                 monParametre = new SqlParameter("@Ville", unClient.Ville);
                 cmd.Parameters.Add(monParametre);
-                monParametre = new SqlParameter("@NumTel", unClient.NumTel);
+                monParametre = new SqlParameter("@NumTel", unClient.NumTel ?? String.Empty);
                 cmd.Parameters.Add(monParametre);
-                monParametre = new SqlParameter("@Assurance", unClient.Assurance);
+                monParametre = new SqlParameter("@Assurance", unClient.Assurance ?? String.Empty);
                 cmd.Parameters.Add(monParametre);
-                monParametre = new SqlParameter("@Email", unClient.Email);
+                monParametre = new SqlParameter("@Email", unClient.Email ?? String.Empty);
                 cmd.Parameters.Add(monParametre);
-                monParametre = new SqlParameter("@Archive", unClient.Archive);
+                monParametre = new SqlParameter("@Archive", unClient.Archive ?? false);
                 cmd.Parameters.Add(monParametre);
 
                 cmd.ExecuteScalar();
