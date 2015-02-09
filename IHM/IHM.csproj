@@ -91,6 +91,12 @@
     <Compile Include="EcranConsultation.Designer.cs">
       <DependentUpon>EcranConsultation.cs</DependentUpon>
     </Compile>
+    <Compile Include="EcranDossierMedicaux.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="EcranDossierMedicaux.Designer.cs">
+      <DependentUpon>EcranDossierMedicaux.cs</DependentUpon>
+    </Compile>
     <Compile Include="EcranPrincipal.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -141,6 +147,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="EcranConsultation.resx">
       <DependentUpon>EcranConsultation.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="EcranDossierMedicaux.resx">
+      <DependentUpon>EcranDossierMedicaux.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="EcranPrincipal.resx">
       <DependentUpon>EcranPrincipal.cs</DependentUpon>

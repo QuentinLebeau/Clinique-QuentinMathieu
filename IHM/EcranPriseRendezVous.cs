@@ -143,16 +143,21 @@ namespace Clinique
 
         private void BTN_AddAnimal_Click(object sender, EventArgs e)
         {
-            Animaux monAnimalSelectionne = (Animaux)COMBO_Animal.SelectedItem;
-
             EcranAnimaux monEcran;
-            monEcran = new EcranAnimaux(monAnimalSelectionne.CodeAnimal.Value);
+            monEcran = new EcranAnimaux();
             monEcran.Show();
         }
 
         private void BTN_Annuler_Click(object sender, EventArgs e)
         {
             this.Close();
+        }
+
+        private void BTN_AddClient_Click(object sender, EventArgs e)
+        {
+            EcranClients monEcran;
+            monEcran = new EcranClients();
+            monEcran.Show();
         }
 
         #endregion

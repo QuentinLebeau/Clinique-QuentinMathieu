@@ -87,6 +87,7 @@
             this.BTN_AddClient.TabIndex = 2;
             this.BTN_AddClient.Text = "+";
             this.BTN_AddClient.UseVisualStyleBackColor = true;
+            this.BTN_AddClient.Click += new System.EventHandler(this.BTN_AddClient_Click);
             // 
             // COMBO_Client
             // 
