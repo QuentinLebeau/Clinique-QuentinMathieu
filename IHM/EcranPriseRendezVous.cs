@@ -1,5 +1,6 @@
 ﻿using BLL;
 using BO;
+using clinique;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -142,7 +143,11 @@ namespace Clinique
 
         private void BTN_AddAnimal_Click(object sender, EventArgs e)
         {
+            Animaux monAnimalSelectionne = (Animaux)COMBO_Animal.SelectedItem;
 
+            EcranAnimaux monEcran;
+            monEcran = new EcranAnimaux(monAnimalSelectionne.CodeAnimal.Value);
+            monEcran.Show();
         }
 
         private void BTN_Annuler_Click(object sender, EventArgs e)

@@ -215,17 +215,19 @@ namespace DAL
                 List<Agendas> listeAgendas = new List<Agendas>();
                 Agendas monAgenda;
                 SqlParameter monParametre;
+                string maDteEnString = pDateRDV.ToShortDateString();
 
                 SqlCommand cmd = (SqlCommand)cnx.CreateCommand();
-                cmd.CommandText = " SELECT * " +
+                cmd.CommandText =" SELECT * " +
                                  " FROM Agendas Ag " +
                                  " INNER JOIN Veterinaires V ON Ag.CodeVeto = V.CodeVeto " +
                                  " INNER JOIN Animaux An ON Ag.CodeAnimal = An.CodeAnimal " +
                                  " INNER JOIN Clients C ON An.CodeClient = C.CodeClient " +
-                                 " WHERE Ag.DateRdv = " + pDateRDV +
-                                 " AND Ag.CodeVeto = @codeVeto";
+                                 " WHERE CONVERT (CHAR(10), Ag.DateRdv, 103) = @dateRDV " +
+                                 " AND Ag.CodeVeto = @codeVeto " +
+                                 " ORDER BY Ag.DateRdv";
 
-                monParametre = new SqlParameter("@dateRDV", pDateRDV);
+                monParametre = new SqlParameter("@dateRDV", maDteEnString);
                 cmd.Parameters.Add(monParametre);
                 monParametre = new SqlParameter("@codeVeto", pCodeVeto);
                 cmd.Parameters.Add(monParametre);

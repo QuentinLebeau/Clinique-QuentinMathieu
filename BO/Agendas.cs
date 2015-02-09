@@ -12,15 +12,17 @@ namespace BO
     {
         // Attributs
         
+
         private Guid? _codeVeto;
+        [Browsable(false)]
         public Guid? CodeVeto
         {
             get { return _codeVeto; }
             set { _codeVeto = value; }
         }
 
-        
         private DateTime? _dateRDV;
+        [DisplayName("Date Rendez-vous")]
         public DateTime? DateRDV
         {
             get { return _dateRDV; }
@@ -29,6 +31,7 @@ namespace BO
 
         
         private Guid? _codeAnimal;
+        [Browsable(false)]
         public Guid? CodeAnimal
         {
             get { return _codeAnimal; }
