@@ -26,7 +26,7 @@ namespace Clinique
             Clients monClientSelectionne;
             Veterinaires monVeto;
 
-            COMBO_Veto.DataSource = MgtVeterinaires.getVeto();
+            COMBO_Veto.DataSource = MgtVeterinaires.getAllVeto();
             monVeto = (Veterinaires)COMBO_Veto.Items[0];
 
             COMBO_Client.DataSource = monMgtClient.AfficherTout();

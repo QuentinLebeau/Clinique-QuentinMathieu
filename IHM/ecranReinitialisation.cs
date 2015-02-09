@@ -19,7 +19,7 @@ namespace Clinique
         public ecranReinitialisation()
         {
             InitializeComponent();
-            combo_reinit_nom.DataSource = MgtVeterinaires.getVeto();
+            combo_reinit_nom.DataSource = MgtVeterinaires.getAllVeto();
         }
 
         private void BTN_reinit_annuler_Click(object sender, EventArgs e)
@@ -33,7 +33,7 @@ namespace Clinique
 
         private void BTN_reinit_valider_Click(object sender, EventArgs e)
         {
-            MgtVeterinaires.reinitialiserMotPasseVeto((Veterinaires)combo_reinit_nom.SelectedItem, TXT_reinit_NouveauMDP.Text,
+            MgtVeterinaires.resetPasswordVeto((Veterinaires)combo_reinit_nom.SelectedItem, TXT_reinit_NouveauMDP.Text,
                                           TXT_reinit_confirmMDP.Text);
             EcranVeterinaires _ecranVeto = new EcranVeterinaires();
             EcranPrincipal _ecranParent = new EcranPrincipal();

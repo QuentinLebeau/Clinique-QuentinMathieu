@@ -32,7 +32,7 @@ namespace Clinique
         {
             try
             {
-                MgtVeterinaires.ajouterVeto(TXT_ajoutVeto_Nom.Text, TXT_ajoutVeto_prenom.Text
+                MgtVeterinaires.addVeto(TXT_ajoutVeto_Nom.Text, TXT_ajoutVeto_prenom.Text
                     , TXT_ajoutVeto_motPasse.Text);
             }
             catch (Exception ex)

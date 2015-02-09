@@ -118,6 +118,7 @@
             this.agendaCTRLEToolStripMenuItem.Name = "agendaCTRLEToolStripMenuItem";
             this.agendaCTRLEToolStripMenuItem.Size = new System.Drawing.Size(208, 22);
             this.agendaCTRLEToolStripMenuItem.Text = "Agenda   CTRL - E";
+            this.agendaCTRLEToolStripMenuItem.Click += new System.EventHandler(this.agendaCTRLEToolStripMenuItem_Click);
             // 
             // dossierMédicauxToolStripMenuItem
             // 

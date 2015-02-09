@@ -25,7 +25,7 @@ namespace clinique
         public void EcranVeterinaires_Load(object sender, EventArgs e)
         {
 
-            DataGridVeto.DataSource = MgtVeterinaires.getVeto();
+            DataGridVeto.DataSource = MgtVeterinaires.getAllVeto();
         }
 
         private void BTN_ajouterVeto_Click(object sender, EventArgs e)
@@ -33,13 +33,13 @@ namespace clinique
             EcranVetoAjouter _ecranAjouterVeterinaire;
             _ecranAjouterVeterinaire = new EcranVetoAjouter();
             _ecranAjouterVeterinaire.Show();
-            DataGridVeto.DataSource = MgtVeterinaires.getVeto();
+            DataGridVeto.DataSource = MgtVeterinaires.getAllVeto();
         }
 
         private void BTN_SupprimerVeto_Click(object sender, EventArgs e)
         {
             Veterinaires veto = (Veterinaires)DataGridVeto.CurrentRow.DataBoundItem;
-            MgtVeterinaires.supprimerVeto(veto);
+            MgtVeterinaires.deleteVeto(veto);
             EcranVeterinaires_Load(sender, e);
         }
 
@@ -49,7 +49,7 @@ namespace clinique
             ecranReinitialisation _ecranReinit;
             _ecranReinit = new ecranReinitialisation();
             _ecranReinit.Show();
-            DataGridVeto.DataSource = MgtVeterinaires.getVeto();
+            DataGridVeto.DataSource = MgtVeterinaires.getAllVeto();
         }
 
         public void DataGridVeto_CellContentClick(object sender, DataGridViewCellEventArgs e)

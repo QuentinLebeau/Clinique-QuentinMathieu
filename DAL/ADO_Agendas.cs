@@ -204,5 +204,47 @@ namespace DAL
                 }
             }
         }
+
+
+        public static List<Agendas> GetAgendaWithParams(Guid pCodeVeto, DateTime pDateRDV)
+        {
+            using (DbConnection cnx = ConnectionBDD.SeConnecter())
+            {
+                SqlDataAdapter monAdapter = new SqlDataAdapter();
+                DataTable maDataTable = new DataTable();
+                List<Agendas> listeAgendas = new List<Agendas>();
+                Agendas monAgenda;
+                SqlParameter monParametre;
+
+                SqlCommand cmd = (SqlCommand)cnx.CreateCommand();
+                cmd.CommandText = " SELECT * " +
+                                 " FROM Agendas Ag " +
+                                 " INNER JOIN Veterinaires V ON Ag.CodeVeto = V.CodeVeto " +
+                                 " INNER JOIN Animaux An ON Ag.CodeAnimal = An.CodeAnimal " +
+                                 " INNER JOIN Clients C ON An.CodeClient = C.CodeClient " +
+                                 " WHERE Ag.DateRdv = " + pDateRDV +
+                                 " AND Ag.CodeVeto = @codeVeto";
+
+                monParametre = new SqlParameter("@dateRDV", pDateRDV);
+                cmd.Parameters.Add(monParametre);
+                monParametre = new SqlParameter("@codeVeto", pCodeVeto);
+                cmd.Parameters.Add(monParametre);
+                monAdapter.SelectCommand = cmd;
+                monAdapter.Fill(maDataTable);
+
+                foreach (DataRow unAgendas in maDataTable.Rows)
+                {
+                    monAgenda = new Agendas(unAgendas);
+                    monAgenda.NomAnimal = unAgendas["NomAnimal"].ToString();
+                    monAgenda.NomClient = unAgendas["NomClient"].ToString();
+                    monAgenda.PrenomClient = unAgendas["PrenomClient"].ToString();
+                    monAgenda.Race = unAgendas["Race"].ToString();
+
+                    listeAgendas.Add(monAgenda);
+                }
+
+                return listeAgendas;
+            }
+        }
     }
 }

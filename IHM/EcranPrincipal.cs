@@ -54,5 +54,13 @@ namespace clinique
             monEcran.MdiParent = this;
             monEcran.Show();
         }
+
+        private void agendaCTRLEToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            EcranAgenda monEcran;
+            monEcran = new EcranAgenda();
+            monEcran.MdiParent = this;
+            monEcran.Show();
+        }
     }
 }

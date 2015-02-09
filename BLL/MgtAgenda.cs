@@ -39,5 +39,10 @@ namespace BLL
         {
             ADO_Agendas.Delete(monAgenda);
         }
+
+        public static List<Agendas> AfficherToutAvecParametres(Guid codeVeto, DateTime dateRDV)
+        {
+            return ADO_Agendas.GetAgendaWithParams(codeVeto, dateRDV);
+        }
     }
 }
