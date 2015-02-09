@@ -12,7 +12,13 @@ namespace DAL
 {
     public class ADO_Animal
     {
-        DbConnection cnx = ConnectionBDD.SeConnecter();
+        DbConnection cnx;
+
+        private DbConnection maConnexion()
+        {
+            return cnx = ConnectionBDD.SeConnecter();
+        }
+         
 
         public List<Animaux> GetAll()
         {
@@ -22,7 +28,7 @@ namespace DAL
                 SqlDataAdapter monAdapter = new SqlDataAdapter();
                 List<Animaux> listeAnimaux = new List<Animaux>();
 
-                SqlCommand cmd = (SqlCommand) cnx.CreateCommand();
+                SqlCommand cmd = (SqlCommand)maConnexion().CreateCommand();
                 cmd.CommandText = " SELECT * " +
                                   " FROM Animaux ";
 
@@ -54,7 +60,7 @@ namespace DAL
                 SqlDataAdapter monAdapter = new SqlDataAdapter();
                 SqlParameter monParametre;
 
-                SqlCommand cmd = (SqlCommand)cnx.CreateCommand();
+                SqlCommand cmd = (SqlCommand)maConnexion().CreateCommand();
                 cmd.CommandText = " SELECT * " +
                                   " FROM Animaux " +
                                   " WHERE CodeAnimal = @codeAnimal ";
@@ -84,8 +90,13 @@ namespace DAL
                 SqlParameter monParametre;
                 Clients proprietaire = new ADO_Clients().GetOne(unAnimal.CodeClient.Value);
 
-                SqlCommand cmd = (SqlCommand) cnx.CreateCommand();
-                cmd.CommandText = " exec ajout_animal @Nomclient, @PrenomClient, @NomAnimal, @Sexe, @Couleur, @Espece, @Race, @Archive);";
+                if (!unAnimal.Archive.HasValue)
+                {
+                    unAnimal.Archive = false;
+                }
+
+                SqlCommand cmd = (SqlCommand)maConnexion().CreateCommand();
+                cmd.CommandText = " exec ajout_animal @Nomclient, @PrenomClient, @NomAnimal, @Sexe, @Couleur, @Espece, @Race, @Archive;";
                 
                 monParametre = new SqlParameter("@Nomclient", proprietaire.NomClient);
                 cmd.Parameters.Add(monParametre);
@@ -101,7 +112,7 @@ namespace DAL
                 cmd.Parameters.Add(monParametre);
                 monParametre = new SqlParameter("@Espece", unAnimal.Race.Espece);
                 cmd.Parameters.Add(monParametre);
-                monParametre = new SqlParameter("@Archive", unAnimal.Archive);
+                monParametre = new SqlParameter("@Archive", unAnimal.Archive.Value);
                 cmd.Parameters.Add(monParametre);
 
                 cmd.ExecuteScalar();
@@ -122,15 +133,21 @@ namespace DAL
             {
                 SqlParameter monParametre;
 
-                SqlCommand cmd = (SqlCommand) cnx.CreateCommand();
+                if (!monAnimal.Archive.HasValue)
+                {
+                    monAnimal.Archive = false;
+                }
+
+                SqlCommand cmd = (SqlCommand)maConnexion().CreateCommand();
                 cmd.CommandText = " UPDATE Animaux " +
-                                  " SET NomAnimal = @NomAnimal, Sexe = @Sexe, Couleur = @Couleur, Race = @Race, Espece = @Espece, CodeClient = @CodeClient, Tatouage = @Tatouage, Antecedents = @Antecedents, Archive = @Archive); ";
+                                  " SET NomAnimal = @NomAnimal, Sexe = @Sexe, Couleur = @Couleur, Race = @Race, Espece = @Espece, CodeClient = @CodeClient, Tatouage = @Tatouage, Antecedents = @Antecedents, Archive = @Archive " +
+                                  " WHERE CodeAnimal = @CodeAnimal ; ";
 
                 monParametre = new SqlParameter("@NomAnimal", monAnimal.NomAnimal);
                 cmd.Parameters.Add(monParametre);
                 monParametre = new SqlParameter("@Sexe", monAnimal.Sexe);
                 cmd.Parameters.Add(monParametre);
-                monParametre = new SqlParameter("@Couleur", monAnimal.Couleur);
+                monParametre = new SqlParameter("@Couleur", monAnimal.Couleur ?? String.Empty);
                 cmd.Parameters.Add(monParametre);
                 monParametre = new SqlParameter("@Race", monAnimal.Race.Race);
                 cmd.Parameters.Add(monParametre);
@@ -138,11 +155,13 @@ namespace DAL
                 cmd.Parameters.Add(monParametre);
                 monParametre = new SqlParameter("@CodeClient", monAnimal.CodeClient);
                 cmd.Parameters.Add(monParametre);
-                monParametre = new SqlParameter("@Tatouage", monAnimal.Tatouage);
+                monParametre = new SqlParameter("@Tatouage", monAnimal.Tatouage ?? String.Empty);
                 cmd.Parameters.Add(monParametre);
-                monParametre = new SqlParameter("@Antecedents", monAnimal.Antecedents);
+                monParametre = new SqlParameter("@Antecedents", monAnimal.Antecedents ?? String.Empty);
                 cmd.Parameters.Add(monParametre);
                 monParametre = new SqlParameter("@Archive", monAnimal.Archive);
+                cmd.Parameters.Add(monParametre);
+                monParametre = new SqlParameter("@CodeAnimal", monAnimal.CodeAnimal.Value);
                 cmd.Parameters.Add(monParametre);
 
                 cmd.ExecuteScalar();
@@ -163,7 +182,7 @@ namespace DAL
             {
                 SqlParameter monParametre;
 
-                SqlCommand cmd = (SqlCommand)cnx.CreateCommand();
+                SqlCommand cmd = (SqlCommand)maConnexion().CreateCommand();
                 cmd.CommandText = " DELETE FROM Animaux " +
                                   " WHERE CodeAnimal = @codeAnimal ; ";
 

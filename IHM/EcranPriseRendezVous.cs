@@ -1,5 +1,6 @@
 ﻿using BLL;
 using BO;
+using clinique;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -21,7 +22,7 @@ namespace Clinique
         {
             InitializeComponent();
 
-            MgtClient monMgtClient = new MgtClient();
+            MgtClient monMgtClient = MgtClient.GetInstance();
             MgtAnimal monMgtAnimal = new MgtAnimal();
             Clients monClientSelectionne;
             Veterinaires monVeto;
@@ -55,7 +56,7 @@ namespace Clinique
         private void COMBO_Client_SelectedIndexChanged(object sender, EventArgs e)
         {
             MgtAnimal monMgtAnimal = new MgtAnimal();
-            MgtClient monMgtClient = new MgtClient();
+            MgtClient monMgtClient = MgtClient.GetInstance();
             Clients monClientSelectionne = (Clients)COMBO_Client.SelectedItem;
 
             COMBO_Animal.DataSource = monMgtAnimal.AfficherTout().FindAll(t => t.CodeClient == monClientSelectionne.CodeClient);
@@ -64,7 +65,7 @@ namespace Clinique
 
         private void DATE_RendezVous_ValueChanged(object sender, EventArgs e)
         {
-            MgtClient monMgtClient = new MgtClient();
+            MgtClient monMgtClient = MgtClient.GetInstance();
             MgtAnimal monMgtAnimal = new MgtAnimal();
             Clients monClientSelectionne;
             Animaux monAnimal;
@@ -142,7 +143,11 @@ namespace Clinique
 
         private void BTN_AddAnimal_Click(object sender, EventArgs e)
         {
+            Animaux monAnimalSelectionne = (Animaux)COMBO_Animal.SelectedItem;
 
+            EcranAnimaux monEcran;
+            monEcran = new EcranAnimaux(monAnimalSelectionne.CodeAnimal.Value);
+            monEcran.Show();
         }
 
         private void BTN_Annuler_Click(object sender, EventArgs e)
@@ -161,7 +166,7 @@ namespace Clinique
         {
             if (!estInitialisation)
             {
-                MgtClient monMgtClient = new MgtClient();
+                MgtClient monMgtClient = MgtClient.GetInstance();
                 MgtAnimal monMgtAnimal = new MgtAnimal();
                 Clients monClientSelectionne;
                 Animaux monAnimal;
