@@ -164,7 +164,7 @@
             this.toolStripLabelDossierMedical});
             this.toolStripEcrPrincipal.Location = new System.Drawing.Point(653, 24);
             this.toolStripEcrPrincipal.Name = "toolStripEcrPrincipal";
-            this.toolStripEcrPrincipal.Size = new System.Drawing.Size(81, 432);
+            this.toolStripEcrPrincipal.Size = new System.Drawing.Size(81, 494);
             this.toolStripEcrPrincipal.TabIndex = 1;
             this.toolStripEcrPrincipal.Text = "toolStrip1";
             // 
@@ -249,7 +249,7 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(734, 456);
+            this.ClientSize = new System.Drawing.Size(734, 518);
             this.Controls.Add(this.toolStripEcrPrincipal);
             this.Controls.Add(this.menuStrip1);
             this.IsMdiContainer = true;

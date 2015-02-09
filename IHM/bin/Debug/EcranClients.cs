@@ -58,6 +58,7 @@ namespace Clinique
             AfficherClientCourant();
             pCodeClient =  MgtClient.GetInstance().ClientsListe.ElementAt(_courant);
             dataGrid_clients.DataSource = _animal.AfficherTout().FindAll(x => x.CodeClient == pCodeClient.CodeClient.Value);
+            TXT_clients_code.Enabled = false;
         }
 
         private void NavBarre_Navigation(object sender, ControlsLibrary.NavBarEventArgs e)
@@ -85,7 +86,9 @@ namespace Clinique
 
         private void BTN_clients_ajouter2_Click(object sender, EventArgs e)
         {
-//  AJOUT ANIMAUX 
+            EcranAnimaux monEcran;
+            monEcran = new EcranAnimaux();
+            monEcran.Show();
         }
 
         private void BTN_clients_ajouter_Click(object sender, EventArgs e)
@@ -95,7 +98,6 @@ namespace Clinique
             BTN_client_AnnulerAjout.Visible = true;
             TXT_clients_recherche.Enabled = false;
             BTN_clients_recherche.Enabled = false;
-            TXT_clients_code.Enabled = false;
 
             TXT_clients_code.Text = null;
             TXT_clients_nom.Text = null;
@@ -118,7 +120,9 @@ namespace Clinique
 
         private void BTN_clients_editer_Click(object sender, EventArgs e)
         {
-            // EDITER ANIMAUX 
+            EcranAnimaux monEcran;
+            monEcran = new EcranAnimaux((Guid?)dataGrid_clients.CurrentRow.Cells["CodeAnimal"].Value);
+            monEcran.Show();
         }
 
         private void BTN_clients_ValiderAjout_Click(object sender, EventArgs e)
@@ -151,7 +155,6 @@ namespace Clinique
             BTN_client_AnnulerAjout.Visible = false;
             TXT_clients_recherche.Enabled = true;
             BTN_clients_recherche.Enabled = true;
-            TXT_clients_code.Enabled = true;
 
             AfficherClientCourant();
         }
