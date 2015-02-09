@@ -46,7 +46,7 @@ namespace DAL
             }
         }
 
-        public Clients GetOne(Guid pCodeClient)
+        public Clients GetOne(Guid? pCodeClient)
         {
             try
             {
@@ -186,6 +186,35 @@ namespace DAL
             finally
             {
                 cnx.Close();
+            }
+        }
+
+        public static List<Clients> Rechercher(string nomClient)
+        {
+            using (DbConnection cnx = ConnectionBDD.SeConnecter())
+            {
+                List<Clients> listeClient = new List<Clients>();
+                SqlDataAdapter monAdapter = new SqlDataAdapter();
+                DataTable maDataTable = new DataTable();
+                SqlParameter monParametre;
+
+                SqlCommand cmd = (SqlCommand)cnx.CreateCommand();
+                cmd.CommandText = " SELECT * " +
+                                  " FROM Clients" +
+                                  " WHERE NomClient LIKE '%' + @nomClient + '%'";
+
+                monParametre = new SqlParameter("@nomClient", nomClient);
+                cmd.Parameters.Add(monParametre);
+
+                monAdapter.SelectCommand = cmd;
+                monAdapter.Fill(maDataTable);
+
+                foreach (DataRow unClient in maDataTable.Rows)
+                {
+                    listeClient.Add(new Clients(unClient));
+                }
+
+                return listeClient;
             }
         }
     }

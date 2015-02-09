@@ -43,7 +43,7 @@ namespace BLL
             return clientDAL.GetAll();
         }
 
-        public Clients AfficherUneSeul(Guid pCodeClient)
+        public Clients AfficherUneSeul(Guid? pCodeClient)
         {
             return clientDAL.GetOne(pCodeClient);
         }
@@ -61,6 +61,11 @@ namespace BLL
         public void Supprimer(Guid pCodeClient)
         {
             clientDAL.Delete(pCodeClient);
+        }
+
+        public List<Clients> Rechercher(string nomClient)
+        {
+            return ADO_Clients.Rechercher(nomClient);
         }
     }
 }

@@ -32,7 +32,7 @@ namespace BLL
             animauxDAL.Update(unAnimal);
         }
 
-        public void Supprimer(int pCodeAnimal)
+        public void Supprimer(Guid pCodeAnimal)
         {
             animauxDAL.Delete(pCodeAnimal);
         }

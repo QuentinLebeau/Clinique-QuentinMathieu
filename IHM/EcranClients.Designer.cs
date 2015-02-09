@@ -87,6 +87,7 @@
             this.BTN_clients_recherche.TabIndex = 6;
             this.BTN_clients_recherche.Text = "Rechercher";
             this.BTN_clients_recherche.UseVisualStyleBackColor = true;
+            this.BTN_clients_recherche.Click += new System.EventHandler(this.BTN_clients_recherche_Click);
             // 
             // BTN_clients_supprimer
             // 
@@ -96,6 +97,7 @@
             this.BTN_clients_supprimer.TabIndex = 5;
             this.BTN_clients_supprimer.Text = "Supprimer";
             this.BTN_clients_supprimer.UseVisualStyleBackColor = true;
+            this.BTN_clients_supprimer.Click += new System.EventHandler(this.BTN_clients_supprimer_Click);
             // 
             // BTN_clients_ajouter
             // 
