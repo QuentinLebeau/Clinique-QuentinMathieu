@@ -1,4 +1,5 @@
-﻿using System;
+﻿using BLL;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -12,10 +13,35 @@ namespace Clinique
 {
     public partial class EcranAnimaux : Form
     {
-        public EcranAnimaux()
+
+        #region "Evènements"
+
+        public EcranAnimaux(Guid? pCodeAnimal = null)
         {
-            InitializeComponent();
+            //InitializeComponent();
+            //MgtClient monMgtClient = new 
+
+            //combo_animaux_Clients.DataSource = MgtClient.
+
+            if (pCodeAnimal == null)
+            {
+
+            }
+            else
+            {
+
+            }
         }
 
+        private void LBL_animaux_code_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        #endregion
+
+        #region "Méthodes et fonctions"
+
+        #endregion
     }
 }

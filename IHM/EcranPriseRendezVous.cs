@@ -21,7 +21,7 @@ namespace Clinique
         {
             InitializeComponent();
 
-            MgtClient monMgtClient = new MgtClient();
+            MgtClient monMgtClient = MgtClient.GetInstance();
             MgtAnimal monMgtAnimal = new MgtAnimal();
             Clients monClientSelectionne;
             Veterinaires monVeto;
@@ -55,7 +55,7 @@ namespace Clinique
         private void COMBO_Client_SelectedIndexChanged(object sender, EventArgs e)
         {
             MgtAnimal monMgtAnimal = new MgtAnimal();
-            MgtClient monMgtClient = new MgtClient();
+            MgtClient monMgtClient = MgtClient.GetInstance();
             Clients monClientSelectionne = (Clients)COMBO_Client.SelectedItem;
 
             COMBO_Animal.DataSource = monMgtAnimal.AfficherTout().FindAll(t => t.CodeClient == monClientSelectionne.CodeClient);
@@ -64,7 +64,7 @@ namespace Clinique
 
         private void DATE_RendezVous_ValueChanged(object sender, EventArgs e)
         {
-            MgtClient monMgtClient = new MgtClient();
+            MgtClient monMgtClient = MgtClient.GetInstance();
             MgtAnimal monMgtAnimal = new MgtAnimal();
             Clients monClientSelectionne;
             Animaux monAnimal;
@@ -161,7 +161,7 @@ namespace Clinique
         {
             if (!estInitialisation)
             {
-                MgtClient monMgtClient = new MgtClient();
+                MgtClient monMgtClient = MgtClient.GetInstance();
                 MgtAnimal monMgtAnimal = new MgtAnimal();
                 Clients monClientSelectionne;
                 Animaux monAnimal;

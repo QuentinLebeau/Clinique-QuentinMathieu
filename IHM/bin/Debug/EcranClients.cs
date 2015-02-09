@@ -85,17 +85,7 @@ namespace Clinique
 
         private void BTN_clients_ajouter2_Click(object sender, EventArgs e)
         {
-            Clients monClient = new Clients();
-            
-            monClient.NomClient= TXT_clients_nom.Text;
-            monClient.PrenomClient = TXT_clients_prenom.Text;
-            monClient.Adresse1 = TXT_clients_adresse1.Text;
-            monClient.Adresse2 = TXT_clients_adresse2.Text;
-            monClient.CodePostal= TXT_clients_CP.Text;
-            monClient.Ville= TXT_clients_ville.Text;
-
-            MgtClient.GetInstance().Ajouter(monClient);
-            dataGrid_clients.DataSource = MgtClient.GetInstance().AfficherTout();
+//  AJOUT ANIMAUX 
         }
 
         private void BTN_clients_ajouter_Click(object sender, EventArgs e)
@@ -121,14 +111,14 @@ namespace Clinique
 
         private void BTN_clients_supprimer2_Click(object sender, EventArgs e)
         {
-            Clients pCodeClient = (Clients)dataGrid_clients.CurrentRow.DataBoundItem;
-            MgtClient.GetInstance().Supprimer(pCodeClient.CodeClient.Value);
-            dataGrid_clients.DataSource = MgtClient.GetInstance().AfficherTout();
+            Animaux pcodeAnimal = (Animaux)dataGrid_clients.CurrentRow.DataBoundItem;
+            _animal.Supprimer(pcodeAnimal.CodeAnimal.Value);
+            dataGrid_clients.DataSource = _animal.AfficherTout().FindAll(x => x.CodeClient == pCodeClient.CodeClient.Value); ;
         }
 
         private void BTN_clients_editer_Click(object sender, EventArgs e)
         {
-
+            // EDITER ANIMAUX 
         }
 
         private void BTN_clients_ValiderAjout_Click(object sender, EventArgs e)
@@ -164,6 +154,52 @@ namespace Clinique
             TXT_clients_code.Enabled = true;
 
             AfficherClientCourant();
+        }
+
+        private void BTN_clients_supprimer_Click(object sender, EventArgs e)
+        {
+            Clients pCodeClient = (Clients)dataGrid_clients.CurrentRow.DataBoundItem;
+            MgtClient.GetInstance().Supprimer(pCodeClient.CodeClient.Value);
+            dataGrid_clients.DataSource = MgtClient.GetInstance().AfficherTout();
+        }
+
+        private void BTN_clients_recherche_Click(object sender, EventArgs e)
+        {
+            MgtClient _client = MgtClient.GetInstance();
+            List<Clients> unCLient = new List<Clients>();
+            unCLient = _client.Rechercher(TXT_clients_recherche.Text);
+            RemplissageTextBox(unCLient.First<Clients>().CodeClient);
+
+            dataGrid_clients.DataSource = _animal.AfficherTout().FindAll(x => x.CodeClient == unCLient.First<Clients>().CodeClient);
+        }
+
+        private void RemplissageTextBox(Guid? codeClient = null)
+        {
+            Clients monClient = new Clients();
+
+            if (codeClient != null)
+            {
+                monClient = MgtClient.GetInstance().AfficherUneSeul(codeClient);
+
+                TXT_clients_code.Text = monClient.CodeClient.ToString();
+                TXT_clients_nom.Text = monClient.NomClient;
+                TXT_clients_prenom.Text = monClient.PrenomClient;
+                TXT_clients_adresse1.Text = monClient.Adresse1;
+                TXT_clients_adresse2.Text = monClient.Adresse2;
+                TXT_clients_CP.Text = monClient.CodePostal;
+                TXT_clients_ville.Text = monClient.Ville;
+            }
+            else
+            {
+                TXT_clients_code.Text = null;
+                TXT_clients_nom.Text = null;
+                TXT_clients_prenom.Text = null;
+                TXT_clients_adresse1.Text = null;
+                TXT_clients_adresse2.Text = null;
+                TXT_clients_CP.Text = null;
+                TXT_clients_ville.Text = null;
+            }
+            
         }
     }
 }

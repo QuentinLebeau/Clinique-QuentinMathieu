@@ -157,7 +157,7 @@ namespace DAL
             }
         }
 
-        public void Delete(int pCodeAnimal)
+        public void Delete(Guid pCodeAnimal)
         {                
             try
             {

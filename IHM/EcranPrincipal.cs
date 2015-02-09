@@ -46,5 +46,13 @@ namespace clinique
             monEcran.MdiParent = this;
             monEcran.Show();
         }
+
+        private void toolStripButtonClientAnimal_Click(object sender, EventArgs e)
+        {
+            EcranClients monEcran;
+            monEcran = new EcranClients();
+            monEcran.MdiParent = this;
+            monEcran.Show();
+        }
     }
 }
