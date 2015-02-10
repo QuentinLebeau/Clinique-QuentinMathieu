@@ -57,7 +57,9 @@ namespace Clinique
 
         private void BTN_animaux_DossierMedical_Click(object sender, EventArgs e)
         {
-
+            EcranDossierMedicaux monEcran;
+            monEcran = new EcranDossierMedicaux();
+            monEcran.Show();
         }
 
         // SelectedChanged

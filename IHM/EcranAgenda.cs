@@ -42,7 +42,21 @@ namespace Clinique
 
         private void BTN_agenda_Dossier_Click(object sender, EventArgs e)
         {
+            EcranDossierMedicaux monEcran;
+            monEcran = new EcranDossierMedicaux();
+            monEcran.Show();
+        }
 
+        private void dataGridView_agenda_RowDividerDoubleClick(object sender, DataGridViewRowDividerDoubleClickEventArgs e)
+        {
+            
+        }
+
+        private void dataGridView_agenda_RowHeaderMouseClick(object sender, DataGridViewCellMouseEventArgs e)
+        {
+            EcranConsultation monEcran;
+            monEcran = new EcranConsultation((Agendas)dataGridView_agenda.CurrentRow.DataBoundItem);
+            monEcran.Show();
         }
 
         private void dataGridView_agenda_DoubleClick(object sender, EventArgs e)

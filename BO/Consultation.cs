@@ -24,15 +24,15 @@ namespace BO
             set { _dateConsultation = value; }
         }
 
-        private int? _codeVeto;
-        public int? CodeVeto
+        private Guid? _codeVeto;
+        public Guid? CodeVeto
         {
             get { return _codeVeto; }
             set { _codeVeto = value; }
         }
 
-        private int? _codeAnimal;
-        public int? CodeAnimal
+        private Guid? _codeAnimal;
+        public Guid? CodeAnimal
         {
             get { return _codeAnimal; }
             set { _codeAnimal = value; }
@@ -59,8 +59,8 @@ namespace BO
             }
         }
 
-        private int? _numFacture;
-        public int? NumFacture
+        private Guid? _numFacture;
+        public Guid? NumFacture
         {
             get { return _numFacture; }
             set { _numFacture = value; }
@@ -89,13 +89,17 @@ namespace BO
         public Consultation(DataRow maConsultation)
         {
             this.Archive = bool.Parse(maConsultation["Archive"].ToString());
-            this.CodeAnimal = int.Parse(maConsultation["CodeAnimal"].ToString());
+            this.CodeAnimal = Guid.Parse(maConsultation["CodeAnimal"].ToString());
             this.CodeConsultation = Guid.Parse(maConsultation["CodeConsultation"].ToString());
-            this.CodeVeto = int.Parse(maConsultation["CodeVeto"].ToString());
+            this.CodeVeto = Guid.Parse(maConsultation["CodeVeto"].ToString());
             this.Commentaire = maConsultation["Commentaire"].ToString();
             this.DateConsultation = DateTime.Parse(maConsultation["DateConsultation"].ToString());
             this.Etat = int.Parse(maConsultation["Etat"].ToString());
-            this.NumFacture = int.Parse(maConsultation["NumFacture"].ToString());
+
+            if (!String.IsNullOrWhiteSpace(maConsultation["NumFacture"].ToString()))
+            {
+                this.NumFacture = Guid.Parse(maConsultation["NumFacture"].ToString());
+            }            
         }
     }
 }

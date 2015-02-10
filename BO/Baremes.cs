@@ -66,9 +66,9 @@ namespace BO
             set { _tarifMaxi = value; }
         }
 
-        private int? _codeVaccin;
+        private Guid? _codeVaccin;
 
-        public int? CodeVaccin
+        public Guid? CodeVaccin
         {
             get { return _codeVaccin; }
             set { _codeVaccin = value; }
@@ -99,6 +99,38 @@ namespace BO
         {
             this.CodeGroupement = monBaremes["CodeGroupement"].ToString();
             this.DateVigueur = monBaremes["DateVigueur"].ToString();
+            this.TypeActe = monBaremes["TypeActe"].ToString();
+            this.Libelle = monBaremes["Libelle"].ToString();
+
+            if (!String.IsNullOrWhiteSpace(monBaremes["TarifFixe"].ToString()))
+            {
+                this.TarifFixe = float.Parse(monBaremes["TarifFixe"].ToString());
+            }
+
+            if (!String.IsNullOrWhiteSpace(monBaremes["TarifMini"].ToString()))
+            {
+                this.TarifMini = float.Parse(monBaremes["TarifMini"].ToString());
+            }
+
+            if (!String.IsNullOrWhiteSpace(monBaremes["TarifMaxi"].ToString()))
+            {
+                this.TarifMaxi = float.Parse(monBaremes["TarifMaxi"].ToString());
+            }
+
+            if (!String.IsNullOrWhiteSpace(monBaremes["CodeVaccin"].ToString()))
+            {
+                this.CodeVaccin = Guid.Parse(monBaremes["CodeVaccin"].ToString());
+            }
+
+            if (!String.IsNullOrWhiteSpace(monBaremes["Archive"].ToString()))
+            {
+                this.Archive = Boolean.Parse(monBaremes["Archive"].ToString());
+            }            
+        }
+
+        public override string ToString()
+        {
+            return this.Libelle;
         }
     }
 }

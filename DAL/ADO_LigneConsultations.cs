@@ -10,7 +10,7 @@ using System.Data;
 
 namespace DAL
 {
-    class ADO_LigneConsultations
+    public class ADO_LigneConsultations
     {
         public static List<LignesConsultations> getListeConsultation()
         {
@@ -35,24 +35,29 @@ namespace DAL
             }
         }
 
-        public static Consultation getOneLignesConsultation(Guid pCodeLignesConsultations)
+        public static LignesConsultations getOneLignesConsultation(Guid pCodeConsultations, int pNumLigne)
         {
             using (DbConnection cnx = ConnectionBDD.SeConnecter())
             {
-                Consultation uneConsultation = new Consultation();
+                LignesConsultations uneConsultation = new LignesConsultations();
                 SqlDataAdapter monAdapter = new SqlDataAdapter();
                 DataTable resultat = new DataTable();
                 SqlParameter monParametre;
                 SqlCommand cmd = (SqlCommand)cnx.CreateCommand();
                 cmd.CommandText = " SELECT * " +
                                   " FROM LignesConsultations" +
-                                  " WHERE CodeConsultation = @codeConsultation";
-                monParametre = new SqlParameter("@codeConsultation", pCodeLignesConsultations);
+                                  " WHERE CodeConsultation = @codeConsultation" +
+                                  " AND NumLigne = @NumLigne ; ";
+
+                monParametre = new SqlParameter("@codeConsultation", pCodeConsultations);
                 cmd.Parameters.Add(monParametre);
+                monParametre = new SqlParameter("@NumLigne", pNumLigne);
+                cmd.Parameters.Add(monParametre);
+
                 monAdapter.SelectCommand = cmd;
                 monAdapter.Fill(resultat);
 
-                uneConsultation = new Consultation(resultat.Rows[0]);
+                uneConsultation = new LignesConsultations(resultat.Rows[0]);
 
                 return uneConsultation;
             }

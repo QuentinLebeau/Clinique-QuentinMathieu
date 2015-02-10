@@ -15,6 +15,11 @@ namespace BLL
             return ADO_Veterinaires.getListeVeto();
         }
 
+        public static Veterinaires getOneVeto(Guid pCodeVeto)
+        {
+            return ADO_Veterinaires.getOneVeto(pCodeVeto);
+        }
+
         public static void addVeto(string nomVeto, string prenomVeto, string motPasse)
         {
             ADO_Veterinaires.ajouterVeto(nomVeto, prenomVeto, motPasse);
