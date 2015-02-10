@@ -41,7 +41,10 @@
   <ItemGroup>
     <Compile Include="MgtAgenda.cs" />
     <Compile Include="MgtAnimal.cs" />
+    <Compile Include="MgtBaremes.cs" />
     <Compile Include="MgtClient.cs" />
+    <Compile Include="MgtConsultation.cs" />
+    <Compile Include="MgtLigneConsultation.cs" />
     <Compile Include="MgtRaces.cs" />
     <Compile Include="MgtUsersLogins.cs" />
     <Compile Include="MgtVeterinaires.cs" />

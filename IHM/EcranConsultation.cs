@@ -1,4 +1,6 @@
-﻿using System;
+﻿using BLL;
+using BO;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -12,9 +14,40 @@ namespace Clinique
 {
     public partial class EcranConsultation : Form
     {
-        public EcranConsultation()
+        MgtAnimal monMgtAnimal = new MgtAnimal();
+
+        public EcranConsultation(Agendas pAgenda)
         {
             InitializeComponent();
+                        
+            Animaux monAnimal = monMgtAnimal.AfficherUneSeul(pAgenda.CodeAnimal.Value);
+            Veterinaires monVeto = MgtVeterinaires.getOneVeto(pAgenda.CodeVeto.Value);
+
+            TXT_CodeAnimal.Text = monAnimal.CodeAnimal.Value.ToString();
+            TXT_Couleur.Text = monAnimal.Couleur;
+            TXT_Espece.Text = monAnimal.Race.Espece;
+            TXT_NomAnimal.Text = monAnimal.NomAnimal;
+            TXT_Race.Text = monAnimal.Race.Race;
+            TXT_Sexe.Text = monAnimal.Sexe.ToString();
+            TXT_Tatouage.Text = monAnimal.Tatouage;
+
+            DATE_Acte.Text = pAgenda.DateRDV.Value.ToString();
+
+            COMBO_Veto.DataSource = MgtVeterinaires.getAllVeto();
+            COMBO_TypeActe.DataSource = MgtBaremes.AffichierTout().Select(x => x.TypeActe).Distinct().ToList<string>();
+            ChangementCOMBO(true, false);
+        }
+                
+        #region "Conneries à Mathieu"
+
+        private void combo_consultation_type_SelectedIndexChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void combo_consultation_libelle_SelectedIndexChanged(object sender, EventArgs e)
+        {
+
         }
 
         private void label6_Click(object sender, EventArgs e)
@@ -141,17 +174,7 @@ namespace Clinique
         {
 
         }
-
-        private void combo_consultation_type_SelectedIndexChanged(object sender, EventArgs e)
-        {
-
-        }
-
-        private void combo_consultation_libelle_SelectedIndexChanged(object sender, EventArgs e)
-        {
-
-        }
-
+        
         private void LBL_consultation_libelle_Click(object sender, EventArgs e)
         {
 
@@ -220,6 +243,57 @@ namespace Clinique
         private void LargeTXT_consultation_commentaire_TextChanged(object sender, EventArgs e)
         {
 
+        }
+        #endregion
+
+        private void BTN_AjouterActe_Click(object sender, EventArgs e)
+        {
+            COMBO_Veto.Enabled = true;
+            COMBO_TypeActe.Enabled = true;
+            COMBO_LibelleActe.Enabled = true;
+
+            TXT_Prix.Enabled = true;
+
+            ChangementCOMBO(false, true);
+        }
+
+        private void COMBO_TypeActe_SelectionChangeCommitted(object sender, EventArgs e)
+        {
+            ChangementCOMBO(true, false);
+        }
+
+        private void COMBO_LibelleActe_SelectionChangeCommitted(object sender, EventArgs e)
+        {
+            ChangementCOMBO(false, true);
+        }
+
+        /// <summary>
+        /// Met à jour les COMBOX et TXT suivant la sélection
+        /// </summary>
+        /// <param name="pTypeChange">Si c'est la COMBO des type qui à été modifié</param>
+        /// <param name="pLibelleChange">Si c'est la COMBO des libelles qui à été modifié</param>
+        private void ChangementCOMBO(bool pTypeChange, bool pLibelleChange)
+        {
+            if (pTypeChange)
+            {
+                COMBO_LibelleActe.DataSource = MgtBaremes.AffichierTout().FindAll(y => y.TypeActe == COMBO_TypeActe.SelectedValue.ToString()).ToList<Baremes>();
+            }
+
+            if (pTypeChange || pLibelleChange)
+            {
+                TXT_Maxi.Text = MgtBaremes.AfficherUnSeul((Baremes)COMBO_LibelleActe.SelectedItem).TarifMaxi.ToString();
+                TXT_Mini.Text = MgtBaremes.AfficherUnSeul((Baremes)COMBO_LibelleActe.SelectedItem).TarifMini.ToString();
+
+                if (!String.IsNullOrWhiteSpace(TXT_Maxi.Text) && !String.IsNullOrWhiteSpace(TXT_Mini.Text))
+                {
+                    TXT_Prix.Text = (((float.Parse(TXT_Mini.Text) - float.Parse(TXT_Maxi.Text)) / 2) + float.Parse(TXT_Mini.Text)).ToString();
+                }
+            }
+        }
+
+        private void BTN_Enregistrer_Click(object sender, EventArgs e)
+        {
+            
         }
     }
 }

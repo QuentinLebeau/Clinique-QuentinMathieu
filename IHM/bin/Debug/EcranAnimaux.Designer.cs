@@ -79,6 +79,7 @@
             this.BTN_animaux_DossierMedical.TabIndex = 0;
             this.BTN_animaux_DossierMedical.Text = "Dossier";
             this.BTN_animaux_DossierMedical.UseVisualStyleBackColor = true;
+            this.BTN_animaux_DossierMedical.Click += new System.EventHandler(this.BTN_animaux_DossierMedical_Click);
             // 
             // LBL_animaux_tatouage
             // 

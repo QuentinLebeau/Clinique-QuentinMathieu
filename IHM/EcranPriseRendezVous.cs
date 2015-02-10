@@ -269,7 +269,6 @@ namespace Clinique
             COMBO_Minutes.DataSource = listeMinute;
         }
 
-        #endregion               
-               
+        #endregion                              
     }
 }

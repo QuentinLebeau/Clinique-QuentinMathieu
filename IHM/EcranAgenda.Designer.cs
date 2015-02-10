@@ -94,6 +94,8 @@
             this.dataGridView_agenda.Name = "dataGridView_agenda";
             this.dataGridView_agenda.Size = new System.Drawing.Size(482, 143);
             this.dataGridView_agenda.TabIndex = 1;
+            this.dataGridView_agenda.RowDividerDoubleClick += new System.Windows.Forms.DataGridViewRowDividerDoubleClickEventHandler(this.dataGridView_agenda_RowDividerDoubleClick);
+            this.dataGridView_agenda.RowHeaderMouseClick += new System.Windows.Forms.DataGridViewCellMouseEventHandler(this.dataGridView_agenda_RowHeaderMouseClick);
             // 
             // BTN_agenda_Dossier
             // 

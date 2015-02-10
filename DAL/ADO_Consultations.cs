@@ -10,7 +10,7 @@ using System.Data;
 
 namespace DAL
 {
-    class ADO_Consultations
+    public class ADO_Consultations
     {
         public static List<Consultation> getListeConsultation()
         {

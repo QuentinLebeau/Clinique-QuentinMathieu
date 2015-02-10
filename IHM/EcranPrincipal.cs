@@ -62,5 +62,29 @@ namespace clinique
             monEcran.MdiParent = this;
             monEcran.Show();
         }
+
+        private void toolStripButtonDossierMedical_Click(object sender, EventArgs e)
+        {
+            EcranDossierMedicaux monEcran;
+            monEcran = new EcranDossierMedicaux();
+            monEcran.MdiParent = this;
+            monEcran.Show();
+        }
+
+        private void dossierMédicauxToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            EcranDossierMedicaux monEcran;
+            monEcran = new EcranDossierMedicaux();
+            monEcran.MdiParent = this;
+            monEcran.Show();
+        }
+
+        private void toolStripButtonAgenda_Click(object sender, EventArgs e)
+        {
+            EcranAgenda monEcran;
+            monEcran = new EcranAgenda();
+            monEcran.MdiParent = this;
+            monEcran.Show();
+        }
     }
 }

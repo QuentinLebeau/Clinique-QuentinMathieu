@@ -10,11 +10,9 @@ namespace BO
 {
     public class Agendas
     {
-        // Attributs
-        
-
+        // Attributs       
         private Guid? _codeVeto;
-        [Browsable(false)]
+
         public Guid? CodeVeto
         {
             get { return _codeVeto; }
@@ -31,7 +29,7 @@ namespace BO
 
         
         private Guid? _codeAnimal;
-        [Browsable(false)]
+
         public Guid? CodeAnimal
         {
             get { return _codeAnimal; }

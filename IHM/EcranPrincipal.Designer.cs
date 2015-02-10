@@ -125,6 +125,7 @@
             this.dossierMédicauxToolStripMenuItem.Name = "dossierMédicauxToolStripMenuItem";
             this.dossierMédicauxToolStripMenuItem.Size = new System.Drawing.Size(208, 22);
             this.dossierMédicauxToolStripMenuItem.Text = "Dossier Médicaux   CTRL - D";
+            this.dossierMédicauxToolStripMenuItem.Click += new System.EventHandler(this.dossierMédicauxToolStripMenuItem_Click);
             // 
             // paramétrageToolStripMenuItem
             // 
@@ -223,6 +224,7 @@
             this.toolStripButtonAgenda.Name = "toolStripButtonAgenda";
             this.toolStripButtonAgenda.Size = new System.Drawing.Size(78, 20);
             this.toolStripButtonAgenda.Text = "toolStripButton1";
+            this.toolStripButtonAgenda.Click += new System.EventHandler(this.toolStripButtonAgenda_Click);
             // 
             // toolStripLabelAgenda
             // 
@@ -238,6 +240,7 @@
             this.toolStripButtonDossierMedical.Name = "toolStripButtonDossierMedical";
             this.toolStripButtonDossierMedical.Size = new System.Drawing.Size(78, 20);
             this.toolStripButtonDossierMedical.Text = "toolStripButton1";
+            this.toolStripButtonDossierMedical.Click += new System.EventHandler(this.toolStripButtonDossierMedical_Click);
             // 
             // toolStripLabelDossierMedical
             // 
