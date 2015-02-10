@@ -22,7 +22,7 @@ namespace Clinique
             InitializeComponent();
             dataGridView_stockVaccins.DataSource = MgtVaccins.getAllVaccins();
             Couleur();
-          
+
             string[] lineOfContents = File.ReadAllLines("C:\\Users\\d1410alheincm\\Desktop\\Fournisseur.txt");
             foreach (var line in lineOfContents)
             {

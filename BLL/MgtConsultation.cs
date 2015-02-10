@@ -15,19 +15,24 @@ namespace BLL
             return ADO_Consultations.getListeConsultation();
         }
 
-        //public static List<Consultation> AfficherToutAvecDetail()
-        //{
-        //    return ADO_Consultations.GetAllWithDetail();
-        //}
-
         public static Consultation AfficherUneSeul(Guid? pCodeConsultation)
         {
             return ADO_Consultations.getOneConsultation(pCodeConsultation.Value);
         }
 
-        public static void Ajouter(Consultation maConsultation)
+        public static void AjouterNouvelleConsu(Consultation maConsultation)
         {
-            ADO_Consultations.ajouterConsultations(maConsultation);
+            ADO_Consultations.ajouterConsultationEnCours(maConsultation);
+        }
+
+        public static void AjouterLigne(Consultation maConsultation)
+        {
+            ADO_Consultations.ajouterConsultationLigne(maConsultation);
+        }
+
+        public static void AjouterNonFacture(Consultation maConsultation)
+        {
+            ADO_Consultations.ajouterDeuxLignesNonFacture(maConsultation);
         }
 
         public static void Modifier(Consultation maConsultation)

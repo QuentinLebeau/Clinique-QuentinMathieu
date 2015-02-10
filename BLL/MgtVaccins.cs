@@ -13,7 +13,7 @@ namespace BLL
     {
         public static List<Vaccins> getAllVaccins()
         {
-            return ADO_vaccins.getListeVaccins();
+            return ADO_Vaccins.getListeVaccins();
         }
 
         public static void addVaccins(string nomVeto, string prenomVeto, string motPasse)

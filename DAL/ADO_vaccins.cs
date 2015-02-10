@@ -10,7 +10,7 @@ using System.Data;
 
 namespace DAL
 {
-    public class ADO_vaccins
+    public class ADO_Vaccins
     {
         public static List<Vaccins> getListeVaccins()
         {
