@@ -34,6 +34,7 @@
             this.BTN_clients_recherche = new System.Windows.Forms.Button();
             this.BTN_clients_supprimer = new System.Windows.Forms.Button();
             this.BTN_clients_ajouter = new System.Windows.Forms.Button();
+            this.NavBarre = new ControlsLibrary.NavBar();
             this.dataGrid_clients = new System.Windows.Forms.DataGridView();
             this.LBL_clients_code = new System.Windows.Forms.Label();
             this.LBL_clients_nom = new System.Windows.Forms.Label();
@@ -51,13 +52,18 @@
             this.BTN_clients_supprimer2 = new System.Windows.Forms.Button();
             this.BTN_clients_editer = new System.Windows.Forms.Button();
             this.notifyIcon1 = new System.Windows.Forms.NotifyIcon(this.components);
-            this.NavBarre = new ControlsLibrary.NavBar();
             this.BTN_clients_ValiderAjout = new System.Windows.Forms.Button();
             this.BTN_client_AnnulerAjout = new System.Windows.Forms.Button();
             this.label1 = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
             this.groupBox2 = new System.Windows.Forms.GroupBox();
             this.groupBox3 = new System.Windows.Forms.GroupBox();
+            this.LBL_clients_telephone = new System.Windows.Forms.Label();
+            this.LBL_clients_assureur = new System.Windows.Forms.Label();
+            this.LBL_clients_mail = new System.Windows.Forms.Label();
+            this.TXT_clients_tel = new System.Windows.Forms.TextBox();
+            this.TXT_clients_mail = new System.Windows.Forms.TextBox();
+            this.TXT_clients_assureur = new System.Windows.Forms.TextBox();
             this.groupBox1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataGrid_clients)).BeginInit();
             this.groupBox2.SuspendLayout();
@@ -114,6 +120,26 @@
             this.BTN_clients_ajouter.Text = "Ajouter";
             this.BTN_clients_ajouter.UseVisualStyleBackColor = true;
             this.BTN_clients_ajouter.Click += new System.EventHandler(this.BTN_clients_ajouter_Click);
+            // 
+            // NavBarre
+            // 
+            this.NavBarre.ApresEnable = true;
+            this.NavBarre.AvantEnable = true;
+            this.NavBarre.ButtonBorder = 1;
+            this.NavBarre.FlatStyle = System.Windows.Forms.FlatStyle.Standard;
+            this.NavBarre.ImageDernier = null;
+            this.NavBarre.ImagePrecedent = null;
+            this.NavBarre.ImagePremier = null;
+            this.NavBarre.ImageSuivant = null;
+            this.NavBarre.Location = new System.Drawing.Point(6, 19);
+            this.NavBarre.Name = "NavBarre";
+            this.NavBarre.Size = new System.Drawing.Size(580, 37);
+            this.NavBarre.TabIndex = 18;
+            this.NavBarre.TextDernier = "Dernier client";
+            this.NavBarre.TextPrecedent = "Client précedent";
+            this.NavBarre.TextPremier = "Premier client";
+            this.NavBarre.TextSuivant = "Client suivant";
+            this.NavBarre.Navigation += new System.EventHandler<ControlsLibrary.NavBarEventArgs>(this.NavBarre_Navigation);
             // 
             // dataGrid_clients
             // 
@@ -252,29 +278,9 @@
             this.notifyIcon1.Text = "notifyIcon1";
             this.notifyIcon1.Visible = true;
             // 
-            // NavBarre
-            // 
-            this.NavBarre.ApresEnable = true;
-            this.NavBarre.AvantEnable = true;
-            this.NavBarre.ButtonBorder = 1;
-            this.NavBarre.FlatStyle = System.Windows.Forms.FlatStyle.Standard;
-            this.NavBarre.ImageDernier = null;
-            this.NavBarre.ImagePrecedent = null;
-            this.NavBarre.ImagePremier = null;
-            this.NavBarre.ImageSuivant = null;
-            this.NavBarre.Location = new System.Drawing.Point(6, 19);
-            this.NavBarre.Name = "NavBarre";
-            this.NavBarre.Size = new System.Drawing.Size(580, 37);
-            this.NavBarre.TabIndex = 18;
-            this.NavBarre.TextDernier = "Dernier client";
-            this.NavBarre.TextPrecedent = "Client précedent";
-            this.NavBarre.TextPremier = "Premier client";
-            this.NavBarre.TextSuivant = "Client suivant";
-            this.NavBarre.Navigation += new System.EventHandler<ControlsLibrary.NavBarEventArgs>(this.NavBarre_Navigation);
-            // 
             // BTN_clients_ValiderAjout
             // 
-            this.BTN_clients_ValiderAjout.Location = new System.Drawing.Point(213, 131);
+            this.BTN_clients_ValiderAjout.Location = new System.Drawing.Point(213, 180);
             this.BTN_clients_ValiderAjout.Name = "BTN_clients_ValiderAjout";
             this.BTN_clients_ValiderAjout.Size = new System.Drawing.Size(75, 23);
             this.BTN_clients_ValiderAjout.TabIndex = 19;
@@ -285,7 +291,7 @@
             // 
             // BTN_client_AnnulerAjout
             // 
-            this.BTN_client_AnnulerAjout.Location = new System.Drawing.Point(294, 131);
+            this.BTN_client_AnnulerAjout.Location = new System.Drawing.Point(294, 180);
             this.BTN_client_AnnulerAjout.Name = "BTN_client_AnnulerAjout";
             this.BTN_client_AnnulerAjout.Size = new System.Drawing.Size(75, 23);
             this.BTN_client_AnnulerAjout.TabIndex = 20;
@@ -314,6 +320,12 @@
             // 
             // groupBox2
             // 
+            this.groupBox2.Controls.Add(this.TXT_clients_assureur);
+            this.groupBox2.Controls.Add(this.TXT_clients_mail);
+            this.groupBox2.Controls.Add(this.TXT_clients_tel);
+            this.groupBox2.Controls.Add(this.LBL_clients_mail);
+            this.groupBox2.Controls.Add(this.LBL_clients_assureur);
+            this.groupBox2.Controls.Add(this.LBL_clients_telephone);
             this.groupBox2.Controls.Add(this.groupBox3);
             this.groupBox2.Controls.Add(this.TXT_clients_code);
             this.groupBox2.Controls.Add(this.BTN_client_AnnulerAjout);
@@ -333,7 +345,7 @@
             this.groupBox2.Controls.Add(this.TXT_clients_adresse2);
             this.groupBox2.Location = new System.Drawing.Point(12, 131);
             this.groupBox2.Name = "groupBox2";
-            this.groupBox2.Size = new System.Drawing.Size(592, 362);
+            this.groupBox2.Size = new System.Drawing.Size(592, 408);
             this.groupBox2.TabIndex = 19;
             this.groupBox2.TabStop = false;
             this.groupBox2.Text = "Informations client";
@@ -344,18 +356,66 @@
             this.groupBox3.Controls.Add(this.BTN_clients_editer);
             this.groupBox3.Controls.Add(this.BTN_clients_ajouter2);
             this.groupBox3.Controls.Add(this.BTN_clients_supprimer2);
-            this.groupBox3.Location = new System.Drawing.Point(22, 160);
+            this.groupBox3.Location = new System.Drawing.Point(23, 208);
             this.groupBox3.Name = "groupBox3";
             this.groupBox3.Size = new System.Drawing.Size(544, 186);
             this.groupBox3.TabIndex = 23;
             this.groupBox3.TabStop = false;
             this.groupBox3.Text = "Animaux";
             // 
+            // LBL_clients_telephone
+            // 
+            this.LBL_clients_telephone.AutoSize = true;
+            this.LBL_clients_telephone.Location = new System.Drawing.Point(14, 125);
+            this.LBL_clients_telephone.Name = "LBL_clients_telephone";
+            this.LBL_clients_telephone.Size = new System.Drawing.Size(58, 13);
+            this.LBL_clients_telephone.TabIndex = 24;
+            this.LBL_clients_telephone.Text = "Téléphone";
+            // 
+            // LBL_clients_assureur
+            // 
+            this.LBL_clients_assureur.AutoSize = true;
+            this.LBL_clients_assureur.Location = new System.Drawing.Point(305, 125);
+            this.LBL_clients_assureur.Name = "LBL_clients_assureur";
+            this.LBL_clients_assureur.Size = new System.Drawing.Size(48, 13);
+            this.LBL_clients_assureur.TabIndex = 25;
+            this.LBL_clients_assureur.Text = "Assureur";
+            // 
+            // LBL_clients_mail
+            // 
+            this.LBL_clients_mail.AutoSize = true;
+            this.LBL_clients_mail.Location = new System.Drawing.Point(46, 151);
+            this.LBL_clients_mail.Name = "LBL_clients_mail";
+            this.LBL_clients_mail.Size = new System.Drawing.Size(26, 13);
+            this.LBL_clients_mail.TabIndex = 26;
+            this.LBL_clients_mail.Text = "Mail";
+            // 
+            // TXT_clients_tel
+            // 
+            this.TXT_clients_tel.Location = new System.Drawing.Point(78, 122);
+            this.TXT_clients_tel.Name = "TXT_clients_tel";
+            this.TXT_clients_tel.Size = new System.Drawing.Size(207, 20);
+            this.TXT_clients_tel.TabIndex = 27;
+            // 
+            // TXT_clients_mail
+            // 
+            this.TXT_clients_mail.Location = new System.Drawing.Point(78, 148);
+            this.TXT_clients_mail.Name = "TXT_clients_mail";
+            this.TXT_clients_mail.Size = new System.Drawing.Size(207, 20);
+            this.TXT_clients_mail.TabIndex = 28;
+            // 
+            // TXT_clients_assureur
+            // 
+            this.TXT_clients_assureur.Location = new System.Drawing.Point(359, 123);
+            this.TXT_clients_assureur.Name = "TXT_clients_assureur";
+            this.TXT_clients_assureur.Size = new System.Drawing.Size(207, 20);
+            this.TXT_clients_assureur.TabIndex = 29;
+            // 
             // EcranClients
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(618, 505);
+            this.ClientSize = new System.Drawing.Size(618, 546);
             this.Controls.Add(this.groupBox2);
             this.Controls.Add(this.groupBox1);
             this.Name = "EcranClients";
@@ -401,5 +461,11 @@
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.GroupBox groupBox2;
         private System.Windows.Forms.GroupBox groupBox3;
+        private System.Windows.Forms.TextBox TXT_clients_assureur;
+        private System.Windows.Forms.TextBox TXT_clients_mail;
+        private System.Windows.Forms.TextBox TXT_clients_tel;
+        private System.Windows.Forms.Label LBL_clients_mail;
+        private System.Windows.Forms.Label LBL_clients_assureur;
+        private System.Windows.Forms.Label LBL_clients_telephone;
     }
 }

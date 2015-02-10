@@ -97,12 +97,14 @@
             this.relancesCTRLRToolStripMenuItem.Name = "relancesCTRLRToolStripMenuItem";
             this.relancesCTRLRToolStripMenuItem.Size = new System.Drawing.Size(261, 22);
             this.relancesCTRLRToolStripMenuItem.Text = "Relances   CTRL - R";
+            this.relancesCTRLRToolStripMenuItem.Click += new System.EventHandler(this.relancesCTRLRToolStripMenuItem_Click);
             // 
             // miseÀJourDuStrockVaccinCTRLMToolStripMenuItem
             // 
             this.miseÀJourDuStrockVaccinCTRLMToolStripMenuItem.Name = "miseÀJourDuStrockVaccinCTRLMToolStripMenuItem";
             this.miseÀJourDuStrockVaccinCTRLMToolStripMenuItem.Size = new System.Drawing.Size(261, 22);
             this.miseÀJourDuStrockVaccinCTRLMToolStripMenuItem.Text = "Mise à jour du strock vaccin   CTRL -  M";
+            this.miseÀJourDuStrockVaccinCTRLMToolStripMenuItem.Click += new System.EventHandler(this.miseÀJourDuStrockVaccinCTRLMToolStripMenuItem_Click);
             // 
             // vétérinaireToolStripMenuItem
             // 
@@ -208,6 +210,7 @@
             this.toolStripButtonRelance.Name = "toolStripButtonRelance";
             this.toolStripButtonRelance.Size = new System.Drawing.Size(78, 20);
             this.toolStripButtonRelance.Text = "toolStripButton1";
+            this.toolStripButtonRelance.Click += new System.EventHandler(this.toolStripButtonRelance_Click);
             // 
             // toolStripLabelRelance
             // 
@@ -223,6 +226,7 @@
             this.toolStripButtonAgenda.Name = "toolStripButtonAgenda";
             this.toolStripButtonAgenda.Size = new System.Drawing.Size(78, 20);
             this.toolStripButtonAgenda.Text = "toolStripButton1";
+            this.toolStripButtonAgenda.Click += new System.EventHandler(this.toolStripButtonAgenda_Click);
             // 
             // toolStripLabelAgenda
             // 

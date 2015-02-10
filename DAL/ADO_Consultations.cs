@@ -58,7 +58,7 @@ namespace DAL
             }
         }
 
-        public static void ajouterConsultations(Consultation consultation)
+        public static void ajouterConsultationEnCours(Consultation consultation)
         {
             using (DbConnection cnx = ConnectionBDD.SeConnecter())
             {
@@ -76,6 +76,46 @@ namespace DAL
                 cmd.Parameters.Add(monParametre);
                 monAdapter.Fill(resultat);
            }
+        }
+
+        public static void ajouterDeuxLignesNonFacture(Consultation consultation)
+        {
+            using (DbConnection cnx = ConnectionBDD.SeConnecter())
+            {
+                Veterinaires _veto = new Veterinaires();
+                Animaux _animaux = new Animaux();
+                SqlDataAdapter monAdapter = new SqlDataAdapter();
+                DataTable resultat = new DataTable();
+                SqlParameter monParametre;
+                SqlCommand cmd = (SqlCommand)cnx.CreateCommand();
+                // A MODIFIER POUR PRENDRE EN COMPTE LES PROCEDURES  1 2 ET 3
+                cmd.CommandText = " exec ajout_Consultation2 @nomVeto, @nomAnimal";
+                monParametre = new SqlParameter("@nomVeto", _veto.NomVeto);
+                cmd.Parameters.Add(monParametre);
+                monParametre = new SqlParameter("@nomAnimal", _animaux.NomAnimal);
+                cmd.Parameters.Add(monParametre);
+                monAdapter.Fill(resultat);
+            }
+        }
+
+        public static void ajouterConsultationLigne(Consultation consultation)
+        {
+            using (DbConnection cnx = ConnectionBDD.SeConnecter())
+            {
+                Veterinaires _veto = new Veterinaires();
+                Animaux _animaux = new Animaux();
+                SqlDataAdapter monAdapter = new SqlDataAdapter();
+                DataTable resultat = new DataTable();
+                SqlParameter monParametre;
+                SqlCommand cmd = (SqlCommand)cnx.CreateCommand();
+                // A MODIFIER POUR PRENDRE EN COMPTE LES PROCEDURES  1 2 ET 3
+                cmd.CommandText = " exec ajout_Consultation3 @nomVeto, @nomAnimal";
+                monParametre = new SqlParameter("@nomVeto", _veto.NomVeto);
+                cmd.Parameters.Add(monParametre);
+                monParametre = new SqlParameter("@nomAnimal", _animaux.NomAnimal);
+                cmd.Parameters.Add(monParametre);
+                monAdapter.Fill(resultat);
+            }
         }
 
         public static void supprimerConsultation(Consultation consultation)

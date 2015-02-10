@@ -33,13 +33,13 @@
             this.BTN_consultation_valider = new System.Windows.Forms.Button();
             this.BTN_consultation_DossierMedical = new System.Windows.Forms.Button();
             this.groupBox_consultation_animal = new System.Windows.Forms.GroupBox();
-            this.textBox7 = new System.Windows.Forms.TextBox();
-            this.textBox6 = new System.Windows.Forms.TextBox();
-            this.textBox5 = new System.Windows.Forms.TextBox();
-            this.textBox4 = new System.Windows.Forms.TextBox();
-            this.textBox3 = new System.Windows.Forms.TextBox();
-            this.textBox2 = new System.Windows.Forms.TextBox();
-            this.textBox1 = new System.Windows.Forms.TextBox();
+            this.TXT_consultation_tatouageAnimal = new System.Windows.Forms.TextBox();
+            this.TXT_consultation_sexeAnimal = new System.Windows.Forms.TextBox();
+            this.TXT_consultation_raceAnimal = new System.Windows.Forms.TextBox();
+            this.TXT_consultation_couleurAnimal = new System.Windows.Forms.TextBox();
+            this.TXT_consultation_nomAnimal = new System.Windows.Forms.TextBox();
+            this.TXT_consultation_especeAnimal = new System.Windows.Forms.TextBox();
+            this.TXT_consultation_codeAnimal = new System.Windows.Forms.TextBox();
             this.LBL_consultation_tatouage = new System.Windows.Forms.Label();
             this.LBL_consultation_sexe = new System.Windows.Forms.Label();
             this.LBL_consultation_couleur = new System.Windows.Forms.Label();
@@ -120,13 +120,13 @@
             // 
             // groupBox_consultation_animal
             // 
-            this.groupBox_consultation_animal.Controls.Add(this.textBox7);
-            this.groupBox_consultation_animal.Controls.Add(this.textBox6);
-            this.groupBox_consultation_animal.Controls.Add(this.textBox5);
-            this.groupBox_consultation_animal.Controls.Add(this.textBox4);
-            this.groupBox_consultation_animal.Controls.Add(this.textBox3);
-            this.groupBox_consultation_animal.Controls.Add(this.textBox2);
-            this.groupBox_consultation_animal.Controls.Add(this.textBox1);
+            this.groupBox_consultation_animal.Controls.Add(this.TXT_consultation_tatouageAnimal);
+            this.groupBox_consultation_animal.Controls.Add(this.TXT_consultation_sexeAnimal);
+            this.groupBox_consultation_animal.Controls.Add(this.TXT_consultation_raceAnimal);
+            this.groupBox_consultation_animal.Controls.Add(this.TXT_consultation_couleurAnimal);
+            this.groupBox_consultation_animal.Controls.Add(this.TXT_consultation_nomAnimal);
+            this.groupBox_consultation_animal.Controls.Add(this.TXT_consultation_especeAnimal);
+            this.groupBox_consultation_animal.Controls.Add(this.TXT_consultation_codeAnimal);
             this.groupBox_consultation_animal.Controls.Add(this.LBL_consultation_tatouage);
             this.groupBox_consultation_animal.Controls.Add(this.LBL_consultation_sexe);
             this.groupBox_consultation_animal.Controls.Add(this.LBL_consultation_couleur);
@@ -142,68 +142,68 @@
             this.groupBox_consultation_animal.Text = "Animal";
             this.groupBox_consultation_animal.Enter += new System.EventHandler(this.groupBox_consultation_animal_Enter);
             // 
-            // textBox7
+            // TXT_consultation_tatouageAnimal
             // 
-            this.textBox7.Enabled = false;
-            this.textBox7.Location = new System.Drawing.Point(231, 89);
-            this.textBox7.Name = "textBox7";
-            this.textBox7.Size = new System.Drawing.Size(100, 20);
-            this.textBox7.TabIndex = 13;
-            this.textBox7.TextChanged += new System.EventHandler(this.textBox7_TextChanged);
+            this.TXT_consultation_tatouageAnimal.Enabled = false;
+            this.TXT_consultation_tatouageAnimal.Location = new System.Drawing.Point(231, 89);
+            this.TXT_consultation_tatouageAnimal.Name = "TXT_consultation_tatouageAnimal";
+            this.TXT_consultation_tatouageAnimal.Size = new System.Drawing.Size(100, 20);
+            this.TXT_consultation_tatouageAnimal.TabIndex = 13;
+            this.TXT_consultation_tatouageAnimal.TextChanged += new System.EventHandler(this.textBox7_TextChanged);
             // 
-            // textBox6
+            // TXT_consultation_sexeAnimal
             // 
-            this.textBox6.Enabled = false;
-            this.textBox6.Location = new System.Drawing.Point(543, 56);
-            this.textBox6.Name = "textBox6";
-            this.textBox6.Size = new System.Drawing.Size(100, 20);
-            this.textBox6.TabIndex = 12;
-            this.textBox6.TextChanged += new System.EventHandler(this.textBox6_TextChanged);
+            this.TXT_consultation_sexeAnimal.Enabled = false;
+            this.TXT_consultation_sexeAnimal.Location = new System.Drawing.Point(543, 56);
+            this.TXT_consultation_sexeAnimal.Name = "TXT_consultation_sexeAnimal";
+            this.TXT_consultation_sexeAnimal.Size = new System.Drawing.Size(100, 20);
+            this.TXT_consultation_sexeAnimal.TabIndex = 12;
+            this.TXT_consultation_sexeAnimal.TextChanged += new System.EventHandler(this.textBox6_TextChanged);
             // 
-            // textBox5
+            // TXT_consultation_raceAnimal
             // 
-            this.textBox5.Enabled = false;
-            this.textBox5.Location = new System.Drawing.Point(390, 56);
-            this.textBox5.Name = "textBox5";
-            this.textBox5.Size = new System.Drawing.Size(100, 20);
-            this.textBox5.TabIndex = 11;
-            this.textBox5.TextChanged += new System.EventHandler(this.textBox5_TextChanged);
+            this.TXT_consultation_raceAnimal.Enabled = false;
+            this.TXT_consultation_raceAnimal.Location = new System.Drawing.Point(390, 56);
+            this.TXT_consultation_raceAnimal.Name = "TXT_consultation_raceAnimal";
+            this.TXT_consultation_raceAnimal.Size = new System.Drawing.Size(100, 20);
+            this.TXT_consultation_raceAnimal.TabIndex = 11;
+            this.TXT_consultation_raceAnimal.TextChanged += new System.EventHandler(this.textBox5_TextChanged);
             // 
-            // textBox4
+            // TXT_consultation_couleurAnimal
             // 
-            this.textBox4.Enabled = false;
-            this.textBox4.Location = new System.Drawing.Point(390, 25);
-            this.textBox4.Name = "textBox4";
-            this.textBox4.Size = new System.Drawing.Size(100, 20);
-            this.textBox4.TabIndex = 10;
-            this.textBox4.TextChanged += new System.EventHandler(this.textBox4_TextChanged);
+            this.TXT_consultation_couleurAnimal.Enabled = false;
+            this.TXT_consultation_couleurAnimal.Location = new System.Drawing.Point(390, 25);
+            this.TXT_consultation_couleurAnimal.Name = "TXT_consultation_couleurAnimal";
+            this.TXT_consultation_couleurAnimal.Size = new System.Drawing.Size(100, 20);
+            this.TXT_consultation_couleurAnimal.TabIndex = 10;
+            this.TXT_consultation_couleurAnimal.TextChanged += new System.EventHandler(this.textBox4_TextChanged);
             // 
-            // textBox3
+            // TXT_consultation_nomAnimal
             // 
-            this.textBox3.Enabled = false;
-            this.textBox3.Location = new System.Drawing.Point(213, 25);
-            this.textBox3.Name = "textBox3";
-            this.textBox3.Size = new System.Drawing.Size(100, 20);
-            this.textBox3.TabIndex = 9;
-            this.textBox3.TextChanged += new System.EventHandler(this.textBox3_TextChanged);
+            this.TXT_consultation_nomAnimal.Enabled = false;
+            this.TXT_consultation_nomAnimal.Location = new System.Drawing.Point(213, 25);
+            this.TXT_consultation_nomAnimal.Name = "TXT_consultation_nomAnimal";
+            this.TXT_consultation_nomAnimal.Size = new System.Drawing.Size(100, 20);
+            this.TXT_consultation_nomAnimal.TabIndex = 9;
+            this.TXT_consultation_nomAnimal.TextChanged += new System.EventHandler(this.textBox3_TextChanged);
             // 
-            // textBox2
+            // TXT_consultation_especeAnimal
             // 
-            this.textBox2.Enabled = false;
-            this.textBox2.Location = new System.Drawing.Point(213, 56);
-            this.textBox2.Name = "textBox2";
-            this.textBox2.Size = new System.Drawing.Size(100, 20);
-            this.textBox2.TabIndex = 8;
-            this.textBox2.TextChanged += new System.EventHandler(this.textBox2_TextChanged);
+            this.TXT_consultation_especeAnimal.Enabled = false;
+            this.TXT_consultation_especeAnimal.Location = new System.Drawing.Point(213, 56);
+            this.TXT_consultation_especeAnimal.Name = "TXT_consultation_especeAnimal";
+            this.TXT_consultation_especeAnimal.Size = new System.Drawing.Size(100, 20);
+            this.TXT_consultation_especeAnimal.TabIndex = 8;
+            this.TXT_consultation_especeAnimal.TextChanged += new System.EventHandler(this.textBox2_TextChanged);
             // 
-            // textBox1
+            // TXT_consultation_codeAnimal
             // 
-            this.textBox1.Enabled = false;
-            this.textBox1.Location = new System.Drawing.Point(65, 26);
-            this.textBox1.Name = "textBox1";
-            this.textBox1.Size = new System.Drawing.Size(100, 20);
-            this.textBox1.TabIndex = 7;
-            this.textBox1.TextChanged += new System.EventHandler(this.textBox1_TextChanged);
+            this.TXT_consultation_codeAnimal.Enabled = false;
+            this.TXT_consultation_codeAnimal.Location = new System.Drawing.Point(65, 26);
+            this.TXT_consultation_codeAnimal.Name = "TXT_consultation_codeAnimal";
+            this.TXT_consultation_codeAnimal.Size = new System.Drawing.Size(100, 20);
+            this.TXT_consultation_codeAnimal.TabIndex = 7;
+            this.TXT_consultation_codeAnimal.TextChanged += new System.EventHandler(this.textBox1_TextChanged);
             // 
             // LBL_consultation_tatouage
             // 
@@ -535,13 +535,13 @@
         private System.Windows.Forms.Button BTN_consultation_annuler;
         private System.Windows.Forms.Button BTN_consultation_valider;
         private System.Windows.Forms.Button BTN_consultation_DossierMedical;
-        private System.Windows.Forms.TextBox textBox7;
-        private System.Windows.Forms.TextBox textBox6;
-        private System.Windows.Forms.TextBox textBox5;
-        private System.Windows.Forms.TextBox textBox4;
-        private System.Windows.Forms.TextBox textBox3;
-        private System.Windows.Forms.TextBox textBox2;
-        private System.Windows.Forms.TextBox textBox1;
+        private System.Windows.Forms.TextBox TXT_consultation_tatouageAnimal;
+        private System.Windows.Forms.TextBox TXT_consultation_sexeAnimal;
+        private System.Windows.Forms.TextBox TXT_consultation_raceAnimal;
+        private System.Windows.Forms.TextBox TXT_consultation_couleurAnimal;
+        private System.Windows.Forms.TextBox TXT_consultation_nomAnimal;
+        private System.Windows.Forms.TextBox TXT_consultation_especeAnimal;
+        private System.Windows.Forms.TextBox TXT_consultation_codeAnimal;
         private System.Windows.Forms.Label LBL_consultation_tatouage;
         private System.Windows.Forms.Label LBL_consultation_sexe;
         private System.Windows.Forms.Label LBL_consultation_couleur;

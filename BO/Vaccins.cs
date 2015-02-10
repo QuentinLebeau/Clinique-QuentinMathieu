@@ -9,9 +9,9 @@ namespace BO
 {
     public class Vaccins
     {
-        private int? _codeVaccin;
+        private Guid? _codeVaccin;
 
-        public int? CodeVaccin
+        public Guid? CodeVaccin
         {
             get { return _codeVaccin; }
             set { _codeVaccin = value; }
@@ -43,12 +43,17 @@ namespace BO
             { 
                 TypeCode typeCode;
                 _periodeValidite = value;
-                _periodeValidite += _periodeValidite/6;
-                typeCode = _periodeValidite.Value.GetTypeCode();
-                if (typeCode != TypeCode.Int64 && typeCode != TypeCode.Int32 && 
-                    typeCode != TypeCode.Int16)
+                
+               
+                if (_periodeValidite.HasValue)
                 {
-                    throw new Exception("Ce n'est pas un octet");
+                    _periodeValidite += _periodeValidite / 6;
+                    typeCode = _periodeValidite.Value.GetTypeCode();
+                    if (typeCode != TypeCode.Int64 && typeCode != TypeCode.Int32 &&
+                    typeCode != TypeCode.Int16)
+                    {
+                        throw new Exception("Ce n'est pas un octet");
+                    }
                 }
             }
         }
@@ -75,7 +80,7 @@ namespace BO
 
         public Vaccins(DataRow monVaccins)
         {
-            this.CodeVaccin = int.Parse(monVaccins["CodeVaccin"].ToString());
+            this.CodeVaccin = Guid.Parse(monVaccins["CodeVaccin"].ToString());
             this.NomVaccin = monVaccins["NomVaccin"].ToString();
             this.QuantiteStock = int.Parse(monVaccins["QuantiteStock"].ToString());
             this.PeriodeValidite = int.Parse(monVaccins["PeriodeValidite"].ToString());

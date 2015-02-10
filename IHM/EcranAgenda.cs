@@ -9,6 +9,7 @@ using System.Threading.Tasks;
 using System.Windows.Forms;
 using BLL;
 using BO;
+using clinique;
 
 namespace Clinique
 {
@@ -19,6 +20,9 @@ namespace Clinique
             InitializeComponent();
             combo_agenda_veto.DataSource = MgtVeterinaires.getAllVeto();
             dateTimePicker_agenda_date.Value = DateTime.Now;
+
+            dataGridView_agenda.Columns["CodeVeto"].Visible = false;
+            dataGridView_agenda.Columns["CodeAnimal"].Visible = false;
         }
 
         private void comboBox1_SelectedIndexChanged(object sender, EventArgs e)
@@ -39,6 +43,10 @@ namespace Clinique
         private void BTN_agenda_Dossier_Click(object sender, EventArgs e)
         {
 
+        }
+
+        private void dataGridView_agenda_DoubleClick(object sender, EventArgs e)
+        {
         }
     }
 }

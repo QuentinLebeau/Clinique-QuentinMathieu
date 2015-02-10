@@ -12,7 +12,7 @@ namespace Clinique
 {
     public partial class EcranConsultation : Form
     {
-        public EcranConsultation()
+        public EcranConsultation(Guid pCodeConsultation)
         {
             InitializeComponent();
         }

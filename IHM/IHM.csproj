@@ -115,6 +115,18 @@
     <Compile Include="ecranReinitialisation.Designer.cs">
       <DependentUpon>ecranReinitialisation.cs</DependentUpon>
     </Compile>
+    <Compile Include="EcranRelance.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="EcranRelance.Designer.cs">
+      <DependentUpon>EcranRelance.cs</DependentUpon>
+    </Compile>
+    <Compile Include="EcranStockVaccin.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="EcranStockVaccin.Designer.cs">
+      <DependentUpon>EcranStockVaccin.cs</DependentUpon>
+    </Compile>
     <Compile Include="EcranVeterinaires.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -159,6 +171,12 @@
     </EmbeddedResource>
     <EmbeddedResource Include="ecranReinitialisation.resx">
       <DependentUpon>ecranReinitialisation.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="EcranRelance.resx">
+      <DependentUpon>EcranRelance.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="EcranStockVaccin.resx">
+      <DependentUpon>EcranStockVaccin.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="EcranVeterinaires.resx">
       <DependentUpon>EcranVeterinaires.cs</DependentUpon>

@@ -47,14 +47,14 @@
             this.groupBox1.Controls.Add(this.combo_agenda_veto);
             this.groupBox1.Location = new System.Drawing.Point(13, 12);
             this.groupBox1.Name = "groupBox1";
-            this.groupBox1.Size = new System.Drawing.Size(482, 57);
+            this.groupBox1.Size = new System.Drawing.Size(529, 57);
             this.groupBox1.TabIndex = 0;
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "De";
             // 
             // dateTimePicker_agenda_date
             // 
-            this.dateTimePicker_agenda_date.Location = new System.Drawing.Point(276, 22);
+            this.dateTimePicker_agenda_date.Location = new System.Drawing.Point(323, 22);
             this.dateTimePicker_agenda_date.Name = "dateTimePicker_agenda_date";
             this.dateTimePicker_agenda_date.Size = new System.Drawing.Size(200, 20);
             this.dateTimePicker_agenda_date.TabIndex = 3;
@@ -63,7 +63,7 @@
             // LBL_agenda_date
             // 
             this.LBL_agenda_date.AutoSize = true;
-            this.LBL_agenda_date.Location = new System.Drawing.Point(221, 25);
+            this.LBL_agenda_date.Location = new System.Drawing.Point(269, 25);
             this.LBL_agenda_date.Name = "LBL_agenda_date";
             this.LBL_agenda_date.Size = new System.Drawing.Size(30, 13);
             this.LBL_agenda_date.TabIndex = 2;
@@ -83,21 +83,22 @@
             this.combo_agenda_veto.FormattingEnabled = true;
             this.combo_agenda_veto.Location = new System.Drawing.Point(69, 22);
             this.combo_agenda_veto.Name = "combo_agenda_veto";
-            this.combo_agenda_veto.Size = new System.Drawing.Size(121, 21);
+            this.combo_agenda_veto.Size = new System.Drawing.Size(160, 21);
             this.combo_agenda_veto.TabIndex = 0;
             this.combo_agenda_veto.SelectedIndexChanged += new System.EventHandler(this.comboBox1_SelectedIndexChanged);
             // 
             // dataGridView_agenda
             // 
             this.dataGridView_agenda.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dataGridView_agenda.Location = new System.Drawing.Point(13, 85);
+            this.dataGridView_agenda.Location = new System.Drawing.Point(13, 84);
             this.dataGridView_agenda.Name = "dataGridView_agenda";
-            this.dataGridView_agenda.Size = new System.Drawing.Size(482, 143);
+            this.dataGridView_agenda.Size = new System.Drawing.Size(529, 167);
             this.dataGridView_agenda.TabIndex = 1;
+            this.dataGridView_agenda.DoubleClick += new System.EventHandler(this.dataGridView_agenda_DoubleClick);
             // 
             // BTN_agenda_Dossier
             // 
-            this.BTN_agenda_Dossier.Location = new System.Drawing.Point(212, 236);
+            this.BTN_agenda_Dossier.Location = new System.Drawing.Point(246, 263);
             this.BTN_agenda_Dossier.Name = "BTN_agenda_Dossier";
             this.BTN_agenda_Dossier.Size = new System.Drawing.Size(75, 23);
             this.BTN_agenda_Dossier.TabIndex = 2;
@@ -109,7 +110,7 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(503, 264);
+            this.ClientSize = new System.Drawing.Size(554, 292);
             this.Controls.Add(this.BTN_agenda_Dossier);
             this.Controls.Add(this.dataGridView_agenda);
             this.Controls.Add(this.groupBox1);

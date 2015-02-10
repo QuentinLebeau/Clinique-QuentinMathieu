@@ -45,6 +45,9 @@ namespace Clinique
             TXT_clients_adresse2.Text = _clientCourant.Adresse2;
             TXT_clients_CP.Text = _clientCourant.CodePostal;
             TXT_clients_ville.Text = _clientCourant.Ville;
+            TXT_clients_tel.Text = _clientCourant.NumTel;
+            TXT_clients_mail.Text = _clientCourant.Email;
+            TXT_clients_assureur.Text = _clientCourant.Assurance;
         }
 
         private Clients ClientCourant
@@ -106,6 +109,9 @@ namespace Clinique
             TXT_clients_adresse2.Text = null;
             TXT_clients_CP.Text = null;
             TXT_clients_ville.Text = null;
+            TXT_clients_tel.Text = null;
+            TXT_clients_mail.Text = null;
+            TXT_clients_assureur.Text = null;
 
             dataGrid_clients = null;
 
@@ -135,16 +141,24 @@ namespace Clinique
             monClient.Adresse2 = TXT_clients_adresse2.Text;
             monClient.CodePostal = TXT_clients_CP.Text;
             monClient.Ville = TXT_clients_ville.Text;
+            monClient.NumTel = TXT_clients_tel.Text;
+            monClient.Email = TXT_clients_mail.Text;
+            monClient.Assurance = TXT_clients_assureur.Text;
 
             MgtClient.GetInstance().Ajouter(monClient);
 
-            TXT_clients_code.Text = _clientCourant.CodeClient.ToString();
-            TXT_clients_nom.Text = _clientCourant.NomClient;
-            TXT_clients_prenom.Text = _clientCourant.PrenomClient;
-            TXT_clients_adresse1.Text = _clientCourant.Adresse1;
-            TXT_clients_adresse2.Text = _clientCourant.Adresse2;
-            TXT_clients_CP.Text = _clientCourant.CodePostal;
-            TXT_clients_ville.Text = _clientCourant.Ville;
+            RemplissageTextBox(monClient.CodeClient);
+
+            //TXT_clients_code.Text = _clientCourant.CodeClient.ToString();
+            //TXT_clients_nom.Text = _clientCourant.NomClient;
+            //TXT_clients_prenom.Text = _clientCourant.PrenomClient;
+            //TXT_clients_adresse1.Text = _clientCourant.Adresse1;
+            //TXT_clients_adresse2.Text = _clientCourant.Adresse2;
+            //TXT_clients_CP.Text = _clientCourant.CodePostal;
+            //TXT_clients_ville.Text = _clientCourant.Ville;
+            //TXT_clients_tel.Text = _clientCourant.NumTel;
+            //TXT_clients_mail.Text = _clientCourant.Email;
+            //TXT_clients_assureur.Text = _clientCourant.Assurance;
 
             
         }
@@ -191,6 +205,9 @@ namespace Clinique
                 TXT_clients_adresse2.Text = monClient.Adresse2;
                 TXT_clients_CP.Text = monClient.CodePostal;
                 TXT_clients_ville.Text = monClient.Ville;
+                TXT_clients_tel.Text = monClient.NumTel;
+                TXT_clients_mail.Text = monClient.Email;
+                TXT_clients_assureur.Text = monClient.Assurance;
             }
             else
             {
@@ -201,6 +218,9 @@ namespace Clinique
                 TXT_clients_adresse2.Text = null;
                 TXT_clients_CP.Text = null;
                 TXT_clients_ville.Text = null;
+                TXT_clients_tel.Text = null;
+                TXT_clients_mail.Text = null;
+                TXT_clients_assureur.Text = null;
             }
             
         }
