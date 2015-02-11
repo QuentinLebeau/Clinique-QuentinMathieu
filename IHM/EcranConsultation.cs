@@ -78,10 +78,11 @@ namespace Clinique
                 MgtConsultation.AjouterNouvelleConsu(_maConsu);
                 _maConsu = MgtConsultation.AfficherTout().Find(x => x.CodeAnimal == Guid.Parse(TXT_CodeAnimal.Text) && x.CodeVeto == ((Veterinaires)COMBO_Veto.SelectedItem).CodeVeto.Value && x.DateConsultation == DateTime.Parse(DATE_Acte.Text));
 
+                ChargementGrid();
+                BTN_Supprimer_Click(null, null); // Car insère une ligne à cause de la procedure stocké
             }
 
             ChargementGrid();
-            BTN_Supprimer_Click(null, null); // Car insère une ligne à cause de la procedure stocké
 
             BTN_AjouterActe.Enabled = false;
             BTN_AnnulerConsu.Enabled = true;
@@ -129,6 +130,12 @@ namespace Clinique
             ChargementGrid();
         }
 
+        private void button1_Click(object sender, EventArgs e)
+        {
+            EcranDossierMedicaux monEcran = new EcranDossierMedicaux();
+            monEcran.Show();
+        }
+
         // SelectionChange
         private void COMBO_TypeActe_SelectionChangeCommitted(object sender, EventArgs e)
         {
@@ -144,11 +151,11 @@ namespace Clinique
         {
             if (!String.IsNullOrWhiteSpace(TXT_Prix.Text))
             {
-                if (!String.IsNullOrWhiteSpace(TXT_Mini.Text) && int.Parse(TXT_Mini.Text) >= int.Parse(TXT_Prix.Text) && !String.IsNullOrWhiteSpace(TXT_Maxi.Text) && int.Parse(TXT_Maxi.Text) <= int.Parse(TXT_Prix.Text))
+                if (!String.IsNullOrWhiteSpace(TXT_Mini.Text) && float.Parse(TXT_Prix.Text) >= float.Parse(TXT_Mini.Text) && !String.IsNullOrWhiteSpace(TXT_Maxi.Text) && float.Parse(TXT_Prix.Text) <= float.Parse(TXT_Maxi.Text))
                 {
                     BTN_Enregistrer.Enabled = true;
                 }
-                else if (String.IsNullOrWhiteSpace(TXT_Mini.Text) && !String.IsNullOrWhiteSpace(TXT_Maxi.Text))
+                else if (String.IsNullOrWhiteSpace(TXT_Mini.Text) && String.IsNullOrWhiteSpace(TXT_Maxi.Text))
                 {
                     BTN_Enregistrer.Enabled = true;
                 }
@@ -186,13 +193,19 @@ namespace Clinique
 
                 if (!String.IsNullOrWhiteSpace(TXT_Maxi.Text) && !String.IsNullOrWhiteSpace(TXT_Mini.Text))
                 {
-                    TXT_Prix.Text = (((float.Parse(TXT_Mini.Text) - float.Parse(TXT_Maxi.Text)) / 2) + float.Parse(TXT_Mini.Text)).ToString();
+                    TXT_Prix.Text = (((float.Parse(TXT_Maxi.Text) - float.Parse(TXT_Mini.Text)) / 2) + float.Parse(TXT_Mini.Text)).ToString();
+                }
+                else
+                {
+                    TXT_Prix.Text = null;
+                    TXT_Maxi.Text = null;
+                    TXT_Mini.Text = null;
                 }
             }
         }
 
         /// <summary>
-        /// Recharge la DataGridView avec les lignes de la consultation en cours + compteur d'actes + total
+        /// Recharge la DataGridView avec les lignes de la consultation en cours + compteur d'actes + total actes
         /// </summary>
         private void ChargementGrid()
         {
@@ -233,11 +246,6 @@ namespace Clinique
         }
 
         private void groupBox1_Enter(object sender, EventArgs e)
-        {
-
-        }
-
-        private void button1_Click(object sender, EventArgs e)
         {
 
         }

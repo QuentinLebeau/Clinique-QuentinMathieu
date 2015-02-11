@@ -44,6 +44,8 @@ namespace Clinique
         private void COMBO_Client_SelectedIndexChanged(object sender, EventArgs e)
         {
             COMBO_Animal.DataSource = monMgtAnimal.AfficherTout().FindAll(y => y.CodeClient == ((Clients)COMBO_Client.SelectedItem).CodeClient).ToList<Animaux>();
+            LBL_Proprio.ForeColor = Color.Red;
+            LBL_Tatou.ForeColor = Color.Black;
         }
 
         private void COMBO_Animal_SelectedIndexChanged(object sender, EventArgs e)
@@ -68,6 +70,13 @@ namespace Clinique
                 //monEcran = new EcranConsultation(Guid.Parse(GRID_Consultation.Rows[e.RowIndex].Cells["CodeConsultation"].Value.ToString()));
                 //monEcran.Show();
             }            
+        }
+
+        private void COMBO_Tatouage_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            COMBO_Animal.DataSource = monMgtAnimal.AfficherTout().FindAll(y => y.Tatouage == COMBO_Tatouage.SelectedItem.ToString()).ToList<Animaux>();
+            LBL_Proprio.ForeColor = Color.Black;
+            LBL_Tatou.ForeColor = Color.Red;
         }
     }
 }
