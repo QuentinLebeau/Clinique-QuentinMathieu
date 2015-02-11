@@ -17,8 +17,8 @@ namespace BO
             set { _codeConsultation = value; }
         }
 
-        private int? _numLigne;
-        public int? NumLigne
+        private Guid? _numLigne;
+        public Guid? NumLigne
         {
             get { return _numLigne; }
             set { _numLigne = value; }
@@ -31,9 +31,9 @@ namespace BO
             set { _codeGroupement = value; }
         }
 
-        private DateTime? _dateVigueur;
+        private string _dateVigueur;
 
-        public DateTime? DateVigueur
+        public string DateVigueur
         {
             get { return _dateVigueur; }
             set { _dateVigueur = value; }
@@ -77,9 +77,9 @@ namespace BO
          public LignesConsultations(DataRow maLigneConsultations)
         {
             this.CodeConsultation = Guid.Parse(maLigneConsultations["CodeConsultation"].ToString());
-            this.NumLigne = int.Parse(maLigneConsultations["NumLigne"].ToString());
+            this.NumLigne = Guid.Parse(maLigneConsultations["NumLigne"].ToString());
             this.CodeGroupement = maLigneConsultations["CodeGroupement"].ToString();
-            this.DateVigueur = DateTime.Parse(maLigneConsultations["DateVigueur"].ToString());
+            this.DateVigueur = maLigneConsultations["DateVigueur"].ToString();
             this.Prix = float.Parse(maLigneConsultations["Prix"].ToString());
             this.RappelEnvoye = bool.Parse(maLigneConsultations["RappelEnvoye"].ToString());
             this.Archive = bool.Parse(maLigneConsultations["Archive"].ToString());

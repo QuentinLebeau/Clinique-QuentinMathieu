@@ -62,19 +62,23 @@ namespace DAL
         {
             using (DbConnection cnx = ConnectionBDD.SeConnecter())
             {
-                Veterinaires _veto = new Veterinaires();
-                Animaux _animaux = new Animaux();
-                SqlDataAdapter monAdapter = new SqlDataAdapter();
-                DataTable resultat = new DataTable();
+                ADO_Animal monAnimalDAL = new ADO_Animal();
+                Veterinaires _veto = ADO_Veterinaires.getOneVeto(consultation.CodeVeto.Value);
+                Animaux _animaux = monAnimalDAL.GetOne(consultation.CodeAnimal.Value);
+
                 SqlParameter monParametre;
                 SqlCommand cmd = (SqlCommand)cnx.CreateCommand();
-                // A MODIFIER POUR PRENDRE EN COMPTE LES PROCEDURES  1 2 ET 3
-                cmd.CommandText = " exec ajout_Consultation1 @nomVeto, @nomAnimal";
+
+                cmd.CommandText = " exec ajout_Consultation1 @DateConsultation, @nomVeto, @nomAnimal";
+
                 monParametre = new SqlParameter("@nomVeto", _veto.NomVeto);
                 cmd.Parameters.Add(monParametre);
                 monParametre = new SqlParameter("@nomAnimal",_animaux.NomAnimal);
                 cmd.Parameters.Add(monParametre);
-                monAdapter.Fill(resultat);
+                monParametre = new SqlParameter("@DateConsultation", consultation.DateConsultation.Value);
+                cmd.Parameters.Add(monParametre);
+
+                cmd.ExecuteNonQuery();
            }
         }
 
@@ -82,19 +86,23 @@ namespace DAL
         {
             using (DbConnection cnx = ConnectionBDD.SeConnecter())
             {
-                Veterinaires _veto = new Veterinaires();
-                Animaux _animaux = new Animaux();
-                SqlDataAdapter monAdapter = new SqlDataAdapter();
-                DataTable resultat = new DataTable();
+                ADO_Animal monAnimalDAL = new ADO_Animal();
+                Veterinaires _veto = ADO_Veterinaires.getOneVeto(consultation.CodeVeto.Value);
+                Animaux _animaux = monAnimalDAL.GetOne(consultation.CodeAnimal.Value);
+
                 SqlParameter monParametre;
                 SqlCommand cmd = (SqlCommand)cnx.CreateCommand();
-                // A MODIFIER POUR PRENDRE EN COMPTE LES PROCEDURES  1 2 ET 3
-                cmd.CommandText = " exec ajout_Consultation2 @nomVeto, @nomAnimal";
+
+                cmd.CommandText = " exec ajout_Consultation2 @DateConsultation, @nomVeto, @nomAnimal";
+
                 monParametre = new SqlParameter("@nomVeto", _veto.NomVeto);
                 cmd.Parameters.Add(monParametre);
                 monParametre = new SqlParameter("@nomAnimal", _animaux.NomAnimal);
                 cmd.Parameters.Add(monParametre);
-                monAdapter.Fill(resultat);
+                monParametre = new SqlParameter("@DateConsultation", consultation.DateConsultation.Value);
+                cmd.Parameters.Add(monParametre);
+
+                cmd.ExecuteNonQuery();
             }
         }
 
@@ -102,73 +110,59 @@ namespace DAL
         {
             using (DbConnection cnx = ConnectionBDD.SeConnecter())
             {
-                Veterinaires _veto = new Veterinaires();
-                Animaux _animaux = new Animaux();
-                SqlDataAdapter monAdapter = new SqlDataAdapter();
-                DataTable resultat = new DataTable();
+                ADO_Animal monAnimalDAL = new ADO_Animal();
+                Veterinaires _veto = ADO_Veterinaires.getOneVeto(consultation.CodeVeto.Value);
+                Animaux _animaux = monAnimalDAL.GetOne(consultation.CodeAnimal.Value);
+
                 SqlParameter monParametre;
                 SqlCommand cmd = (SqlCommand)cnx.CreateCommand();
-                // A MODIFIER POUR PRENDRE EN COMPTE LES PROCEDURES  1 2 ET 3
-                cmd.CommandText = " exec ajout_Consultation3 @nomVeto, @nomAnimal";
+
+                cmd.CommandText = " exec ajout_Consultation3 @DateConsultation, @nomVeto, @nomAnimal";
+
                 monParametre = new SqlParameter("@nomVeto", _veto.NomVeto);
                 cmd.Parameters.Add(monParametre);
                 monParametre = new SqlParameter("@nomAnimal", _animaux.NomAnimal);
                 cmd.Parameters.Add(monParametre);
-                monAdapter.Fill(resultat);
+                monParametre = new SqlParameter("@DateConsultation", consultation.DateConsultation.Value);
+                cmd.Parameters.Add(monParametre);
+
+                cmd.ExecuteNonQuery();
             }
         }
 
-        public static void supprimerConsultation(Consultation consultation)
+        public static void Delete(Consultation consultation)
         {
             using (DbConnection cnx = ConnectionBDD.SeConnecter())
             {
-                List<Consultation> listeConsultation = new List<Consultation>();
-                SqlDataAdapter monAdapter = new SqlDataAdapter();
-                DataTable resultat = new DataTable();
+                SqlParameter monParametre;
                 SqlCommand cmd = (SqlCommand)cnx.CreateCommand();
-                cmd.CommandText = "update Veterinaires set Archive = 1 where CodeVeto = '" + consultation.CodeConsultation + "'";
-                monAdapter.SelectCommand = cmd;
-                monAdapter.Fill(resultat);
 
-                foreach (DataRow uneConsultation in resultat.Rows)
-                {
-                    listeConsultation.Add(new Consultation(uneConsultation));
-                }
+                cmd.CommandText = " DELETE FROM LignesConsultations WHERE CodeConsultation =  @CodeConsultation ;" +
+                                  " DELETE FROM Consultations WHERE CodeConsultation =  @CodeConsultation; ";
+
+                monParametre = new SqlParameter("@CodeConsultation", consultation.CodeConsultation);
+                cmd.Parameters.Add(monParametre);
+
+                cmd.ExecuteNonQuery();
             }
         }
 
-        public static void modifierConsultation(Consultation consultation)
+        public static void Update(Consultation consultation)
         {
             using (DbConnection cnx = ConnectionBDD.SeConnecter())
             {
-                List<Consultation> listeConsultation = new List<Consultation>();
-                SqlDataAdapter monAdapter = new SqlDataAdapter();
-                DataTable resultat = new DataTable();
-                    SqlParameter monParametre;
-                    SqlCommand cmd = (SqlCommand)cnx.CreateCommand();
-                    cmd.CommandText = "update Veterinaires set @codeVeto, @dateConsultation, @codeAnimal, " +
-                                      "@commentaire, @numFacture, @etat  where CodeVeto = @codeConsultation";
-                    monParametre = new SqlParameter("@codeVeto", consultation.CodeVeto);
-                    cmd.Parameters.Add(monParametre);
-                    monParametre = new SqlParameter("@dateConsultation", consultation.DateConsultation);
-                    cmd.Parameters.Add(monParametre);
-                    monParametre = new SqlParameter("@codeAnimal", consultation.CodeAnimal);
-                    cmd.Parameters.Add(monParametre);
-                    monParametre = new SqlParameter("@commentaire", consultation.Commentaire);
-                    cmd.Parameters.Add(monParametre);
-                    monParametre = new SqlParameter("@numFacture", consultation.NumFacture);
-                    cmd.Parameters.Add(monParametre);
-                    monParametre = new SqlParameter("@etat", consultation.Etat);
-                    cmd.Parameters.Add(monParametre);
-                    monParametre = new SqlParameter("@codeConsultation", consultation.CodeConsultation);
-                    cmd.Parameters.Add(monParametre);
-                    monAdapter.SelectCommand = cmd;
-                    monAdapter.Fill(resultat);
+                SqlParameter monParametre;
+                SqlCommand cmd = (SqlCommand)cnx.CreateCommand();
+                cmd.CommandText = " UPDATE Consultations " +
+                                    " SET Commentaire = @commentaire " +
+                                    " WHERE CodeConsultation = @codeConsultation";
 
-                    foreach (DataRow uneConsultation in resultat.Rows)
-                    {
-                        listeConsultation.Add(new Consultation(uneConsultation));
-                    }
+                monParametre = new SqlParameter("@commentaire", consultation.Commentaire);
+                cmd.Parameters.Add(monParametre);
+                monParametre = new SqlParameter("@codeConsultation", consultation.CodeConsultation);
+                cmd.Parameters.Add(monParametre);
+
+                cmd.ExecuteNonQuery();
             }
         }
     }

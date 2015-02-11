@@ -15,29 +15,206 @@ namespace Clinique
     public partial class EcranConsultation : Form
     {
         MgtAnimal monMgtAnimal = new MgtAnimal();
+        Agendas _monAgenda = new Agendas();
+        Animaux _monAnimal = new Animaux();
+        Veterinaires _monVeto = new Veterinaires();
+        Consultation _maConsu = new Consultation();               
 
+        #region "Evènement"
+
+        // Init
         public EcranConsultation(Agendas pAgenda)
         {
             InitializeComponent();
-                        
-            Animaux monAnimal = monMgtAnimal.AfficherUneSeul(pAgenda.CodeAnimal.Value);
-            Veterinaires monVeto = MgtVeterinaires.getOneVeto(pAgenda.CodeVeto.Value);
 
-            TXT_CodeAnimal.Text = monAnimal.CodeAnimal.Value.ToString();
-            TXT_Couleur.Text = monAnimal.Couleur;
-            TXT_Espece.Text = monAnimal.Race.Espece;
-            TXT_NomAnimal.Text = monAnimal.NomAnimal;
-            TXT_Race.Text = monAnimal.Race.Race;
-            TXT_Sexe.Text = monAnimal.Sexe.ToString();
-            TXT_Tatouage.Text = monAnimal.Tatouage;
+            _monAgenda = pAgenda;
+            _monAnimal = monMgtAnimal.AfficherUneSeul(pAgenda.CodeAnimal.Value);
+            _monVeto = MgtVeterinaires.getOneVeto(pAgenda.CodeVeto.Value);
+
+            TXT_CodeAnimal.Text = _monAnimal.CodeAnimal.Value.ToString();
+            TXT_Couleur.Text = _monAnimal.Couleur;
+            TXT_Espece.Text = _monAnimal.Race.Espece;
+            TXT_NomAnimal.Text = _monAnimal.NomAnimal;
+            TXT_Race.Text = _monAnimal.Race.Race;
+            TXT_Sexe.Text = _monAnimal.Sexe.ToString();
+            TXT_Tatouage.Text = _monAnimal.Tatouage;
 
             DATE_Acte.Text = pAgenda.DateRDV.Value.ToString();
 
             COMBO_Veto.DataSource = MgtVeterinaires.getAllVeto();
+            for (int i = 0; i < COMBO_Veto.Items.Count; i++)
+            {
+                if (((Veterinaires)COMBO_Veto.Items[i]).CodeVeto.Value == pAgenda.CodeVeto.Value)
+                {
+                    COMBO_Veto.SelectedIndex = i;
+                    break;
+                }
+            }
             COMBO_TypeActe.DataSource = MgtBaremes.AffichierTout().Select(x => x.TypeActe).Distinct().ToList<string>();
             ChangementCOMBO(true, false);
         }
-                
+
+        // Clic
+        private void BTN_AjouterActe_Click(object sender, EventArgs e)
+        {
+            COMBO_Veto.Enabled = true;
+            COMBO_TypeActe.Enabled = true;
+            COMBO_LibelleActe.Enabled = true;
+
+            TXT_Prix.Enabled = true;
+
+            ChangementCOMBO(false, true);
+
+            _maConsu = MgtConsultation.AfficherTout().Find(x => x.CodeAnimal == Guid.Parse(TXT_CodeAnimal.Text) && x.CodeVeto == ((Veterinaires)COMBO_Veto.SelectedItem).CodeVeto.Value && x.DateConsultation == DateTime.Parse(DATE_Acte.Text));
+
+            if (_maConsu == null)
+            {
+                _maConsu = new Consultation(); 
+                _maConsu.CodeAnimal = _monAnimal.CodeAnimal.Value;
+                _maConsu.CodeVeto = _monVeto.CodeVeto.Value;
+                _maConsu.Commentaire = TXT_Commentaire.Text;
+                _maConsu.DateConsultation = DateTime.Parse(DATE_Acte.Text);
+
+                MgtConsultation.AjouterNouvelleConsu(_maConsu);
+                _maConsu = MgtConsultation.AfficherTout().Find(x => x.CodeAnimal == Guid.Parse(TXT_CodeAnimal.Text) && x.CodeVeto == ((Veterinaires)COMBO_Veto.SelectedItem).CodeVeto.Value && x.DateConsultation == DateTime.Parse(DATE_Acte.Text));
+
+            }
+
+            ChargementGrid();
+            BTN_Supprimer_Click(null, null); // Car insère une ligne à cause de la procedure stocké
+
+            BTN_AjouterActe.Enabled = false;
+            BTN_AnnulerConsu.Enabled = true;
+        }
+
+        private void BTN_Enregistrer_Click(object sender, EventArgs e)
+        {
+            LignesConsultations maLigneConsu = new LignesConsultations();
+            Baremes monBareme = MgtBaremes.AfficherUnSeul((Baremes)COMBO_LibelleActe.SelectedItem);
+
+            maLigneConsu.Archive = false;
+            maLigneConsu.CodeConsultation = _maConsu.CodeConsultation;
+            maLigneConsu.CodeGroupement = monBareme.CodeGroupement;
+            maLigneConsu.Prix = float.Parse(TXT_Prix.Text);
+            maLigneConsu.RappelEnvoye = false;
+
+            if (!String.IsNullOrWhiteSpace(monBareme.DateVigueur))
+            {
+                maLigneConsu.DateVigueur = monBareme.DateVigueur;
+            }
+
+            MgtLigneConsultation.Ajouter(maLigneConsu);
+
+            ChargementGrid();
+        }
+
+        private void button3_Click(object sender, EventArgs e)
+        {
+            MgtConsultation.Supprimer(_maConsu);
+
+            this.Close();
+        }
+
+        private void button2_Click(object sender, EventArgs e)
+        {
+            _maConsu.Commentaire = TXT_Commentaire.Text;
+
+            MgtConsultation.Modifier(_maConsu);
+        }
+
+        private void BTN_Supprimer_Click(object sender, EventArgs e)
+        {
+            MgtLigneConsultation.Supprimer((LignesConsultations)GRID_LigneConsu.CurrentRow.DataBoundItem);
+
+            ChargementGrid();
+        }
+
+        // SelectionChange
+        private void COMBO_TypeActe_SelectionChangeCommitted(object sender, EventArgs e)
+        {
+            ChangementCOMBO(true, false);
+        }
+
+        private void COMBO_LibelleActe_SelectionChangeCommitted(object sender, EventArgs e)
+        {
+            ChangementCOMBO(false, true);
+        }
+
+        private void textBox13_TextChanged(object sender, EventArgs e)
+        {
+            if (!String.IsNullOrWhiteSpace(TXT_Prix.Text))
+            {
+                if (!String.IsNullOrWhiteSpace(TXT_Mini.Text) && int.Parse(TXT_Mini.Text) >= int.Parse(TXT_Prix.Text) && !String.IsNullOrWhiteSpace(TXT_Maxi.Text) && int.Parse(TXT_Maxi.Text) <= int.Parse(TXT_Prix.Text))
+                {
+                    BTN_Enregistrer.Enabled = true;
+                }
+                else if (String.IsNullOrWhiteSpace(TXT_Mini.Text) && !String.IsNullOrWhiteSpace(TXT_Maxi.Text))
+                {
+                    BTN_Enregistrer.Enabled = true;
+                }
+                else
+                {
+                    BTN_Enregistrer.Enabled = false;
+                }
+            }
+            else
+            {
+                BTN_Enregistrer.Enabled = false;
+            }
+        }                     
+
+        #endregion
+
+        #region "Méthodes et fonctions"
+
+        /// <summary>
+        /// Met à jour les COMBOX et TXT suivant la sélection
+        /// </summary>
+        /// <param name="pTypeChange">Si c'est la COMBO des type qui à été modifié</param>
+        /// <param name="pLibelleChange">Si c'est la COMBO des libelles qui à été modifié</param>
+        private void ChangementCOMBO(bool pTypeChange, bool pLibelleChange)
+        {
+            if (pTypeChange)
+            {
+                COMBO_LibelleActe.DataSource = MgtBaremes.AffichierTout().FindAll(y => y.TypeActe == COMBO_TypeActe.SelectedValue.ToString()).ToList<Baremes>();
+            }
+
+            if (pTypeChange || pLibelleChange)
+            {
+                TXT_Maxi.Text = MgtBaremes.AfficherUnSeul((Baremes)COMBO_LibelleActe.SelectedItem).TarifMaxi.ToString();
+                TXT_Mini.Text = MgtBaremes.AfficherUnSeul((Baremes)COMBO_LibelleActe.SelectedItem).TarifMini.ToString();
+
+                if (!String.IsNullOrWhiteSpace(TXT_Maxi.Text) && !String.IsNullOrWhiteSpace(TXT_Mini.Text))
+                {
+                    TXT_Prix.Text = (((float.Parse(TXT_Mini.Text) - float.Parse(TXT_Maxi.Text)) / 2) + float.Parse(TXT_Mini.Text)).ToString();
+                }
+            }
+        }
+
+        /// <summary>
+        /// Recharge la DataGridView avec les lignes de la consultation en cours + compteur d'actes + total
+        /// </summary>
+        private void ChargementGrid()
+        {
+            GRID_LigneConsu.DataSource = MgtLigneConsultation.AfficherTout().FindAll(x => x.CodeConsultation.Value == _maConsu.CodeConsultation.Value).ToList<LignesConsultations>();
+            LBL_NbActe.Text = GRID_LigneConsu.Rows.Count.ToString();
+
+            if (GRID_LigneConsu.Rows.Count > 0)
+            {
+                GRID_LigneConsu.Rows[0].Selected = true;
+                BTN_Supprimer.Enabled = true;
+
+                for (int i = 0; i < GRID_LigneConsu.Rows.Count; i++)
+                {
+                    TXT_Total.Text = (float.Parse(TXT_Total.Text) + ((LignesConsultations)GRID_LigneConsu.Rows[i].DataBoundItem).Prix.Value).ToString();
+                }
+            }
+            else
+            {
+                BTN_Supprimer.Enabled = false;
+            }
+        }
+
         #region "Conneries à Mathieu"
 
         private void combo_consultation_type_SelectedIndexChanged(object sender, EventArgs e)
@@ -56,16 +233,6 @@ namespace Clinique
         }
 
         private void groupBox1_Enter(object sender, EventArgs e)
-        {
-
-        }
-
-        private void button3_Click(object sender, EventArgs e)
-        {
-
-        }
-
-        private void button2_Click(object sender, EventArgs e)
         {
 
         }
@@ -174,7 +341,7 @@ namespace Clinique
         {
 
         }
-        
+
         private void LBL_consultation_libelle_Click(object sender, EventArgs e)
         {
 
@@ -210,11 +377,6 @@ namespace Clinique
 
         }
 
-        private void textBox13_TextChanged(object sender, EventArgs e)
-        {
-
-        }
-
         private void textBox12_TextChanged(object sender, EventArgs e)
         {
 
@@ -246,54 +408,7 @@ namespace Clinique
         }
         #endregion
 
-        private void BTN_AjouterActe_Click(object sender, EventArgs e)
-        {
-            COMBO_Veto.Enabled = true;
-            COMBO_TypeActe.Enabled = true;
-            COMBO_LibelleActe.Enabled = true;
-
-            TXT_Prix.Enabled = true;
-
-            ChangementCOMBO(false, true);
-        }
-
-        private void COMBO_TypeActe_SelectionChangeCommitted(object sender, EventArgs e)
-        {
-            ChangementCOMBO(true, false);
-        }
-
-        private void COMBO_LibelleActe_SelectionChangeCommitted(object sender, EventArgs e)
-        {
-            ChangementCOMBO(false, true);
-        }
-
-        /// <summary>
-        /// Met à jour les COMBOX et TXT suivant la sélection
-        /// </summary>
-        /// <param name="pTypeChange">Si c'est la COMBO des type qui à été modifié</param>
-        /// <param name="pLibelleChange">Si c'est la COMBO des libelles qui à été modifié</param>
-        private void ChangementCOMBO(bool pTypeChange, bool pLibelleChange)
-        {
-            if (pTypeChange)
-            {
-                COMBO_LibelleActe.DataSource = MgtBaremes.AffichierTout().FindAll(y => y.TypeActe == COMBO_TypeActe.SelectedValue.ToString()).ToList<Baremes>();
-            }
-
-            if (pTypeChange || pLibelleChange)
-            {
-                TXT_Maxi.Text = MgtBaremes.AfficherUnSeul((Baremes)COMBO_LibelleActe.SelectedItem).TarifMaxi.ToString();
-                TXT_Mini.Text = MgtBaremes.AfficherUnSeul((Baremes)COMBO_LibelleActe.SelectedItem).TarifMini.ToString();
-
-                if (!String.IsNullOrWhiteSpace(TXT_Maxi.Text) && !String.IsNullOrWhiteSpace(TXT_Mini.Text))
-                {
-                    TXT_Prix.Text = (((float.Parse(TXT_Mini.Text) - float.Parse(TXT_Maxi.Text)) / 2) + float.Parse(TXT_Mini.Text)).ToString();
-                }
-            }
-        }
-
-        private void BTN_Enregistrer_Click(object sender, EventArgs e)
-        {
-            
-        }
+        #endregion
+                
     }
 }
