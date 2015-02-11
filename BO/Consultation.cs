@@ -45,8 +45,8 @@ namespace BO
             set { _commentaire = value; }
         }
 
-        private int? _etat;
-        public int? Etat
+        private int _etat;
+        public int Etat
         {
             get { return _etat; }
             set 
@@ -82,7 +82,7 @@ namespace BO
             this.CodeVeto = null;
             this.Commentaire = null;
             this.DateConsultation = null;
-            this.Etat = null;
+            this.Etat = 0;
             this.NumFacture = null;
         }
 
@@ -92,9 +92,13 @@ namespace BO
             this.CodeAnimal = Guid.Parse(maConsultation["CodeAnimal"].ToString());
             this.CodeConsultation = Guid.Parse(maConsultation["CodeConsultation"].ToString());
             this.CodeVeto = Guid.Parse(maConsultation["CodeVeto"].ToString());
-            this.Commentaire = maConsultation["Commentaire"].ToString();
-            this.DateConsultation = DateTime.Parse(maConsultation["DateConsultation"].ToString());
+            this.Commentaire = maConsultation["Commentaire"].ToString();            
             this.Etat = int.Parse(maConsultation["Etat"].ToString());
+
+            if (!String.IsNullOrWhiteSpace(maConsultation["DateConsultation"].ToString()))
+            {
+                this.DateConsultation = DateTime.Parse(maConsultation["DateConsultation"].ToString());
+            }  
 
             if (!String.IsNullOrWhiteSpace(maConsultation["NumFacture"].ToString()))
             {

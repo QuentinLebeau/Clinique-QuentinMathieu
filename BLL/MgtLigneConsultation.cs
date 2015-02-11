@@ -20,19 +20,14 @@ namespace BLL
             return ADO_LigneConsultations.getOneLignesConsultation(maLigneConsultation.CodeConsultation.Value, maLigneConsultation.NumLigne.Value);
         }
 
-        //public static void Ajouter(Agendas monAgenda)
-        //{
-        //    ADO_Agendas.Add(monAgenda);
-        //}
-
-        //public static void Modifier(LignesConsultations maLigneConsultation)
-        //{
-        //    ADO_Agendas.Update(LignesConsultations maLigneConsultation);
-        //}
-
-        //public static void Supprimer(Agendas monAgenda)
-        //{
-        //    ADO_Agendas.Delete(monAgenda);
-        //}
+        public static void Ajouter(LignesConsultations maLigneConsultation)
+        {
+            ADO_LigneConsultations.Add(maLigneConsultation);
+        }
+        
+        public static void Supprimer(LignesConsultations maLigneConsultation)
+        {
+            ADO_LigneConsultations.Delete(maLigneConsultation);
+        }
     }
 }

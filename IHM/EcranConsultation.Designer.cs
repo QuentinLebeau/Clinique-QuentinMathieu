@@ -79,6 +79,7 @@
             // 
             // BTN_AnnulerConsu
             // 
+            this.BTN_AnnulerConsu.Enabled = false;
             this.BTN_AnnulerConsu.Location = new System.Drawing.Point(590, 12);
             this.BTN_AnnulerConsu.Name = "BTN_AnnulerConsu";
             this.BTN_AnnulerConsu.Size = new System.Drawing.Size(144, 23);
@@ -89,6 +90,7 @@
             // 
             // BTN_ValiderConsu
             // 
+            this.BTN_ValiderConsu.Enabled = false;
             this.BTN_ValiderConsu.Location = new System.Drawing.Point(12, 12);
             this.BTN_ValiderConsu.Name = "BTN_ValiderConsu";
             this.BTN_ValiderConsu.Size = new System.Drawing.Size(144, 23);
@@ -301,15 +303,18 @@
             // 
             // BTN_Supprimer
             // 
+            this.BTN_Supprimer.Enabled = false;
             this.BTN_Supprimer.Location = new System.Drawing.Point(327, 267);
             this.BTN_Supprimer.Name = "BTN_Supprimer";
             this.BTN_Supprimer.Size = new System.Drawing.Size(144, 23);
             this.BTN_Supprimer.TabIndex = 17;
             this.BTN_Supprimer.Text = "Supprimer";
             this.BTN_Supprimer.UseVisualStyleBackColor = true;
+            this.BTN_Supprimer.Click += new System.EventHandler(this.BTN_Supprimer_Click);
             // 
             // BTN_Enregistrer
             // 
+            this.BTN_Enregistrer.Enabled = false;
             this.BTN_Enregistrer.Location = new System.Drawing.Point(170, 267);
             this.BTN_Enregistrer.Name = "BTN_Enregistrer";
             this.BTN_Enregistrer.Size = new System.Drawing.Size(144, 23);
@@ -372,6 +377,7 @@
             this.TXT_Total.Name = "TXT_Total";
             this.TXT_Total.Size = new System.Drawing.Size(100, 20);
             this.TXT_Total.TabIndex = 10;
+            this.TXT_Total.Text = "0";
             this.TXT_Total.TextChanged += new System.EventHandler(this.TXT_consultation_total_TextChanged);
             // 
             // COMBO_TypeActe

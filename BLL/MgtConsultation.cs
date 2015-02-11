@@ -37,12 +37,12 @@ namespace BLL
 
         public static void Modifier(Consultation maConsultation)
         {
-            ADO_Consultations.modifierConsultation(maConsultation);
+            ADO_Consultations.Update(maConsultation);
         }
 
         public static void Supprimer(Consultation maConsultation)
         {
-            ADO_Consultations.supprimerConsultation(maConsultation);
+            ADO_Consultations.Delete(maConsultation);
         }
     }
 }
