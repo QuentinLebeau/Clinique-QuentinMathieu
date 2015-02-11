@@ -116,5 +116,59 @@ namespace DAL
                 cmd.ExecuteNonQuery();
             }
         }
+
+        public static List<Baremes> ComboTypeActeBareme()
+        {
+            using (DbConnection cnx = ConnectionBDD.SeConnecter())
+            {
+                SqlDataAdapter monAdapter = new SqlDataAdapter();
+                DataTable maDataTable = new DataTable();
+                List<Baremes> listeBaremes = new List<Baremes>();
+
+                SqlCommand cmd = (SqlCommand)cnx.CreateCommand();
+                cmd.CommandText = " SELECT TypeActe " +
+                                  " FROM Baremes ";
+
+                monAdapter.SelectCommand = cmd;
+                monAdapter.Fill(maDataTable);
+
+                foreach (DataRow unBaremes in maDataTable.Rows)
+                {
+                    listeBaremes.Add(new Baremes(unBaremes));
+                }
+
+                return listeBaremes;
+            }
+        }
+
+        public static void AddBareme(Baremes pBareme)
+        {
+            using (DbConnection cnx = ConnectionBDD.SeConnecter())
+            {
+                SqlParameter monParametre;
+                string dateVigueur = DateTime.Now.ToString("dd/MM/yy");
+                SqlCommand cmd = (SqlCommand)cnx.CreateCommand();
+                cmd.CommandText = " exec ajout_bareme @codeGroupement, @dateVigueur, @typeActe, " +
+                                  "@libelle, @tarifFixe, @tarifMini, @tarifMaxi, @codeVaccin";
+                monParametre = new SqlParameter("@codeGroupement", pBareme.CodeGroupement);
+                cmd.Parameters.Add(monParametre);
+                monParametre = new SqlParameter("@dateVigueur", dateVigueur);
+                cmd.Parameters.Add(monParametre);
+                monParametre = new SqlParameter("@typeActe", pBareme.TypeActe);
+                cmd.Parameters.Add(monParametre);
+                monParametre = new SqlParameter("@libelle", pBareme.Libelle);
+                cmd.Parameters.Add(monParametre);
+                monParametre = new SqlParameter("@tarifFixe", pBareme.TarifFixe);
+                cmd.Parameters.Add(monParametre);
+                monParametre = new SqlParameter("@tarifMini", pBareme.TarifMini);
+                cmd.Parameters.Add(monParametre);
+                monParametre = new SqlParameter("@tarifMaxi", pBareme.TarifMaxi);
+                cmd.Parameters.Add(monParametre);
+                monParametre = new SqlParameter("@codeVaccin", pBareme.CodeVaccin);
+                cmd.Parameters.Add(monParametre);
+
+                cmd.ExecuteNonQuery();
+            }
+        }
     }
 }

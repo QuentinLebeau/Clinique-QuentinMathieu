@@ -48,6 +48,7 @@
             this.BTN_baremes_annuler = new System.Windows.Forms.Button();
             this.BTN_baremes_Modifier = new System.Windows.Forms.Button();
             this.groupBoxBaremesModif = new System.Windows.Forms.GroupBox();
+            this.BTN_bareme_supprimer = new System.Windows.Forms.Button();
             this.BTN_baremeAjout_ajouterBareme = new System.Windows.Forms.Button();
             this.GroupBoxAjoutBareme = new System.Windows.Forms.GroupBox();
             this.BTN_baremesAjout_ajout = new System.Windows.Forms.Button();
@@ -62,13 +63,12 @@
             this.label5 = new System.Windows.Forms.Label();
             this.TXT_baremesAjout_codeVaccin = new System.Windows.Forms.TextBox();
             this.label6 = new System.Windows.Forms.Label();
-            this.TXT_baremesAjout_tpeActe = new System.Windows.Forms.TextBox();
             this.label7 = new System.Windows.Forms.Label();
-            this.TXT_baremesAjout_libelle = new System.Windows.Forms.TextBox();
             this.label8 = new System.Windows.Forms.Label();
             this.TXT_baremesAjout_dateVigueur = new System.Windows.Forms.TextBox();
             this.TXT_baremesAjout_codeGroupement = new System.Windows.Forms.TextBox();
-            this.BTN_bareme_supprimer = new System.Windows.Forms.Button();
+            this.comboBox_baremeAjout_TypeAct = new System.Windows.Forms.ComboBox();
+            this.comboBox_ajoutBareme_Libelle = new System.Windows.Forms.ComboBox();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView_baremes)).BeginInit();
             this.groupBoxBaremesModif.SuspendLayout();
             this.GroupBoxAjoutBareme.SuspendLayout();
@@ -258,6 +258,16 @@
             this.groupBoxBaremesModif.TabIndex = 20;
             this.groupBoxBaremesModif.TabStop = false;
             // 
+            // BTN_bareme_supprimer
+            // 
+            this.BTN_bareme_supprimer.Location = new System.Drawing.Point(378, 99);
+            this.BTN_bareme_supprimer.Name = "BTN_bareme_supprimer";
+            this.BTN_bareme_supprimer.Size = new System.Drawing.Size(75, 23);
+            this.BTN_bareme_supprimer.TabIndex = 21;
+            this.BTN_bareme_supprimer.Text = "Supprimer";
+            this.BTN_bareme_supprimer.UseVisualStyleBackColor = true;
+            this.BTN_bareme_supprimer.Click += new System.EventHandler(this.BTN_bareme_supprimer_Click);
+            // 
             // BTN_baremeAjout_ajouterBareme
             // 
             this.BTN_baremeAjout_ajouterBareme.Location = new System.Drawing.Point(378, 73);
@@ -270,7 +280,9 @@
             // 
             // GroupBoxAjoutBareme
             // 
+            this.GroupBoxAjoutBareme.Controls.Add(this.comboBox_ajoutBareme_Libelle);
             this.GroupBoxAjoutBareme.Controls.Add(this.BTN_baremesAjout_ajout);
+            this.GroupBoxAjoutBareme.Controls.Add(this.comboBox_baremeAjout_TypeAct);
             this.GroupBoxAjoutBareme.Controls.Add(this.label1);
             this.GroupBoxAjoutBareme.Controls.Add(this.button2);
             this.GroupBoxAjoutBareme.Controls.Add(this.label2);
@@ -282,27 +294,26 @@
             this.GroupBoxAjoutBareme.Controls.Add(this.label5);
             this.GroupBoxAjoutBareme.Controls.Add(this.TXT_baremesAjout_codeVaccin);
             this.GroupBoxAjoutBareme.Controls.Add(this.label6);
-            this.GroupBoxAjoutBareme.Controls.Add(this.TXT_baremesAjout_tpeActe);
             this.GroupBoxAjoutBareme.Controls.Add(this.label7);
-            this.GroupBoxAjoutBareme.Controls.Add(this.TXT_baremesAjout_libelle);
             this.GroupBoxAjoutBareme.Controls.Add(this.label8);
             this.GroupBoxAjoutBareme.Controls.Add(this.TXT_baremesAjout_dateVigueur);
             this.GroupBoxAjoutBareme.Controls.Add(this.TXT_baremesAjout_codeGroupement);
             this.GroupBoxAjoutBareme.Location = new System.Drawing.Point(15, 461);
             this.GroupBoxAjoutBareme.Name = "GroupBoxAjoutBareme";
-            this.GroupBoxAjoutBareme.Size = new System.Drawing.Size(485, 133);
+            this.GroupBoxAjoutBareme.Size = new System.Drawing.Size(522, 133);
             this.GroupBoxAjoutBareme.TabIndex = 21;
             this.GroupBoxAjoutBareme.TabStop = false;
             this.GroupBoxAjoutBareme.Text = "Ajout d\'un bareme";
             // 
             // BTN_baremesAjout_ajout
             // 
-            this.BTN_baremesAjout_ajout.Location = new System.Drawing.Point(383, 36);
+            this.BTN_baremesAjout_ajout.Location = new System.Drawing.Point(441, 36);
             this.BTN_baremesAjout_ajout.Name = "BTN_baremesAjout_ajout";
             this.BTN_baremesAjout_ajout.Size = new System.Drawing.Size(75, 23);
             this.BTN_baremesAjout_ajout.TabIndex = 37;
             this.BTN_baremesAjout_ajout.Text = "Valider";
             this.BTN_baremesAjout_ajout.UseVisualStyleBackColor = true;
+            this.BTN_baremesAjout_ajout.Click += new System.EventHandler(this.BTN_baremesAjout_ajout_Click);
             // 
             // label1
             // 
@@ -315,7 +326,7 @@
             // 
             // button2
             // 
-            this.button2.Location = new System.Drawing.Point(383, 72);
+            this.button2.Location = new System.Drawing.Point(441, 72);
             this.button2.Name = "button2";
             this.button2.Size = new System.Drawing.Size(75, 23);
             this.button2.TabIndex = 36;
@@ -334,7 +345,7 @@
             // 
             // TXT_baremesAjout_tarifFixe
             // 
-            this.TXT_baremesAjout_tarifFixe.Location = new System.Drawing.Point(277, 17);
+            this.TXT_baremesAjout_tarifFixe.Location = new System.Drawing.Point(335, 17);
             this.TXT_baremesAjout_tarifFixe.Name = "TXT_baremesAjout_tarifFixe";
             this.TXT_baremesAjout_tarifFixe.Size = new System.Drawing.Size(100, 20);
             this.TXT_baremesAjout_tarifFixe.TabIndex = 35;
@@ -350,7 +361,7 @@
             // 
             // TXT_baremesAjout_tarifMini
             // 
-            this.TXT_baremesAjout_tarifMini.Location = new System.Drawing.Point(277, 43);
+            this.TXT_baremesAjout_tarifMini.Location = new System.Drawing.Point(335, 43);
             this.TXT_baremesAjout_tarifMini.Name = "TXT_baremesAjout_tarifMini";
             this.TXT_baremesAjout_tarifMini.Size = new System.Drawing.Size(100, 20);
             this.TXT_baremesAjout_tarifMini.TabIndex = 34;
@@ -366,7 +377,7 @@
             // 
             // TXT_baremesAjout_tarifMaxi
             // 
-            this.TXT_baremesAjout_tarifMaxi.Location = new System.Drawing.Point(277, 69);
+            this.TXT_baremesAjout_tarifMaxi.Location = new System.Drawing.Point(335, 69);
             this.TXT_baremesAjout_tarifMaxi.Name = "TXT_baremesAjout_tarifMaxi";
             this.TXT_baremesAjout_tarifMaxi.Size = new System.Drawing.Size(100, 20);
             this.TXT_baremesAjout_tarifMaxi.TabIndex = 33;
@@ -374,7 +385,7 @@
             // label5
             // 
             this.label5.AutoSize = true;
-            this.label5.Location = new System.Drawing.Point(204, 20);
+            this.label5.Location = new System.Drawing.Point(262, 20);
             this.label5.Name = "label5";
             this.label5.Size = new System.Drawing.Size(47, 13);
             this.label5.TabIndex = 24;
@@ -382,7 +393,7 @@
             // 
             // TXT_baremesAjout_codeVaccin
             // 
-            this.TXT_baremesAjout_codeVaccin.Location = new System.Drawing.Point(277, 95);
+            this.TXT_baremesAjout_codeVaccin.Location = new System.Drawing.Point(335, 95);
             this.TXT_baremesAjout_codeVaccin.Name = "TXT_baremesAjout_codeVaccin";
             this.TXT_baremesAjout_codeVaccin.Size = new System.Drawing.Size(100, 20);
             this.TXT_baremesAjout_codeVaccin.TabIndex = 32;
@@ -390,39 +401,25 @@
             // label6
             // 
             this.label6.AutoSize = true;
-            this.label6.Location = new System.Drawing.Point(204, 46);
+            this.label6.Location = new System.Drawing.Point(262, 46);
             this.label6.Name = "label6";
             this.label6.Size = new System.Drawing.Size(49, 13);
             this.label6.TabIndex = 25;
             this.label6.Text = "Tarif mini";
             // 
-            // TXT_baremesAjout_tpeActe
-            // 
-            this.TXT_baremesAjout_tpeActe.Location = new System.Drawing.Point(98, 68);
-            this.TXT_baremesAjout_tpeActe.Name = "TXT_baremesAjout_tpeActe";
-            this.TXT_baremesAjout_tpeActe.Size = new System.Drawing.Size(100, 20);
-            this.TXT_baremesAjout_tpeActe.TabIndex = 31;
-            // 
             // label7
             // 
             this.label7.AutoSize = true;
-            this.label7.Location = new System.Drawing.Point(204, 72);
+            this.label7.Location = new System.Drawing.Point(262, 72);
             this.label7.Name = "label7";
             this.label7.Size = new System.Drawing.Size(52, 13);
             this.label7.TabIndex = 26;
             this.label7.Text = "Tarif maxi";
             // 
-            // TXT_baremesAjout_libelle
-            // 
-            this.TXT_baremesAjout_libelle.Location = new System.Drawing.Point(98, 95);
-            this.TXT_baremesAjout_libelle.Name = "TXT_baremesAjout_libelle";
-            this.TXT_baremesAjout_libelle.Size = new System.Drawing.Size(100, 20);
-            this.TXT_baremesAjout_libelle.TabIndex = 30;
-            // 
             // label8
             // 
             this.label8.AutoSize = true;
-            this.label8.Location = new System.Drawing.Point(204, 98);
+            this.label8.Location = new System.Drawing.Point(262, 98);
             this.label8.Name = "label8";
             this.label8.Size = new System.Drawing.Size(67, 13);
             this.label8.TabIndex = 27;
@@ -442,15 +439,21 @@
             this.TXT_baremesAjout_codeGroupement.Size = new System.Drawing.Size(100, 20);
             this.TXT_baremesAjout_codeGroupement.TabIndex = 28;
             // 
-            // BTN_bareme_supprimer
+            // comboBox_baremeAjout_TypeAct
             // 
-            this.BTN_bareme_supprimer.Location = new System.Drawing.Point(378, 99);
-            this.BTN_bareme_supprimer.Name = "BTN_bareme_supprimer";
-            this.BTN_bareme_supprimer.Size = new System.Drawing.Size(75, 23);
-            this.BTN_bareme_supprimer.TabIndex = 21;
-            this.BTN_bareme_supprimer.Text = "Supprimer";
-            this.BTN_bareme_supprimer.UseVisualStyleBackColor = true;
-            this.BTN_bareme_supprimer.Click += new System.EventHandler(this.BTN_bareme_supprimer_Click);
+            this.comboBox_baremeAjout_TypeAct.FormattingEnabled = true;
+            this.comboBox_baremeAjout_TypeAct.Location = new System.Drawing.Point(93, 72);
+            this.comboBox_baremeAjout_TypeAct.Name = "comboBox_baremeAjout_TypeAct";
+            this.comboBox_baremeAjout_TypeAct.Size = new System.Drawing.Size(121, 21);
+            this.comboBox_baremeAjout_TypeAct.TabIndex = 22;
+            // 
+            // comboBox_ajoutBareme_Libelle
+            // 
+            this.comboBox_ajoutBareme_Libelle.FormattingEnabled = true;
+            this.comboBox_ajoutBareme_Libelle.Location = new System.Drawing.Point(93, 98);
+            this.comboBox_ajoutBareme_Libelle.Name = "comboBox_ajoutBareme_Libelle";
+            this.comboBox_ajoutBareme_Libelle.Size = new System.Drawing.Size(121, 21);
+            this.comboBox_ajoutBareme_Libelle.TabIndex = 23;
             // 
             // EcranBaremes
             // 
@@ -506,13 +509,13 @@
         private System.Windows.Forms.Label label5;
         private System.Windows.Forms.TextBox TXT_baremesAjout_codeVaccin;
         private System.Windows.Forms.Label label6;
-        private System.Windows.Forms.TextBox TXT_baremesAjout_tpeActe;
         private System.Windows.Forms.Label label7;
-        private System.Windows.Forms.TextBox TXT_baremesAjout_libelle;
         private System.Windows.Forms.Label label8;
         private System.Windows.Forms.TextBox TXT_baremesAjout_dateVigueur;
         private System.Windows.Forms.TextBox TXT_baremesAjout_codeGroupement;
         private System.Windows.Forms.Button BTN_baremeAjout_ajouterBareme;
         private System.Windows.Forms.Button BTN_bareme_supprimer;
+        private System.Windows.Forms.ComboBox comboBox_ajoutBareme_Libelle;
+        private System.Windows.Forms.ComboBox comboBox_baremeAjout_TypeAct;
     }
 }
