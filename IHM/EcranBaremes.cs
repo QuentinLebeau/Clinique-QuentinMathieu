@@ -77,6 +77,7 @@ namespace Clinique
         {
             GroupBoxAjoutBareme.Visible = true;
             comboBox_baremeAjout_TypeAct.DataSource = MgtBaremes.ComboTypeActe();
+            comboBox_ajoutBareme_Libelle.DataSource = MgtBaremes.ComboLibelle(comboBox_baremeAjout_TypeAct.Text);
 
         }
 

@@ -141,6 +141,33 @@ namespace DAL
             }
         }
 
+        public static List<Baremes> ComboLibelle(string typeActe)
+        {
+            using (DbConnection cnx = ConnectionBDD.SeConnecter())
+            {
+                SqlDataAdapter monAdapter = new SqlDataAdapter();
+                DataTable maDataTable = new DataTable();
+                List<Baremes> listeBaremes = new List<Baremes>();
+                SqlParameter monParametre;
+                SqlCommand cmd = (SqlCommand)cnx.CreateCommand();
+                cmd.CommandText = " SELECT Libelle " +
+                                  " FROM Baremes " +
+                                  " WHERE TypeActe = @typeActe";
+                monParametre = new SqlParameter("@typeActe", typeActe);
+                cmd.Parameters.Add(monParametre);
+                monAdapter.SelectCommand = cmd;
+                monAdapter.Fill(maDataTable);
+
+                foreach (DataRow unBaremes in maDataTable.Rows)
+                {
+                    listeBaremes.Add(new Baremes(unBaremes));
+                }
+
+                return listeBaremes;
+            }
+        }
+
+
         public static void AddBareme(Baremes pBareme)
         {
             using (DbConnection cnx = ConnectionBDD.SeConnecter())
