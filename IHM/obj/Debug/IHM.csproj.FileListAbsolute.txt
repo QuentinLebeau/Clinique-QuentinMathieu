@@ -170,3 +170,4 @@ C:\Users\d1410alheincm\Desktop\CliniqueProjet\IHM\obj\Debug\Clinique.Properties.
 C:\Users\d1410alheincm\Desktop\CliniqueProjet\IHM\obj\Debug\IHM.csproj.GenerateResource.Cache
 C:\Users\d1410alheincm\Desktop\CliniqueProjet\IHM\obj\Debug\Clinique.exe
 C:\Users\d1410alheincm\Desktop\CliniqueProjet\IHM\obj\Debug\Clinique.EcranBaremes.resources
+C:\Users\d1409LEBEAUq\Desktop\Clinique\IHM\obj\Debug\Clinique.EcranBaremes.resources

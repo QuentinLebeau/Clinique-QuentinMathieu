@@ -31,9 +31,9 @@
             this.groupBox1 = new System.Windows.Forms.GroupBox();
             this.label3 = new System.Windows.Forms.Label();
             this.COMBO_Animal = new System.Windows.Forms.ComboBox();
-            this.label2 = new System.Windows.Forms.Label();
+            this.LBL_Tatou = new System.Windows.Forms.Label();
             this.COMBO_Tatouage = new System.Windows.Forms.ComboBox();
-            this.label1 = new System.Windows.Forms.Label();
+            this.LBL_Proprio = new System.Windows.Forms.Label();
             this.COMBO_Client = new System.Windows.Forms.ComboBox();
             this.GRID_Consultation = new System.Windows.Forms.DataGridView();
             this.TXT_Commentaire = new System.Windows.Forms.RichTextBox();
@@ -45,9 +45,9 @@
             // 
             this.groupBox1.Controls.Add(this.label3);
             this.groupBox1.Controls.Add(this.COMBO_Animal);
-            this.groupBox1.Controls.Add(this.label2);
+            this.groupBox1.Controls.Add(this.LBL_Tatou);
             this.groupBox1.Controls.Add(this.COMBO_Tatouage);
-            this.groupBox1.Controls.Add(this.label1);
+            this.groupBox1.Controls.Add(this.LBL_Proprio);
             this.groupBox1.Controls.Add(this.COMBO_Client);
             this.groupBox1.Location = new System.Drawing.Point(12, 12);
             this.groupBox1.Name = "groupBox1";
@@ -74,14 +74,14 @@
             this.COMBO_Animal.TabIndex = 4;
             this.COMBO_Animal.SelectedIndexChanged += new System.EventHandler(this.COMBO_Animal_SelectedIndexChanged);
             // 
-            // label2
+            // LBL_Tatou
             // 
-            this.label2.AutoSize = true;
-            this.label2.Location = new System.Drawing.Point(243, 22);
-            this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(68, 13);
-            this.label2.TabIndex = 3;
-            this.label2.Text = "N° Tatouage";
+            this.LBL_Tatou.AutoSize = true;
+            this.LBL_Tatou.Location = new System.Drawing.Point(243, 22);
+            this.LBL_Tatou.Name = "LBL_Tatou";
+            this.LBL_Tatou.Size = new System.Drawing.Size(68, 13);
+            this.LBL_Tatou.TabIndex = 3;
+            this.LBL_Tatou.Text = "N° Tatouage";
             // 
             // COMBO_Tatouage
             // 
@@ -90,15 +90,16 @@
             this.COMBO_Tatouage.Name = "COMBO_Tatouage";
             this.COMBO_Tatouage.Size = new System.Drawing.Size(153, 21);
             this.COMBO_Tatouage.TabIndex = 2;
+            this.COMBO_Tatouage.SelectedIndexChanged += new System.EventHandler(this.COMBO_Tatouage_SelectedIndexChanged);
             // 
-            // label1
+            // LBL_Proprio
             // 
-            this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(6, 22);
-            this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(60, 13);
-            this.label1.TabIndex = 1;
-            this.label1.Text = "Propriétaire";
+            this.LBL_Proprio.AutoSize = true;
+            this.LBL_Proprio.Location = new System.Drawing.Point(6, 22);
+            this.LBL_Proprio.Name = "LBL_Proprio";
+            this.LBL_Proprio.Size = new System.Drawing.Size(60, 13);
+            this.LBL_Proprio.TabIndex = 1;
+            this.LBL_Proprio.Text = "Propriétaire";
             // 
             // COMBO_Client
             // 
@@ -153,9 +154,9 @@
         private System.Windows.Forms.ComboBox COMBO_Client;
         private System.Windows.Forms.Label label3;
         private System.Windows.Forms.ComboBox COMBO_Animal;
-        private System.Windows.Forms.Label label2;
+        private System.Windows.Forms.Label LBL_Tatou;
         private System.Windows.Forms.ComboBox COMBO_Tatouage;
-        private System.Windows.Forms.Label label1;
+        private System.Windows.Forms.Label LBL_Proprio;
         private System.Windows.Forms.DataGridView GRID_Consultation;
         private System.Windows.Forms.RichTextBox TXT_Commentaire;
     }

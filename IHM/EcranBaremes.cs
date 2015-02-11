@@ -104,5 +104,10 @@ namespace Clinique
             MgtBaremes.SupprimerBareme(pBareme);
             dataGridView_baremes.DataSource = MgtBaremes.AffichierTout();
         }
+
+        private void LBL_baremes_tarifFixe_Click(object sender, EventArgs e)
+        {
+
+        }
     }
 }
