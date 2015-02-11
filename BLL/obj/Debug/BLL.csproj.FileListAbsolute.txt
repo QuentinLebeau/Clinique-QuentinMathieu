@@ -42,3 +42,14 @@ C:\Users\d1409LEBEAUq\Desktop\Clinique\BLL\bin\Debug\DAL.xml
 C:\Users\d1409LEBEAUq\Desktop\Clinique\BLL\obj\Debug\BLL.csprojResolveAssemblyReference.cache
 C:\Users\d1409LEBEAUq\Desktop\Clinique\BLL\obj\Debug\BLL.dll
 C:\Users\d1409LEBEAUq\Desktop\Clinique\BLL\obj\Debug\BLL.pdb
+C:\Users\d1410alheincm\Desktop\CliniqueProjet\BLL\bin\Debug\BLL.dll
+C:\Users\d1410alheincm\Desktop\CliniqueProjet\BLL\bin\Debug\BLL.pdb
+C:\Users\d1410alheincm\Desktop\CliniqueProjet\BLL\bin\Debug\BO.dll
+C:\Users\d1410alheincm\Desktop\CliniqueProjet\BLL\bin\Debug\DAL.dll
+C:\Users\d1410alheincm\Desktop\CliniqueProjet\BLL\bin\Debug\BO.pdb
+C:\Users\d1410alheincm\Desktop\CliniqueProjet\BLL\bin\Debug\BO.xml
+C:\Users\d1410alheincm\Desktop\CliniqueProjet\BLL\bin\Debug\DAL.pdb
+C:\Users\d1410alheincm\Desktop\CliniqueProjet\BLL\bin\Debug\DAL.xml
+C:\Users\d1410alheincm\Desktop\CliniqueProjet\BLL\obj\Debug\BLL.csprojResolveAssemblyReference.cache
+C:\Users\d1410alheincm\Desktop\CliniqueProjet\BLL\obj\Debug\BLL.dll
+C:\Users\d1410alheincm\Desktop\CliniqueProjet\BLL\obj\Debug\BLL.pdb

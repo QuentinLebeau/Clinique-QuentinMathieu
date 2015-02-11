@@ -35,21 +35,23 @@
             this.Combo_stock_fournisseur = new System.Windows.Forms.ComboBox();
             this.TXT_stock_nomVaccin = new System.Windows.Forms.TextBox();
             this.TXT_stock_quantite = new System.Windows.Forms.TextBox();
-            this.BTN_sotck_ajouter = new System.Windows.Forms.Button();
+            this.BTN_sotck_modifier = new System.Windows.Forms.Button();
             this.BTN_stock_annuler = new System.Windows.Forms.Button();
             this.BTN_stockAjout_Ajouter = new System.Windows.Forms.Button();
             this.BTN_stockAjout_Annuler = new System.Windows.Forms.Button();
             this.LBL_stockAjout_nomVaccin = new System.Windows.Forms.Label();
             this.LBL_sotckAjout_quantiteVaccin = new System.Windows.Forms.Label();
             this.LBL_stockAjout_periodeValidite = new System.Windows.Forms.Label();
-            this.textBox1 = new System.Windows.Forms.TextBox();
-            this.textBox2 = new System.Windows.Forms.TextBox();
-            this.textBox3 = new System.Windows.Forms.TextBox();
-            this.comboBox1 = new System.Windows.Forms.ComboBox();
-            this.LBL_stockAjout_Fournisseur = new System.Windows.Forms.Label();
+            this.textBox_NomVaccin = new System.Windows.Forms.TextBox();
+            this.textBox_PeriodeValiditeVaccin = new System.Windows.Forms.TextBox();
+            this.textBox_QuantiteVaccin = new System.Windows.Forms.TextBox();
             this.groupBox_stockAjout = new System.Windows.Forms.GroupBox();
             this.BTN_sotckAjout_AjouterVaccin = new System.Windows.Forms.Button();
             this.BTN_sotckAjout_AnnulerAjout = new System.Windows.Forms.Button();
+            this.TXT_stockVaccin_dateValidite = new System.Windows.Forms.TextBox();
+            this.LBL_stockVaccin_PeriodeValidite = new System.Windows.Forms.Label();
+            this.BTN_Stock_Supprimer = new System.Windows.Forms.Button();
+            this.TXT_stock_codeVaccin = new System.Windows.Forms.TextBox();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView_stockVaccins)).BeginInit();
             this.groupBox_stockAjout.SuspendLayout();
             this.SuspendLayout();
@@ -75,7 +77,7 @@
             // LBL_stock_fournisseur
             // 
             this.LBL_stock_fournisseur.AutoSize = true;
-            this.LBL_stock_fournisseur.Location = new System.Drawing.Point(21, 289);
+            this.LBL_stock_fournisseur.Location = new System.Drawing.Point(21, 315);
             this.LBL_stock_fournisseur.Name = "LBL_stock_fournisseur";
             this.LBL_stock_fournisseur.Size = new System.Drawing.Size(61, 13);
             this.LBL_stock_fournisseur.TabIndex = 2;
@@ -93,16 +95,16 @@
             // Combo_stock_fournisseur
             // 
             this.Combo_stock_fournisseur.FormattingEnabled = true;
-            this.Combo_stock_fournisseur.Location = new System.Drawing.Point(92, 286);
+            this.Combo_stock_fournisseur.Location = new System.Drawing.Point(92, 312);
             this.Combo_stock_fournisseur.Name = "Combo_stock_fournisseur";
             this.Combo_stock_fournisseur.Size = new System.Drawing.Size(128, 21);
             this.Combo_stock_fournisseur.TabIndex = 4;
             // 
             // TXT_stock_nomVaccin
             // 
-            this.TXT_stock_nomVaccin.Location = new System.Drawing.Point(88, 231);
+            this.TXT_stock_nomVaccin.Location = new System.Drawing.Point(92, 231);
             this.TXT_stock_nomVaccin.Name = "TXT_stock_nomVaccin";
-            this.TXT_stock_nomVaccin.Size = new System.Drawing.Size(132, 20);
+            this.TXT_stock_nomVaccin.Size = new System.Drawing.Size(128, 20);
             this.TXT_stock_nomVaccin.TabIndex = 5;
             // 
             // TXT_stock_quantite
@@ -112,15 +114,15 @@
             this.TXT_stock_quantite.Size = new System.Drawing.Size(128, 20);
             this.TXT_stock_quantite.TabIndex = 6;
             // 
-            // BTN_sotck_ajouter
+            // BTN_sotck_modifier
             // 
-            this.BTN_sotck_ajouter.Location = new System.Drawing.Point(320, 229);
-            this.BTN_sotck_ajouter.Name = "BTN_sotck_ajouter";
-            this.BTN_sotck_ajouter.Size = new System.Drawing.Size(107, 23);
-            this.BTN_sotck_ajouter.TabIndex = 7;
-            this.BTN_sotck_ajouter.Text = "Valider";
-            this.BTN_sotck_ajouter.UseVisualStyleBackColor = true;
-            this.BTN_sotck_ajouter.Click += new System.EventHandler(this.BTN_sotck_ajouter_Click);
+            this.BTN_sotck_modifier.Location = new System.Drawing.Point(320, 229);
+            this.BTN_sotck_modifier.Name = "BTN_sotck_modifier";
+            this.BTN_sotck_modifier.Size = new System.Drawing.Size(107, 23);
+            this.BTN_sotck_modifier.TabIndex = 7;
+            this.BTN_sotck_modifier.Text = "Modifier";
+            this.BTN_sotck_modifier.UseVisualStyleBackColor = true;
+            this.BTN_sotck_modifier.Click += new System.EventHandler(this.BTN_sotck_modifier_Click);
             // 
             // BTN_stock_annuler
             // 
@@ -130,19 +132,21 @@
             this.BTN_stock_annuler.TabIndex = 8;
             this.BTN_stock_annuler.Text = "Annuler";
             this.BTN_stock_annuler.UseVisualStyleBackColor = true;
+            this.BTN_stock_annuler.Click += new System.EventHandler(this.BTN_stock_annuler_Click);
             // 
             // BTN_stockAjout_Ajouter
             // 
-            this.BTN_stockAjout_Ajouter.Location = new System.Drawing.Point(243, 75);
+            this.BTN_stockAjout_Ajouter.Location = new System.Drawing.Point(242, 48);
             this.BTN_stockAjout_Ajouter.Name = "BTN_stockAjout_Ajouter";
             this.BTN_stockAjout_Ajouter.Size = new System.Drawing.Size(75, 23);
             this.BTN_stockAjout_Ajouter.TabIndex = 9;
             this.BTN_stockAjout_Ajouter.Text = "Ajouter";
             this.BTN_stockAjout_Ajouter.UseVisualStyleBackColor = true;
+            this.BTN_stockAjout_Ajouter.Click += new System.EventHandler(this.BTN_stockAjout_Ajouter_Click);
             // 
             // BTN_stockAjout_Annuler
             // 
-            this.BTN_stockAjout_Annuler.Location = new System.Drawing.Point(243, 107);
+            this.BTN_stockAjout_Annuler.Location = new System.Drawing.Point(242, 80);
             this.BTN_stockAjout_Annuler.Name = "BTN_stockAjout_Annuler";
             this.BTN_stockAjout_Annuler.Size = new System.Drawing.Size(75, 23);
             this.BTN_stockAjout_Annuler.TabIndex = 10;
@@ -161,7 +165,7 @@
             // LBL_sotckAjout_quantiteVaccin
             // 
             this.LBL_sotckAjout_quantiteVaccin.AutoSize = true;
-            this.LBL_sotckAjout_quantiteVaccin.Location = new System.Drawing.Point(38, 58);
+            this.LBL_sotckAjout_quantiteVaccin.Location = new System.Drawing.Point(38, 85);
             this.LBL_sotckAjout_quantiteVaccin.Name = "LBL_sotckAjout_quantiteVaccin";
             this.LBL_sotckAjout_quantiteVaccin.Size = new System.Drawing.Size(47, 13);
             this.LBL_sotckAjout_quantiteVaccin.TabIndex = 12;
@@ -170,65 +174,46 @@
             // LBL_stockAjout_periodeValidite
             // 
             this.LBL_stockAjout_periodeValidite.AutoSize = true;
-            this.LBL_stockAjout_periodeValidite.Location = new System.Drawing.Point(5, 85);
+            this.LBL_stockAjout_periodeValidite.Location = new System.Drawing.Point(5, 58);
             this.LBL_stockAjout_periodeValidite.Name = "LBL_stockAjout_periodeValidite";
             this.LBL_stockAjout_periodeValidite.Size = new System.Drawing.Size(80, 13);
             this.LBL_stockAjout_periodeValidite.TabIndex = 13;
             this.LBL_stockAjout_periodeValidite.Text = "Periode Validite";
             // 
-            // textBox1
+            // textBox_NomVaccin
             // 
-            this.textBox1.Location = new System.Drawing.Point(99, 30);
-            this.textBox1.Name = "textBox1";
-            this.textBox1.Size = new System.Drawing.Size(128, 20);
-            this.textBox1.TabIndex = 14;
+            this.textBox_NomVaccin.Location = new System.Drawing.Point(99, 30);
+            this.textBox_NomVaccin.Name = "textBox_NomVaccin";
+            this.textBox_NomVaccin.Size = new System.Drawing.Size(128, 20);
+            this.textBox_NomVaccin.TabIndex = 14;
             // 
-            // textBox2
+            // textBox_PeriodeValiditeVaccin
             // 
-            this.textBox2.Location = new System.Drawing.Point(99, 55);
-            this.textBox2.Name = "textBox2";
-            this.textBox2.Size = new System.Drawing.Size(128, 20);
-            this.textBox2.TabIndex = 15;
+            this.textBox_PeriodeValiditeVaccin.Location = new System.Drawing.Point(99, 55);
+            this.textBox_PeriodeValiditeVaccin.Name = "textBox_PeriodeValiditeVaccin";
+            this.textBox_PeriodeValiditeVaccin.Size = new System.Drawing.Size(128, 20);
+            this.textBox_PeriodeValiditeVaccin.TabIndex = 15;
             // 
-            // textBox3
+            // textBox_QuantiteVaccin
             // 
-            this.textBox3.Location = new System.Drawing.Point(99, 81);
-            this.textBox3.Name = "textBox3";
-            this.textBox3.Size = new System.Drawing.Size(128, 20);
-            this.textBox3.TabIndex = 16;
-            // 
-            // comboBox1
-            // 
-            this.comboBox1.FormattingEnabled = true;
-            this.comboBox1.Location = new System.Drawing.Point(99, 109);
-            this.comboBox1.Name = "comboBox1";
-            this.comboBox1.Size = new System.Drawing.Size(128, 21);
-            this.comboBox1.TabIndex = 17;
-            // 
-            // LBL_stockAjout_Fournisseur
-            // 
-            this.LBL_stockAjout_Fournisseur.AutoSize = true;
-            this.LBL_stockAjout_Fournisseur.Location = new System.Drawing.Point(24, 112);
-            this.LBL_stockAjout_Fournisseur.Name = "LBL_stockAjout_Fournisseur";
-            this.LBL_stockAjout_Fournisseur.Size = new System.Drawing.Size(61, 13);
-            this.LBL_stockAjout_Fournisseur.TabIndex = 18;
-            this.LBL_stockAjout_Fournisseur.Text = "Fournisseur";
+            this.textBox_QuantiteVaccin.Location = new System.Drawing.Point(99, 81);
+            this.textBox_QuantiteVaccin.Name = "textBox_QuantiteVaccin";
+            this.textBox_QuantiteVaccin.Size = new System.Drawing.Size(128, 20);
+            this.textBox_QuantiteVaccin.TabIndex = 16;
             // 
             // groupBox_stockAjout
             // 
             this.groupBox_stockAjout.Controls.Add(this.BTN_stockAjout_Ajouter);
-            this.groupBox_stockAjout.Controls.Add(this.LBL_stockAjout_Fournisseur);
             this.groupBox_stockAjout.Controls.Add(this.BTN_stockAjout_Annuler);
-            this.groupBox_stockAjout.Controls.Add(this.comboBox1);
             this.groupBox_stockAjout.Controls.Add(this.LBL_stockAjout_nomVaccin);
-            this.groupBox_stockAjout.Controls.Add(this.textBox3);
+            this.groupBox_stockAjout.Controls.Add(this.textBox_QuantiteVaccin);
             this.groupBox_stockAjout.Controls.Add(this.LBL_sotckAjout_quantiteVaccin);
-            this.groupBox_stockAjout.Controls.Add(this.textBox2);
+            this.groupBox_stockAjout.Controls.Add(this.textBox_PeriodeValiditeVaccin);
             this.groupBox_stockAjout.Controls.Add(this.LBL_stockAjout_periodeValidite);
-            this.groupBox_stockAjout.Controls.Add(this.textBox1);
-            this.groupBox_stockAjout.Location = new System.Drawing.Point(35, 328);
+            this.groupBox_stockAjout.Controls.Add(this.textBox_NomVaccin);
+            this.groupBox_stockAjout.Location = new System.Drawing.Point(390, 367);
             this.groupBox_stockAjout.Name = "groupBox_stockAjout";
-            this.groupBox_stockAjout.Size = new System.Drawing.Size(339, 152);
+            this.groupBox_stockAjout.Size = new System.Drawing.Size(339, 113);
             this.groupBox_stockAjout.TabIndex = 19;
             this.groupBox_stockAjout.TabStop = false;
             this.groupBox_stockAjout.Text = "Ajout";
@@ -253,16 +238,53 @@
             this.BTN_sotckAjout_AnnulerAjout.UseVisualStyleBackColor = true;
             this.BTN_sotckAjout_AnnulerAjout.Click += new System.EventHandler(this.BTN_sotckAjout_AnnulerAjout_Click);
             // 
+            // TXT_stockVaccin_dateValidite
+            // 
+            this.TXT_stockVaccin_dateValidite.Location = new System.Drawing.Point(92, 286);
+            this.TXT_stockVaccin_dateValidite.Name = "TXT_stockVaccin_dateValidite";
+            this.TXT_stockVaccin_dateValidite.Size = new System.Drawing.Size(128, 20);
+            this.TXT_stockVaccin_dateValidite.TabIndex = 22;
+            // 
+            // LBL_stockVaccin_PeriodeValidite
+            // 
+            this.LBL_stockVaccin_PeriodeValidite.AutoSize = true;
+            this.LBL_stockVaccin_PeriodeValidite.Location = new System.Drawing.Point(2, 289);
+            this.LBL_stockVaccin_PeriodeValidite.Name = "LBL_stockVaccin_PeriodeValidite";
+            this.LBL_stockVaccin_PeriodeValidite.Size = new System.Drawing.Size(80, 13);
+            this.LBL_stockVaccin_PeriodeValidite.TabIndex = 23;
+            this.LBL_stockVaccin_PeriodeValidite.Text = "Periode Validite";
+            // 
+            // BTN_Stock_Supprimer
+            // 
+            this.BTN_Stock_Supprimer.Location = new System.Drawing.Point(546, 229);
+            this.BTN_Stock_Supprimer.Name = "BTN_Stock_Supprimer";
+            this.BTN_Stock_Supprimer.Size = new System.Drawing.Size(106, 23);
+            this.BTN_Stock_Supprimer.TabIndex = 24;
+            this.BTN_Stock_Supprimer.Text = "Supprimer";
+            this.BTN_Stock_Supprimer.UseVisualStyleBackColor = true;
+            this.BTN_Stock_Supprimer.Click += new System.EventHandler(this.BTN_Stock_Supprimer_Click);
+            // 
+            // TXT_stock_codeVaccin
+            // 
+            this.TXT_stock_codeVaccin.Location = new System.Drawing.Point(92, 205);
+            this.TXT_stock_codeVaccin.Name = "TXT_stock_codeVaccin";
+            this.TXT_stock_codeVaccin.Size = new System.Drawing.Size(128, 20);
+            this.TXT_stock_codeVaccin.TabIndex = 25;
+            // 
             // EcranStockVaccin
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(766, 492);
+            this.Controls.Add(this.TXT_stock_codeVaccin);
+            this.Controls.Add(this.BTN_Stock_Supprimer);
+            this.Controls.Add(this.LBL_stockVaccin_PeriodeValidite);
+            this.Controls.Add(this.TXT_stockVaccin_dateValidite);
             this.Controls.Add(this.BTN_sotckAjout_AnnulerAjout);
             this.Controls.Add(this.BTN_sotckAjout_AjouterVaccin);
             this.Controls.Add(this.groupBox_stockAjout);
             this.Controls.Add(this.BTN_stock_annuler);
-            this.Controls.Add(this.BTN_sotck_ajouter);
+            this.Controls.Add(this.BTN_sotck_modifier);
             this.Controls.Add(this.TXT_stock_quantite);
             this.Controls.Add(this.TXT_stock_nomVaccin);
             this.Controls.Add(this.Combo_stock_fournisseur);
@@ -289,20 +311,22 @@
         private System.Windows.Forms.ComboBox Combo_stock_fournisseur;
         private System.Windows.Forms.TextBox TXT_stock_nomVaccin;
         private System.Windows.Forms.TextBox TXT_stock_quantite;
-        private System.Windows.Forms.Button BTN_sotck_ajouter;
+        private System.Windows.Forms.Button BTN_sotck_modifier;
         private System.Windows.Forms.Button BTN_stock_annuler;
         private System.Windows.Forms.Button BTN_stockAjout_Ajouter;
         private System.Windows.Forms.Button BTN_stockAjout_Annuler;
         private System.Windows.Forms.Label LBL_stockAjout_nomVaccin;
         private System.Windows.Forms.Label LBL_sotckAjout_quantiteVaccin;
         private System.Windows.Forms.Label LBL_stockAjout_periodeValidite;
-        private System.Windows.Forms.TextBox textBox1;
-        private System.Windows.Forms.TextBox textBox2;
-        private System.Windows.Forms.TextBox textBox3;
-        private System.Windows.Forms.ComboBox comboBox1;
-        private System.Windows.Forms.Label LBL_stockAjout_Fournisseur;
+        private System.Windows.Forms.TextBox textBox_NomVaccin;
+        private System.Windows.Forms.TextBox textBox_PeriodeValiditeVaccin;
+        private System.Windows.Forms.TextBox textBox_QuantiteVaccin;
         private System.Windows.Forms.GroupBox groupBox_stockAjout;
         private System.Windows.Forms.Button BTN_sotckAjout_AjouterVaccin;
         private System.Windows.Forms.Button BTN_sotckAjout_AnnulerAjout;
+        private System.Windows.Forms.TextBox TXT_stockVaccin_dateValidite;
+        private System.Windows.Forms.Label LBL_stockVaccin_PeriodeValidite;
+        private System.Windows.Forms.Button BTN_Stock_Supprimer;
+        private System.Windows.Forms.TextBox TXT_stock_codeVaccin;
     }
 }

@@ -121,7 +121,7 @@ namespace Clinique
         {
             Animaux pcodeAnimal = (Animaux)dataGrid_clients.CurrentRow.DataBoundItem;
             _animal.Supprimer(pcodeAnimal.CodeAnimal.Value);
-            dataGrid_clients.DataSource = _animal.AfficherTout().FindAll(x => x.CodeClient == pCodeClient.CodeClient.Value); ;
+            dataGrid_clients.DataSource = _animal.AfficherTout().FindAll(x => x.CodeClient == pCodeClient.CodeClient.Value);
         }
 
         private void BTN_clients_editer_Click(object sender, EventArgs e)

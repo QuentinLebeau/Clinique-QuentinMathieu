@@ -19,5 +19,16 @@ namespace BLL
         {
             return ADO_Baremes.GetOne(pBareme);
         }
+
+        public static void SupprimerBareme(Baremes pBareme)
+        {
+            ADO_Baremes.DeleteBareme(pBareme);
+        }
+
+        public static void ModifierBareme(Baremes pBareme)
+        {
+            ADO_Baremes.UpdateBareme(pBareme);
+        }
+
     }
 }

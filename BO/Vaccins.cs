@@ -43,18 +43,6 @@ namespace BO
             { 
                 TypeCode typeCode;
                 _periodeValidite = value;
-                
-               
-                if (_periodeValidite.HasValue)
-                {
-                    _periodeValidite += _periodeValidite / 6;
-                    typeCode = _periodeValidite.Value.GetTypeCode();
-                    if (typeCode != TypeCode.Int64 && typeCode != TypeCode.Int32 &&
-                    typeCode != TypeCode.Int16)
-                    {
-                        throw new Exception("Ce n'est pas un octet");
-                    }
-                }
             }
         }
 

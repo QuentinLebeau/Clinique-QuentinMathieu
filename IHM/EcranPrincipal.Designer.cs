@@ -90,21 +90,19 @@
             // 
             this.dossierClientAnimauxCTRLAToolStripMenuItem.Name = "dossierClientAnimauxCTRLAToolStripMenuItem";
             this.dossierClientAnimauxCTRLAToolStripMenuItem.Size = new System.Drawing.Size(261, 22);
-            //this.dossierClientAnimauxCTRLAToolStripMenuItem.Text = "Dossier Client/Animaux   CTRL - A";
             // 
             // relancesCTRLRToolStripMenuItem
             // 
             this.relancesCTRLRToolStripMenuItem.Name = "relancesCTRLRToolStripMenuItem";
             this.relancesCTRLRToolStripMenuItem.Size = new System.Drawing.Size(261, 22);
             this.relancesCTRLRToolStripMenuItem.Text = "Relances   CTRL - R";
-            //this.relancesCTRLRToolStripMenuItem.Click += new System.EventHandler(this.relancesCTRLRToolStripMenuItem_Click);
             // 
             // miseÀJourDuStrockVaccinCTRLMToolStripMenuItem
             // 
             this.miseÀJourDuStrockVaccinCTRLMToolStripMenuItem.Name = "miseÀJourDuStrockVaccinCTRLMToolStripMenuItem";
             this.miseÀJourDuStrockVaccinCTRLMToolStripMenuItem.Size = new System.Drawing.Size(261, 22);
             this.miseÀJourDuStrockVaccinCTRLMToolStripMenuItem.Text = "Mise à jour du strock vaccin   CTRL -  M";
-            //this.miseÀJourDuStrockVaccinCTRLMToolStripMenuItem.Click += new System.EventHandler(this.miseÀJourDuStrockVaccinCTRLMToolStripMenuItem_Click);
+            this.miseÀJourDuStrockVaccinCTRLMToolStripMenuItem.Click += new System.EventHandler(this.miseÀJourDuStrockVaccinCTRLMToolStripMenuItem_Click);
             // 
             // vétérinaireToolStripMenuItem
             // 
@@ -150,6 +148,7 @@
             this.miseÀJourDuBarèmeDeTarificationToolStripMenuItem.Name = "miseÀJourDuBarèmeDeTarificationToolStripMenuItem";
             this.miseÀJourDuBarèmeDeTarificationToolStripMenuItem.Size = new System.Drawing.Size(301, 22);
             this.miseÀJourDuBarèmeDeTarificationToolStripMenuItem.Text = "Mise à jour du barème de tarification   CTRL - M";
+            this.miseÀJourDuBarèmeDeTarificationToolStripMenuItem.Click += new System.EventHandler(this.miseÀJourDuBarèmeDeTarificationToolStripMenuItem_Click);
             // 
             // toolStripEcrPrincipal
             // 
@@ -211,7 +210,6 @@
             this.toolStripButtonRelance.Name = "toolStripButtonRelance";
             this.toolStripButtonRelance.Size = new System.Drawing.Size(78, 20);
             this.toolStripButtonRelance.Text = "toolStripButton1";
-            //this.toolStripButtonRelance.Click += new System.EventHandler(this.toolStripButtonRelance_Click);
             // 
             // toolStripLabelRelance
             // 

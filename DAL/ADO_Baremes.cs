@@ -22,7 +22,8 @@ namespace DAL
 
                 SqlCommand cmd = (SqlCommand)cnx.CreateCommand();
                 cmd.CommandText = " SELECT * " +
-                                  " FROM Baremes ";
+                                  " FROM Baremes " + 
+                                  " WHERE Archive = 0";
 
                 monAdapter.SelectCommand = cmd;
                 monAdapter.Fill(maDataTable);
@@ -60,6 +61,60 @@ namespace DAL
 
                 return new Baremes(resultat.Rows[0]);
             }
-        }        
+        }
+
+        public static void DeleteBareme(Baremes pBareme)
+        {
+            using (DbConnection cnx = ConnectionBDD.SeConnecter())
+            {
+                SqlParameter monParametre;
+
+                SqlCommand cmd = (SqlCommand)cnx.CreateCommand();
+                cmd.CommandText = " Delete * " +
+                                  " FROM Baremes " +
+                                  " WHERE CodeGroupement = @CodeGroupement " +
+                                  " AND DateVigueur = @DateVigueur ";
+
+                monParametre = new SqlParameter("@CodeGroupement", pBareme.CodeGroupement);
+                cmd.Parameters.Add(monParametre);
+                monParametre = new SqlParameter("@DateVigueur", pBareme.DateVigueur);
+                cmd.Parameters.Add(monParametre);
+
+                cmd.ExecuteNonQuery();
+            }
+        }
+
+        public static void UpdateBareme(Baremes pBareme)
+        {
+            using (DbConnection cnx = ConnectionBDD.SeConnecter())
+            {
+                SqlParameter monParametre;
+
+                SqlCommand cmd = (SqlCommand)cnx.CreateCommand();
+                cmd.CommandText = " Update Baremes" +
+                                  " SET CodeGroupement = @codeGroupement, DateVigueur = @dateVigueur, " +
+                                  " TypeActe = @typeActe, Libelle = @libelle, TarifFixe = @tarifFixe, " +
+                                  " TarifMini = @tarifMini, TarifMaxi = @tarifMaxi, " +
+                                  " CodeVaccin = @codeVaccin, 0";
+                monParametre = new SqlParameter("@codeGroupement",pBareme.CodeGroupement);
+                cmd.Parameters.Add(monParametre);
+                monParametre = new SqlParameter("@DateVigueur", pBareme.DateVigueur);
+                cmd.Parameters.Add(monParametre);
+                monParametre = new SqlParameter("@typeActe", pBareme.TypeActe);
+                cmd.Parameters.Add(monParametre);
+                monParametre = new SqlParameter("@libelle", pBareme.Libelle);
+                cmd.Parameters.Add(monParametre);
+                monParametre = new SqlParameter("@tarifFixe",pBareme.TarifFixe);
+                cmd.Parameters.Add(monParametre);
+                monParametre = new SqlParameter("@tarifMini",pBareme.TarifMini);
+                cmd.Parameters.Add(monParametre);
+                monParametre = new SqlParameter("@tarifMaxi",pBareme.TarifMaxi);
+                cmd.Parameters.Add(monParametre);
+                monParametre = new SqlParameter("@codeVaccin",pBareme.CodeVaccin);
+                cmd.Parameters.Add(monParametre);
+
+                cmd.ExecuteNonQuery();
+            }
+        }
     }
 }

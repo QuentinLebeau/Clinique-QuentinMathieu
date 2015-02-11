@@ -16,9 +16,19 @@ namespace BLL
             return ADO_Vaccins.getListeVaccins();
         }
 
-        public static void addVaccins(string nomVeto, string prenomVeto, string motPasse)
+        public static void addVaccins(string nomVaccin, int QuantiteVaccin, int Periode)
         {
-            //return ADO_vaccins.;
+            ADO_Vaccins.ajouterVaccins(nomVaccin, QuantiteVaccin, Periode);
+        }
+
+        public static void deleteVaccins(Guid Codevaccin)
+        {
+            ADO_Vaccins.supprimerVaccin(Codevaccin);
+        }
+
+        public static void updateVaccins(Guid codeVaccin, string nomVaccin, int QuantiteVaccin, int Periode)
+        {
+            ADO_Vaccins.updateVaccin(codeVaccin, nomVaccin, QuantiteVaccin, Periode);
         }
     }
 }

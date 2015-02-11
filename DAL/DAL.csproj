@@ -48,7 +48,7 @@
     <Compile Include="ADO_LigneConsultations.cs" />
     <Compile Include="ADO_relance.cs" />
     <Compile Include="ADO_UsersLogins.cs" />
-    <Compile Include="ADO_vaccins.cs" />
+    <Compile Include="ADO_Vaccins.cs" />
     <Compile Include="ADO_Veterinaires.cs" />
     <Compile Include="BDD_CliniqueDataSet.Designer.cs">
       <AutoGen>True</AutoGen>
