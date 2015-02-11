@@ -22,6 +22,8 @@ namespace Clinique
             TXT_baremes_codeGroupement.Enabled = false;
             TXT_baremes_dateVigueur.Enabled = false;
             TXT_baremes_codeVaccin.Enabled = false;
+            TXT_baremesAjout_dateVigueur.Enabled = false;
+            TXT_baremesAjout_codeVaccin.Enabled = false;
             GroupBoxAjoutBareme.Visible = false;
         }
 
@@ -74,6 +76,9 @@ namespace Clinique
         private void BTN_baremeAjout_ajouterBareme_Click(object sender, EventArgs e)
         {
             GroupBoxAjoutBareme.Visible = true;
+            comboBox_baremeAjout_TypeAct.DataSource = MgtBaremes.ComboTypeActe();
+            comboBox_ajoutBareme_Libelle.DataSource = MgtBaremes.ComboLibelle(comboBox_baremeAjout_TypeAct.Text);
+
         }
 
         private void button2_Click(object sender, EventArgs e)
@@ -87,12 +92,44 @@ namespace Clinique
 
             monBareme.CodeGroupement = TXT_baremes_codeGroupement.Text;
             monBareme.DateVigueur = TXT_baremes_dateVigueur.Text;
-            monBareme.TypeActe = TXT_baremes_typeActe.Text;
-            monBareme.Libelle = TXT_baremes_libelle.Text;
-            monBareme.TarifFixe = float.Parse(TXT_baremes_tarifFixe.Text);
-            monBareme.TarifMini = float.Parse(TXT_baremes_tarifMini.Text);
-            monBareme.TarifMaxi = float.Parse(TXT_baremes_tarifMaxi.Text);
-            monBareme.CodeVaccin = Guid.Parse(TXT_baremes_codeVaccin.Text);
+            monBareme.TypeActe = comboBox_baremeAjout_TypeAct.Text;
+            monBareme.Libelle = comboBox_ajoutBareme_Libelle.Text;
+            if (monBareme.TarifFixe.HasValue)
+            {
+                monBareme.TarifFixe = float.Parse(TXT_baremes_tarifFixe.Text);
+            }
+            else
+            {
+                monBareme.TarifFixe = null;
+            }
+
+            if (monBareme.TarifMini.HasValue)
+            {
+                monBareme.TarifMini = float.Parse(TXT_baremes_tarifMini.Text);
+            }
+            else
+            {
+                monBareme.TarifMini = null;
+            }
+
+            if (monBareme.TarifMaxi.HasValue)
+            {
+                monBareme.TarifMaxi = float.Parse(TXT_baremes_tarifMaxi.Text);
+            }
+            else
+            {
+                monBareme.TarifMaxi = null;
+            }
+
+            if (monBareme.CodeVaccin.HasValue)
+            {
+                monBareme.CodeVaccin = Guid.Parse(TXT_baremes_codeVaccin.Text);    
+            }
+            else
+            {
+                monBareme.CodeVaccin = null;
+            }
+            
 
             MgtBaremes.ModifierBareme(monBareme);
             dataGridView_baremes.DataSource = MgtBaremes.AffichierTout();
@@ -105,9 +142,23 @@ namespace Clinique
             dataGridView_baremes.DataSource = MgtBaremes.AffichierTout();
         }
 
-        private void LBL_baremes_tarifFixe_Click(object sender, EventArgs e)
+        private void BTN_baremesAjout_ajout_Click(object sender, EventArgs e)
         {
+            Baremes monBareme = new Baremes();
 
+            monBareme.CodeGroupement = TXT_baremesAjout_codeGroupement.Text;
+            monBareme.DateVigueur = TXT_baremesAjout_dateVigueur.Text;
+            monBareme.TypeActe = comboBox_baremeAjout_TypeAct.Text;
+            monBareme.Libelle = comboBox_ajoutBareme_Libelle.Text;
+            monBareme.TarifFixe = float.Parse(TXT_baremesAjout_tarifFixe.Text);
+            monBareme.TarifMini = float.Parse(TXT_baremesAjout_tarifMini.Text);
+            monBareme.TarifMaxi = float.Parse(TXT_baremesAjout_tarifMaxi.Text);
+            monBareme.CodeVaccin = Guid.Parse(TXT_baremesAjout_codeVaccin.Text);
+
+            MgtBaremes.AjoutBareme(monBareme);
+            dataGridView_baremes.DataSource = MgtBaremes.AffichierTout();
         }
+
+
     }
 }

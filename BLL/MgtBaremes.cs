@@ -30,5 +30,18 @@ namespace BLL
             ADO_Baremes.UpdateBareme(pBareme);
         }
 
+        public static void AjoutBareme(Baremes pBareme)
+        {
+            ADO_Baremes.AddBareme(pBareme);
+        }
+
+        public static List<Baremes> ComboTypeActe()
+        {
+            return ADO_Baremes.ComboTypeActeBareme();
+        }
+        public static List<Baremes> ComboLibelle(string typeActe)
+        {
+            return ADO_Baremes.ComboLibelle(typeActe);
+        }
     }
 }

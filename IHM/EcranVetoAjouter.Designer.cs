@@ -41,7 +41,7 @@
             // LBL_ajoutVeto_Nom
             // 
             this.LBL_ajoutVeto_Nom.AutoSize = true;
-            this.LBL_ajoutVeto_Nom.Location = new System.Drawing.Point(13, 25);
+            this.LBL_ajoutVeto_Nom.Location = new System.Drawing.Point(51, 15);
             this.LBL_ajoutVeto_Nom.Name = "LBL_ajoutVeto_Nom";
             this.LBL_ajoutVeto_Nom.Size = new System.Drawing.Size(29, 13);
             this.LBL_ajoutVeto_Nom.TabIndex = 0;
@@ -50,7 +50,7 @@
             // LBL_ajoutVeto_MotDePasse
             // 
             this.LBL_ajoutVeto_MotDePasse.AutoSize = true;
-            this.LBL_ajoutVeto_MotDePasse.Location = new System.Drawing.Point(194, 25);
+            this.LBL_ajoutVeto_MotDePasse.Location = new System.Drawing.Point(6, 41);
             this.LBL_ajoutVeto_MotDePasse.Name = "LBL_ajoutVeto_MotDePasse";
             this.LBL_ajoutVeto_MotDePasse.Size = new System.Drawing.Size(74, 13);
             this.LBL_ajoutVeto_MotDePasse.TabIndex = 1;
@@ -58,21 +58,21 @@
             // 
             // TXT_ajoutVeto_Nom
             // 
-            this.TXT_ajoutVeto_Nom.Location = new System.Drawing.Point(72, 22);
+            this.TXT_ajoutVeto_Nom.Location = new System.Drawing.Point(86, 12);
             this.TXT_ajoutVeto_Nom.Name = "TXT_ajoutVeto_Nom";
             this.TXT_ajoutVeto_Nom.Size = new System.Drawing.Size(100, 20);
             this.TXT_ajoutVeto_Nom.TabIndex = 2;
             // 
             // TXT_ajoutVeto_motPasse
             // 
-            this.TXT_ajoutVeto_motPasse.Location = new System.Drawing.Point(274, 22);
+            this.TXT_ajoutVeto_motPasse.Location = new System.Drawing.Point(86, 38);
             this.TXT_ajoutVeto_motPasse.Name = "TXT_ajoutVeto_motPasse";
-            this.TXT_ajoutVeto_motPasse.Size = new System.Drawing.Size(100, 20);
+            this.TXT_ajoutVeto_motPasse.Size = new System.Drawing.Size(272, 20);
             this.TXT_ajoutVeto_motPasse.TabIndex = 3;
             // 
             // BTN_ajoutVeto_ajouter
             // 
-            this.BTN_ajoutVeto_ajouter.Location = new System.Drawing.Point(111, 80);
+            this.BTN_ajoutVeto_ajouter.Location = new System.Drawing.Point(141, 75);
             this.BTN_ajoutVeto_ajouter.Name = "BTN_ajoutVeto_ajouter";
             this.BTN_ajoutVeto_ajouter.Size = new System.Drawing.Size(75, 23);
             this.BTN_ajoutVeto_ajouter.TabIndex = 4;
@@ -82,7 +82,7 @@
             // 
             // BYN_ajotuVeto_Annuler
             // 
-            this.BYN_ajotuVeto_Annuler.Location = new System.Drawing.Point(222, 80);
+            this.BYN_ajotuVeto_Annuler.Location = new System.Drawing.Point(222, 75);
             this.BYN_ajotuVeto_Annuler.Name = "BYN_ajotuVeto_Annuler";
             this.BYN_ajotuVeto_Annuler.Size = new System.Drawing.Size(75, 23);
             this.BYN_ajotuVeto_Annuler.TabIndex = 5;
@@ -92,7 +92,7 @@
             // 
             // TXT_ajoutVeto_prenom
             // 
-            this.TXT_ajoutVeto_prenom.Location = new System.Drawing.Point(72, 52);
+            this.TXT_ajoutVeto_prenom.Location = new System.Drawing.Point(258, 12);
             this.TXT_ajoutVeto_prenom.Name = "TXT_ajoutVeto_prenom";
             this.TXT_ajoutVeto_prenom.Size = new System.Drawing.Size(100, 20);
             this.TXT_ajoutVeto_prenom.TabIndex = 6;
@@ -100,7 +100,7 @@
             // LBL_ajoutVeto_prenom
             // 
             this.LBL_ajoutVeto_prenom.AutoSize = true;
-            this.LBL_ajoutVeto_prenom.Location = new System.Drawing.Point(16, 55);
+            this.LBL_ajoutVeto_prenom.Location = new System.Drawing.Point(202, 15);
             this.LBL_ajoutVeto_prenom.Name = "LBL_ajoutVeto_prenom";
             this.LBL_ajoutVeto_prenom.Size = new System.Drawing.Size(43, 13);
             this.LBL_ajoutVeto_prenom.TabIndex = 7;
@@ -110,7 +110,7 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(403, 118);
+            this.ClientSize = new System.Drawing.Size(430, 107);
             this.Controls.Add(this.LBL_ajoutVeto_prenom);
             this.Controls.Add(this.TXT_ajoutVeto_prenom);
             this.Controls.Add(this.BYN_ajotuVeto_Annuler);
