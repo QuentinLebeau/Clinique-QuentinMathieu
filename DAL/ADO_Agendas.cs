@@ -128,7 +128,7 @@ namespace DAL
                 
                 try
                 {
-                    cmd.ExecuteScalar();
+                    cmd.ExecuteNonQuery();
                 }
                 catch (Exception ex)
                 {

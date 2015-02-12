@@ -92,10 +92,10 @@ namespace Clinique
         // Click
         private void BTN_Urgence_Click(object sender, EventArgs e)
         {
+            Agendas monAgenda = new Agendas();
             Clients monClient = (Clients)COMBO_Client.SelectedItem;
             Animaux monAnimal = (Animaux)COMBO_Animal.SelectedItem;
-            Veterinaires monVeto = (Veterinaires)COMBO_Veto.SelectedItem;
-            Agendas monAgenda = new Agendas();
+            Veterinaires monVeto = (Veterinaires)COMBO_Veto.SelectedItem;            
 
             monAgenda.CodeAnimal = monAnimal.CodeAnimal;
             monAgenda.CodeVeto = monVeto.CodeVeto;

@@ -10,8 +10,8 @@ namespace BO
     public class Facture
     {
         // Attributs
-        private int? _numFacture;
-        public int? NumFacture
+        private Guid? _numFacture;
+        public Guid? NumFacture
         {
             get { return _numFacture; }
             set { _numFacture = value; }
@@ -24,8 +24,8 @@ namespace BO
             set { _dateFacture = value; }
         }
 
-        private int? _codeClient;
-        public int? CodeClients
+        private Guid? _codeClient;
+        public Guid? CodeClients
         {
             get { return _codeClient; }
             set { _codeClient = value; }
@@ -81,11 +81,16 @@ namespace BO
         public Facture(DataRow maFacture)
         {
             this.Archive = bool.Parse(maFacture["Archive"].ToString());
-            this.CodeClients = int.Parse(maFacture["CodeClients"].ToString());
+            this.CodeClients = Guid.Parse(maFacture["CodeClient"].ToString());
             this.DateFacture = DateTime.Parse(maFacture["DateFacture"].ToString());
             this.Etat = int.Parse(maFacture["Etat"].ToString());
-            this.NumFacture = int.Parse(maFacture["NumFacture"].ToString());
-            this.RappelEnvoye = DateTime.Parse(maFacture["RappelEnvoye"].ToString());
+            this.NumFacture = Guid.Parse(maFacture["NumFacture"].ToString());
+
+            if (!String.IsNullOrWhiteSpace(maFacture["RappelEnvoye"].ToString()))
+            {
+                this.RappelEnvoye = DateTime.Parse(maFacture["RappelEnvoye"].ToString());
+            }
+            
             this.TotalFacture = float.Parse(maFacture["TotalFacture"].ToString());
         }
     }

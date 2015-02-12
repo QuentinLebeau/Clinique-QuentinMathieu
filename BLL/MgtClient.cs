@@ -12,7 +12,6 @@ namespace BLL
     {
         ADO_Clients clientDAL = new ADO_Clients();
         private List<Clients> _listeClients = new List<Clients>();
-        //ADO_Clients monADO = new ADO_Clients();
 
         private static MgtClient _instance;
         private MgtClient()
@@ -25,17 +24,20 @@ namespace BLL
             if (_instance == null)
             {
                 _instance = new MgtClient();
+                _instance.clientDAL = new ADO_Clients();
+                _instance._listeClients = _instance.clientDAL.GetAll(); ;
             }
             else
             {
                 _instance.clientDAL = new ADO_Clients();
+                _instance._listeClients = _instance.clientDAL.GetAll(); ;
             }
             return _instance;
         }
 
         public List<Clients> ClientsListe
         {
-            get { return _listeClients; }
+            get { return AfficherTout(); }
         }
 
         public List<Clients> AfficherTout()
@@ -46,6 +48,11 @@ namespace BLL
         public Clients AfficherUneSeul(Guid? pCodeClient)
         {
             return clientDAL.GetOne(pCodeClient);
+        }
+
+        public Clients AfficherUneSeulNonArchive(Guid? pCodeClient)
+        {
+            return clientDAL.GetOneWithoutArchive(pCodeClient);
         }
 
         public void Ajouter(Clients unClient)
@@ -63,7 +70,7 @@ namespace BLL
             clientDAL.Delete(pCodeClient);
         }
 
-        public List<Clients> Rechercher(string nomClient)
+        public Clients Rechercher(string nomClient)
         {
             return ADO_Clients.Rechercher(nomClient);
         }
