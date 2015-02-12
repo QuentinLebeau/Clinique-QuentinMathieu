@@ -41,7 +41,7 @@
             // LBL_reinit_nomVeto
             // 
             this.LBL_reinit_nomVeto.AutoSize = true;
-            this.LBL_reinit_nomVeto.Location = new System.Drawing.Point(6, 37);
+            this.LBL_reinit_nomVeto.Location = new System.Drawing.Point(71, 5);
             this.LBL_reinit_nomVeto.Name = "LBL_reinit_nomVeto";
             this.LBL_reinit_nomVeto.Size = new System.Drawing.Size(29, 13);
             this.LBL_reinit_nomVeto.TabIndex = 0;
@@ -50,7 +50,7 @@
             // LBL_reinit_MDP1
             // 
             this.LBL_reinit_MDP1.AutoSize = true;
-            this.LBL_reinit_MDP1.Location = new System.Drawing.Point(6, 85);
+            this.LBL_reinit_MDP1.Location = new System.Drawing.Point(24, 53);
             this.LBL_reinit_MDP1.Name = "LBL_reinit_MDP1";
             this.LBL_reinit_MDP1.Size = new System.Drawing.Size(117, 13);
             this.LBL_reinit_MDP1.TabIndex = 1;
@@ -59,7 +59,7 @@
             // LBL_reinit_confirme
             // 
             this.LBL_reinit_confirme.AutoSize = true;
-            this.LBL_reinit_confirme.Location = new System.Drawing.Point(6, 139);
+            this.LBL_reinit_confirme.Location = new System.Drawing.Point(24, 103);
             this.LBL_reinit_confirme.Name = "LBL_reinit_confirme";
             this.LBL_reinit_confirme.Size = new System.Drawing.Size(128, 13);
             this.LBL_reinit_confirme.TabIndex = 2;
@@ -67,21 +67,21 @@
             // 
             // TXT_reinit_NouveauMDP
             // 
-            this.TXT_reinit_NouveauMDP.Location = new System.Drawing.Point(140, 82);
+            this.TXT_reinit_NouveauMDP.Location = new System.Drawing.Point(7, 69);
             this.TXT_reinit_NouveauMDP.Name = "TXT_reinit_NouveauMDP";
-            this.TXT_reinit_NouveauMDP.Size = new System.Drawing.Size(100, 20);
+            this.TXT_reinit_NouveauMDP.Size = new System.Drawing.Size(156, 20);
             this.TXT_reinit_NouveauMDP.TabIndex = 4;
             // 
             // TXT_reinit_confirmMDP
             // 
-            this.TXT_reinit_confirmMDP.Location = new System.Drawing.Point(140, 136);
+            this.TXT_reinit_confirmMDP.Location = new System.Drawing.Point(7, 119);
             this.TXT_reinit_confirmMDP.Name = "TXT_reinit_confirmMDP";
-            this.TXT_reinit_confirmMDP.Size = new System.Drawing.Size(100, 20);
+            this.TXT_reinit_confirmMDP.Size = new System.Drawing.Size(156, 20);
             this.TXT_reinit_confirmMDP.TabIndex = 5;
             // 
             // BTN_reinit_valider
             // 
-            this.BTN_reinit_valider.Location = new System.Drawing.Point(33, 181);
+            this.BTN_reinit_valider.Location = new System.Drawing.Point(7, 163);
             this.BTN_reinit_valider.Name = "BTN_reinit_valider";
             this.BTN_reinit_valider.Size = new System.Drawing.Size(75, 23);
             this.BTN_reinit_valider.TabIndex = 6;
@@ -91,7 +91,7 @@
             // 
             // BTN_reinit_annuler
             // 
-            this.BTN_reinit_annuler.Location = new System.Drawing.Point(140, 181);
+            this.BTN_reinit_annuler.Location = new System.Drawing.Point(88, 163);
             this.BTN_reinit_annuler.Name = "BTN_reinit_annuler";
             this.BTN_reinit_annuler.Size = new System.Drawing.Size(75, 23);
             this.BTN_reinit_annuler.TabIndex = 7;
@@ -102,16 +102,16 @@
             // combo_reinit_nom
             // 
             this.combo_reinit_nom.FormattingEnabled = true;
-            this.combo_reinit_nom.Location = new System.Drawing.Point(119, 34);
+            this.combo_reinit_nom.Location = new System.Drawing.Point(7, 21);
             this.combo_reinit_nom.Name = "combo_reinit_nom";
-            this.combo_reinit_nom.Size = new System.Drawing.Size(121, 21);
+            this.combo_reinit_nom.Size = new System.Drawing.Size(156, 21);
             this.combo_reinit_nom.TabIndex = 8;
             // 
             // ecranReinitialisation
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(246, 211);
+            this.ClientSize = new System.Drawing.Size(172, 197);
             this.Controls.Add(this.combo_reinit_nom);
             this.Controls.Add(this.BTN_reinit_annuler);
             this.Controls.Add(this.BTN_reinit_valider);

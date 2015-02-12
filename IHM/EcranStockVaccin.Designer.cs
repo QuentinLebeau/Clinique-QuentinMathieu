@@ -59,16 +59,16 @@
             // dataGridView_stockVaccins
             // 
             this.dataGridView_stockVaccins.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dataGridView_stockVaccins.Location = new System.Drawing.Point(35, 13);
+            this.dataGridView_stockVaccins.Location = new System.Drawing.Point(5, 8);
             this.dataGridView_stockVaccins.Name = "dataGridView_stockVaccins";
-            this.dataGridView_stockVaccins.Size = new System.Drawing.Size(681, 176);
+            this.dataGridView_stockVaccins.Size = new System.Drawing.Size(406, 176);
             this.dataGridView_stockVaccins.TabIndex = 0;
             this.dataGridView_stockVaccins.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridView_stockVaccins_CellContentClick);
             // 
             // LBL_stock_nomVaccin
             // 
             this.LBL_stock_nomVaccin.AutoSize = true;
-            this.LBL_stock_nomVaccin.Location = new System.Drawing.Point(42, 234);
+            this.LBL_stock_nomVaccin.Location = new System.Drawing.Point(7, 195);
             this.LBL_stock_nomVaccin.Name = "LBL_stock_nomVaccin";
             this.LBL_stock_nomVaccin.Size = new System.Drawing.Size(40, 13);
             this.LBL_stock_nomVaccin.TabIndex = 1;
@@ -77,7 +77,7 @@
             // LBL_stock_fournisseur
             // 
             this.LBL_stock_fournisseur.AutoSize = true;
-            this.LBL_stock_fournisseur.Location = new System.Drawing.Point(21, 315);
+            this.LBL_stock_fournisseur.Location = new System.Drawing.Point(212, 195);
             this.LBL_stock_fournisseur.Name = "LBL_stock_fournisseur";
             this.LBL_stock_fournisseur.Size = new System.Drawing.Size(61, 13);
             this.LBL_stock_fournisseur.TabIndex = 2;
@@ -86,7 +86,7 @@
             // LBL_stock_quantite
             // 
             this.LBL_stock_quantite.AutoSize = true;
-            this.LBL_stock_quantite.Location = new System.Drawing.Point(35, 263);
+            this.LBL_stock_quantite.Location = new System.Drawing.Point(-1, 220);
             this.LBL_stock_quantite.Name = "LBL_stock_quantite";
             this.LBL_stock_quantite.Size = new System.Drawing.Size(47, 13);
             this.LBL_stock_quantite.TabIndex = 3;
@@ -95,28 +95,28 @@
             // Combo_stock_fournisseur
             // 
             this.Combo_stock_fournisseur.FormattingEnabled = true;
-            this.Combo_stock_fournisseur.Location = new System.Drawing.Point(92, 312);
+            this.Combo_stock_fournisseur.Location = new System.Drawing.Point(283, 192);
             this.Combo_stock_fournisseur.Name = "Combo_stock_fournisseur";
             this.Combo_stock_fournisseur.Size = new System.Drawing.Size(128, 21);
             this.Combo_stock_fournisseur.TabIndex = 4;
             // 
             // TXT_stock_nomVaccin
             // 
-            this.TXT_stock_nomVaccin.Location = new System.Drawing.Point(92, 231);
+            this.TXT_stock_nomVaccin.Location = new System.Drawing.Point(57, 192);
             this.TXT_stock_nomVaccin.Name = "TXT_stock_nomVaccin";
             this.TXT_stock_nomVaccin.Size = new System.Drawing.Size(128, 20);
             this.TXT_stock_nomVaccin.TabIndex = 5;
             // 
             // TXT_stock_quantite
             // 
-            this.TXT_stock_quantite.Location = new System.Drawing.Point(92, 260);
+            this.TXT_stock_quantite.Location = new System.Drawing.Point(56, 217);
             this.TXT_stock_quantite.Name = "TXT_stock_quantite";
             this.TXT_stock_quantite.Size = new System.Drawing.Size(128, 20);
             this.TXT_stock_quantite.TabIndex = 6;
             // 
             // BTN_sotck_modifier
             // 
-            this.BTN_sotck_modifier.Location = new System.Drawing.Point(320, 229);
+            this.BTN_sotck_modifier.Location = new System.Drawing.Point(40, 267);
             this.BTN_sotck_modifier.Name = "BTN_sotck_modifier";
             this.BTN_sotck_modifier.Size = new System.Drawing.Size(107, 23);
             this.BTN_sotck_modifier.TabIndex = 7;
@@ -126,7 +126,7 @@
             // 
             // BTN_stock_annuler
             // 
-            this.BTN_stock_annuler.Location = new System.Drawing.Point(433, 229);
+            this.BTN_stock_annuler.Location = new System.Drawing.Point(153, 267);
             this.BTN_stock_annuler.Name = "BTN_stock_annuler";
             this.BTN_stock_annuler.Size = new System.Drawing.Size(107, 23);
             this.BTN_stock_annuler.TabIndex = 8;
@@ -136,7 +136,7 @@
             // 
             // BTN_stockAjout_Ajouter
             // 
-            this.BTN_stockAjout_Ajouter.Location = new System.Drawing.Point(242, 48);
+            this.BTN_stockAjout_Ajouter.Location = new System.Drawing.Point(245, 33);
             this.BTN_stockAjout_Ajouter.Name = "BTN_stockAjout_Ajouter";
             this.BTN_stockAjout_Ajouter.Size = new System.Drawing.Size(75, 23);
             this.BTN_stockAjout_Ajouter.TabIndex = 9;
@@ -146,7 +146,7 @@
             // 
             // BTN_stockAjout_Annuler
             // 
-            this.BTN_stockAjout_Annuler.Location = new System.Drawing.Point(242, 80);
+            this.BTN_stockAjout_Annuler.Location = new System.Drawing.Point(245, 62);
             this.BTN_stockAjout_Annuler.Name = "BTN_stockAjout_Annuler";
             this.BTN_stockAjout_Annuler.Size = new System.Drawing.Size(75, 23);
             this.BTN_stockAjout_Annuler.TabIndex = 10;
@@ -156,7 +156,7 @@
             // LBL_stockAjout_nomVaccin
             // 
             this.LBL_stockAjout_nomVaccin.AutoSize = true;
-            this.LBL_stockAjout_nomVaccin.Location = new System.Drawing.Point(45, 33);
+            this.LBL_stockAjout_nomVaccin.Location = new System.Drawing.Point(48, 27);
             this.LBL_stockAjout_nomVaccin.Name = "LBL_stockAjout_nomVaccin";
             this.LBL_stockAjout_nomVaccin.Size = new System.Drawing.Size(40, 13);
             this.LBL_stockAjout_nomVaccin.TabIndex = 11;
@@ -165,7 +165,7 @@
             // LBL_sotckAjout_quantiteVaccin
             // 
             this.LBL_sotckAjout_quantiteVaccin.AutoSize = true;
-            this.LBL_sotckAjout_quantiteVaccin.Location = new System.Drawing.Point(38, 85);
+            this.LBL_sotckAjout_quantiteVaccin.Location = new System.Drawing.Point(41, 79);
             this.LBL_sotckAjout_quantiteVaccin.Name = "LBL_sotckAjout_quantiteVaccin";
             this.LBL_sotckAjout_quantiteVaccin.Size = new System.Drawing.Size(47, 13);
             this.LBL_sotckAjout_quantiteVaccin.TabIndex = 12;
@@ -174,7 +174,7 @@
             // LBL_stockAjout_periodeValidite
             // 
             this.LBL_stockAjout_periodeValidite.AutoSize = true;
-            this.LBL_stockAjout_periodeValidite.Location = new System.Drawing.Point(5, 58);
+            this.LBL_stockAjout_periodeValidite.Location = new System.Drawing.Point(8, 52);
             this.LBL_stockAjout_periodeValidite.Name = "LBL_stockAjout_periodeValidite";
             this.LBL_stockAjout_periodeValidite.Size = new System.Drawing.Size(80, 13);
             this.LBL_stockAjout_periodeValidite.TabIndex = 13;
@@ -182,21 +182,21 @@
             // 
             // textBox_NomVaccin
             // 
-            this.textBox_NomVaccin.Location = new System.Drawing.Point(99, 30);
+            this.textBox_NomVaccin.Location = new System.Drawing.Point(102, 24);
             this.textBox_NomVaccin.Name = "textBox_NomVaccin";
             this.textBox_NomVaccin.Size = new System.Drawing.Size(128, 20);
             this.textBox_NomVaccin.TabIndex = 14;
             // 
             // textBox_PeriodeValiditeVaccin
             // 
-            this.textBox_PeriodeValiditeVaccin.Location = new System.Drawing.Point(99, 55);
+            this.textBox_PeriodeValiditeVaccin.Location = new System.Drawing.Point(102, 49);
             this.textBox_PeriodeValiditeVaccin.Name = "textBox_PeriodeValiditeVaccin";
             this.textBox_PeriodeValiditeVaccin.Size = new System.Drawing.Size(128, 20);
             this.textBox_PeriodeValiditeVaccin.TabIndex = 15;
             // 
             // textBox_QuantiteVaccin
             // 
-            this.textBox_QuantiteVaccin.Location = new System.Drawing.Point(99, 81);
+            this.textBox_QuantiteVaccin.Location = new System.Drawing.Point(102, 75);
             this.textBox_QuantiteVaccin.Name = "textBox_QuantiteVaccin";
             this.textBox_QuantiteVaccin.Size = new System.Drawing.Size(128, 20);
             this.textBox_QuantiteVaccin.TabIndex = 16;
@@ -211,7 +211,7 @@
             this.groupBox_stockAjout.Controls.Add(this.textBox_PeriodeValiditeVaccin);
             this.groupBox_stockAjout.Controls.Add(this.LBL_stockAjout_periodeValidite);
             this.groupBox_stockAjout.Controls.Add(this.textBox_NomVaccin);
-            this.groupBox_stockAjout.Location = new System.Drawing.Point(390, 367);
+            this.groupBox_stockAjout.Location = new System.Drawing.Point(33, 355);
             this.groupBox_stockAjout.Name = "groupBox_stockAjout";
             this.groupBox_stockAjout.Size = new System.Drawing.Size(339, 113);
             this.groupBox_stockAjout.TabIndex = 19;
@@ -220,7 +220,7 @@
             // 
             // BTN_sotckAjout_AjouterVaccin
             // 
-            this.BTN_sotckAjout_AjouterVaccin.Location = new System.Drawing.Point(320, 288);
+            this.BTN_sotckAjout_AjouterVaccin.Location = new System.Drawing.Point(93, 326);
             this.BTN_sotckAjout_AjouterVaccin.Name = "BTN_sotckAjout_AjouterVaccin";
             this.BTN_sotckAjout_AjouterVaccin.Size = new System.Drawing.Size(107, 23);
             this.BTN_sotckAjout_AjouterVaccin.TabIndex = 20;
@@ -230,7 +230,7 @@
             // 
             // BTN_sotckAjout_AnnulerAjout
             // 
-            this.BTN_sotckAjout_AnnulerAjout.Location = new System.Drawing.Point(433, 288);
+            this.BTN_sotckAjout_AnnulerAjout.Location = new System.Drawing.Point(206, 326);
             this.BTN_sotckAjout_AnnulerAjout.Name = "BTN_sotckAjout_AnnulerAjout";
             this.BTN_sotckAjout_AnnulerAjout.Size = new System.Drawing.Size(107, 23);
             this.BTN_sotckAjout_AnnulerAjout.TabIndex = 21;
@@ -240,7 +240,7 @@
             // 
             // TXT_stockVaccin_dateValidite
             // 
-            this.TXT_stockVaccin_dateValidite.Location = new System.Drawing.Point(92, 286);
+            this.TXT_stockVaccin_dateValidite.Location = new System.Drawing.Point(283, 218);
             this.TXT_stockVaccin_dateValidite.Name = "TXT_stockVaccin_dateValidite";
             this.TXT_stockVaccin_dateValidite.Size = new System.Drawing.Size(128, 20);
             this.TXT_stockVaccin_dateValidite.TabIndex = 22;
@@ -248,7 +248,7 @@
             // LBL_stockVaccin_PeriodeValidite
             // 
             this.LBL_stockVaccin_PeriodeValidite.AutoSize = true;
-            this.LBL_stockVaccin_PeriodeValidite.Location = new System.Drawing.Point(2, 289);
+            this.LBL_stockVaccin_PeriodeValidite.Location = new System.Drawing.Point(193, 221);
             this.LBL_stockVaccin_PeriodeValidite.Name = "LBL_stockVaccin_PeriodeValidite";
             this.LBL_stockVaccin_PeriodeValidite.Size = new System.Drawing.Size(80, 13);
             this.LBL_stockVaccin_PeriodeValidite.TabIndex = 23;
@@ -256,7 +256,7 @@
             // 
             // BTN_Stock_Supprimer
             // 
-            this.BTN_Stock_Supprimer.Location = new System.Drawing.Point(546, 229);
+            this.BTN_Stock_Supprimer.Location = new System.Drawing.Point(266, 267);
             this.BTN_Stock_Supprimer.Name = "BTN_Stock_Supprimer";
             this.BTN_Stock_Supprimer.Size = new System.Drawing.Size(106, 23);
             this.BTN_Stock_Supprimer.TabIndex = 24;
@@ -266,16 +266,16 @@
             // 
             // TXT_stock_codeVaccin
             // 
-            this.TXT_stock_codeVaccin.Location = new System.Drawing.Point(92, 205);
+            this.TXT_stock_codeVaccin.Location = new System.Drawing.Point(181, 300);
             this.TXT_stock_codeVaccin.Name = "TXT_stock_codeVaccin";
-            this.TXT_stock_codeVaccin.Size = new System.Drawing.Size(128, 20);
+            this.TXT_stock_codeVaccin.Size = new System.Drawing.Size(41, 20);
             this.TXT_stock_codeVaccin.TabIndex = 25;
             // 
             // EcranStockVaccin
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(766, 492);
+            this.ClientSize = new System.Drawing.Size(419, 472);
             this.Controls.Add(this.TXT_stock_codeVaccin);
             this.Controls.Add(this.BTN_Stock_Supprimer);
             this.Controls.Add(this.LBL_stockVaccin_PeriodeValidite);

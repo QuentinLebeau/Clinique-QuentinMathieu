@@ -39,6 +39,9 @@ namespace Clinique
                     TXT_Commentaire.Text = GRID_Consultation.Rows[0].Cells["Commentaire"].Value.ToString();
                 }
             }
+
+            LBL_Proprio.ForeColor = Color.Red;
+            LBL_Tatou.ForeColor = Color.Black;
         }
 
         private void COMBO_Client_SelectedIndexChanged(object sender, EventArgs e)

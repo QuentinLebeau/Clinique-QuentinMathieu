@@ -34,7 +34,6 @@ namespace Clinique
             groupBox_stockAjout.Visible = false;
             TXT_stock_nomVaccin.Enabled = false;
             TXT_stock_codeVaccin.Visible = false;
-
         }
 
         private void dataGridView_stockVaccins_CellContentClick(object sender, DataGridViewCellEventArgs e)
@@ -82,7 +81,5 @@ namespace Clinique
             MgtVaccins.deleteVaccins(Guid.Parse(TXT_stock_codeVaccin.Text));
            dataGridView_stockVaccins.DataSource = MgtVaccins.getAllVaccins();
         }
-
-
     }
 }

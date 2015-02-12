@@ -66,6 +66,7 @@ namespace Clinique
             ChangementCOMBO(false, true);
 
             _maConsu = MgtConsultation.AfficherTout().Find(x => x.CodeAnimal == Guid.Parse(TXT_CodeAnimal.Text) && x.CodeVeto == ((Veterinaires)COMBO_Veto.SelectedItem).CodeVeto.Value && x.DateConsultation == DateTime.Parse(DATE_Acte.Text));
+            TXT_Commentaire.Text = _maConsu.Commentaire;
 
             if (_maConsu == null)
             {
@@ -168,7 +169,15 @@ namespace Clinique
             {
                 BTN_Enregistrer.Enabled = false;
             }
-        }                     
+        }
+
+        private void LargeTXT_consultation_commentaire_TextChanged(object sender, EventArgs e)
+        {
+            if (!String.IsNullOrWhiteSpace(TXT_Commentaire.Text))
+            {
+                BTN_ValiderConsu.Enabled = true;
+            }
+        }
 
         #endregion
 
@@ -409,11 +418,7 @@ namespace Clinique
         {
 
         }
-
-        private void LargeTXT_consultation_commentaire_TextChanged(object sender, EventArgs e)
-        {
-
-        }
+        
         #endregion
 
         #endregion

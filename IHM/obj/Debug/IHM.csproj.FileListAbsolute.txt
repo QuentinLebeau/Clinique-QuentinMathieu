@@ -143,7 +143,6 @@ C:\Users\d1410alheincm\Desktop\CliniqueProjet\IHM\bin\Debug\Clinique.exe.CodeAna
 C:\Users\d1410alheincm\Desktop\CliniqueProjet\IHM\bin\Debug\Clinique.exe.lastcodeanalysissucceeded
 C:\Users\d1410alheincm\Desktop\CliniqueProjet\IHM\bin\Debug\BLL.dll
 C:\Users\d1410alheincm\Desktop\CliniqueProjet\IHM\bin\Debug\BO.dll
-C:\Users\d1410alheincm\Desktop\CliniqueProjet\IHM\bin\Debug\ControlsLibrary.dll
 C:\Users\d1410alheincm\Desktop\CliniqueProjet\IHM\bin\Debug\DAL.dll
 C:\Users\d1410alheincm\Desktop\CliniqueProjet\IHM\bin\Debug\BLL.pdb
 C:\Users\d1410alheincm\Desktop\CliniqueProjet\IHM\bin\Debug\BLL.xml
@@ -171,3 +170,4 @@ C:\Users\d1410alheincm\Desktop\CliniqueProjet\IHM\obj\Debug\IHM.csproj.GenerateR
 C:\Users\d1410alheincm\Desktop\CliniqueProjet\IHM\obj\Debug\Clinique.exe
 C:\Users\d1410alheincm\Desktop\CliniqueProjet\IHM\obj\Debug\Clinique.EcranBaremes.resources
 C:\Users\d1409LEBEAUq\Desktop\Clinique\IHM\obj\Debug\Clinique.EcranBaremes.resources
+C:\Users\d1410alheincm\Desktop\CliniqueProjet\IHM\bin\Debug\ControlsLibrary.dll
