@@ -64,7 +64,7 @@
             this.paramétrageToolStripMenuItem});
             this.menuStrip1.Location = new System.Drawing.Point(0, 0);
             this.menuStrip1.Name = "menuStrip1";
-            this.menuStrip1.Size = new System.Drawing.Size(734, 24);
+            this.menuStrip1.Size = new System.Drawing.Size(892, 24);
             this.menuStrip1.TabIndex = 0;
             this.menuStrip1.Text = "menuStrip1";
             // 
@@ -90,12 +90,15 @@
             // 
             this.dossierClientAnimauxCTRLAToolStripMenuItem.Name = "dossierClientAnimauxCTRLAToolStripMenuItem";
             this.dossierClientAnimauxCTRLAToolStripMenuItem.Size = new System.Drawing.Size(261, 22);
+            this.dossierClientAnimauxCTRLAToolStripMenuItem.Text = "Dossier Client / Animaux   CTRL + A";
+            this.dossierClientAnimauxCTRLAToolStripMenuItem.Click += new System.EventHandler(this.dossierClientAnimauxCTRLAToolStripMenuItem_Click);
             // 
             // relancesCTRLRToolStripMenuItem
             // 
             this.relancesCTRLRToolStripMenuItem.Name = "relancesCTRLRToolStripMenuItem";
             this.relancesCTRLRToolStripMenuItem.Size = new System.Drawing.Size(261, 22);
             this.relancesCTRLRToolStripMenuItem.Text = "Relances   CTRL - R";
+            this.relancesCTRLRToolStripMenuItem.Click += new System.EventHandler(this.relancesCTRLRToolStripMenuItem_Click);
             // 
             // miseÀJourDuStrockVaccinCTRLMToolStripMenuItem
             // 
@@ -164,9 +167,9 @@
             this.toolStripLabelAgenda,
             this.toolStripButtonDossierMedical,
             this.toolStripLabelDossierMedical});
-            this.toolStripEcrPrincipal.Location = new System.Drawing.Point(653, 24);
+            this.toolStripEcrPrincipal.Location = new System.Drawing.Point(811, 24);
             this.toolStripEcrPrincipal.Name = "toolStripEcrPrincipal";
-            this.toolStripEcrPrincipal.Size = new System.Drawing.Size(81, 494);
+            this.toolStripEcrPrincipal.Size = new System.Drawing.Size(81, 749);
             this.toolStripEcrPrincipal.TabIndex = 1;
             this.toolStripEcrPrincipal.Text = "toolStrip1";
             // 
@@ -210,6 +213,7 @@
             this.toolStripButtonRelance.Name = "toolStripButtonRelance";
             this.toolStripButtonRelance.Size = new System.Drawing.Size(78, 20);
             this.toolStripButtonRelance.Text = "toolStripButton1";
+            this.toolStripButtonRelance.Click += new System.EventHandler(this.toolStripButtonRelance_Click);
             // 
             // toolStripLabelRelance
             // 
@@ -253,7 +257,7 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(734, 518);
+            this.ClientSize = new System.Drawing.Size(892, 773);
             this.Controls.Add(this.toolStripEcrPrincipal);
             this.Controls.Add(this.menuStrip1);
             this.IsMdiContainer = true;

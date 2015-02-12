@@ -28,9 +28,15 @@ namespace Clinique
             set
             {
                 _courant = value;
-                _clientCourant = MgtClient.GetInstance().ClientsListe.ElementAt(_courant);
                 NavBarre.ApresEnable = (_courant != MgtClient.GetInstance().ClientsListe.Count - 1);
-                NavBarre.AvantEnable = (_courant != 0);
+                NavBarre.AvantEnable = (_courant != 0 && _courant != -1);
+
+                if (_courant <= 0)
+                {
+                    _courant = 0;
+                }
+
+                _clientCourant = MgtClient.GetInstance().ClientsListe.ElementAt(_courant);                
                 AfficherClientCourant();
             }
         }
@@ -58,6 +64,7 @@ namespace Clinique
         public EcranClients()
         {
             InitializeComponent();
+            IndiceCourant = 0;
             AfficherClientCourant();
             pCodeClient =  MgtClient.GetInstance().ClientsListe.ElementAt(_courant);
             dataGrid_clients.DataSource = _animal.AfficherTout().FindAll(x => x.CodeClient == pCodeClient.CodeClient.Value);
@@ -148,18 +155,6 @@ namespace Clinique
             MgtClient.GetInstance().Ajouter(monClient);
 
             RemplissageTextBox(monClient.CodeClient);
-
-            //TXT_clients_code.Text = _clientCourant.CodeClient.ToString();
-            //TXT_clients_nom.Text = _clientCourant.NomClient;
-            //TXT_clients_prenom.Text = _clientCourant.PrenomClient;
-            //TXT_clients_adresse1.Text = _clientCourant.Adresse1;
-            //TXT_clients_adresse2.Text = _clientCourant.Adresse2;
-            //TXT_clients_CP.Text = _clientCourant.CodePostal;
-            //TXT_clients_ville.Text = _clientCourant.Ville;
-            //TXT_clients_tel.Text = _clientCourant.NumTel;
-            //TXT_clients_mail.Text = _clientCourant.Email;
-            //TXT_clients_assureur.Text = _clientCourant.Assurance;
-
             
         }
 
@@ -175,19 +170,32 @@ namespace Clinique
 
         private void BTN_clients_supprimer_Click(object sender, EventArgs e)
         {
-            Clients pCodeClient = (Clients)dataGrid_clients.CurrentRow.DataBoundItem;
-            MgtClient.GetInstance().Supprimer(pCodeClient.CodeClient.Value);
-            dataGrid_clients.DataSource = MgtClient.GetInstance().AfficherTout();
+            Clients pCodeClient = (Clients)MgtClient.GetInstance().ClientsListe.ElementAt(_courant);
+            if (MgtFacture.AfficherTout().FindAll(x => x.Etat != 2 && x.CodeClients == pCodeClient.CodeClient.Value).Count == 0)
+            {
+                MgtClient.GetInstance().Supprimer(pCodeClient.CodeClient.Value);
+                IndiceCourant = 0;
+            }            
         }
 
         private void BTN_clients_recherche_Click(object sender, EventArgs e)
         {
             MgtClient _client = MgtClient.GetInstance();
-            List<Clients> unCLient = new List<Clients>();
-            unCLient = _client.Rechercher(TXT_clients_recherche.Text);
-            RemplissageTextBox(unCLient.First<Clients>().CodeClient);
+            Clients clientRecherche = new Clients();
+            clientRecherche = _client.Rechercher(TXT_clients_recherche.Text);
+            if (clientRecherche != null)
+            {
+                RemplissageTextBox(clientRecherche.CodeClient);
 
-            dataGrid_clients.DataSource = _animal.AfficherTout().FindAll(x => x.CodeClient == unCLient.First<Clients>().CodeClient);
+                for (int i = 0; i < MgtClient.GetInstance().ClientsListe.Count; i++)
+                {
+                    if (MgtClient.GetInstance().ClientsListe[i].CodeClient == clientRecherche.CodeClient)
+                    {
+                        IndiceCourant = i;
+                    }
+                }
+                dataGrid_clients.DataSource = _animal.AfficherTout().FindAll(x => x.CodeClient == _clientCourant.CodeClient);
+            }
         }
 
         private void RemplissageTextBox(Guid? codeClient = null)
@@ -196,7 +204,7 @@ namespace Clinique
 
             if (codeClient != null)
             {
-                monClient = MgtClient.GetInstance().AfficherUneSeul(codeClient);
+                monClient = MgtClient.GetInstance().AfficherUneSeulNonArchive(codeClient);
 
                 TXT_clients_code.Text = monClient.CodeClient.ToString();
                 TXT_clients_nom.Text = monClient.NomClient;

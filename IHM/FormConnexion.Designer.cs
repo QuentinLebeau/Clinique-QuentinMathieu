@@ -33,6 +33,7 @@
             this.LBL_ConnexionMdp = new System.Windows.Forms.Label();
             this.TXT_ConnxionNom = new System.Windows.Forms.TextBox();
             this.TXT_ConnexionMdp = new System.Windows.Forms.TextBox();
+            this.LBL_connexion_erreur = new System.Windows.Forms.Label();
             this.SuspendLayout();
             // 
             // BTN_ConnexionValider
@@ -69,6 +70,7 @@
             this.TXT_ConnxionNom.Name = "TXT_ConnxionNom";
             this.TXT_ConnxionNom.Size = new System.Drawing.Size(134, 20);
             this.TXT_ConnxionNom.TabIndex = 4;
+            this.TXT_ConnxionNom.MouseClick += new System.Windows.Forms.MouseEventHandler(this.TXT_ConnxionNom_MouseClick);
             // 
             // TXT_ConnexionMdp
             // 
@@ -77,12 +79,23 @@
             this.TXT_ConnexionMdp.PasswordChar = '*';
             this.TXT_ConnexionMdp.Size = new System.Drawing.Size(134, 20);
             this.TXT_ConnexionMdp.TabIndex = 5;
+            this.TXT_ConnexionMdp.MouseClick += new System.Windows.Forms.MouseEventHandler(this.TXT_ConnexionMdp_MouseClick);
+            // 
+            // LBL_connexion_erreur
+            // 
+            this.LBL_connexion_erreur.AutoSize = true;
+            this.LBL_connexion_erreur.Location = new System.Drawing.Point(23, 98);
+            this.LBL_connexion_erreur.Name = "LBL_connexion_erreur";
+            this.LBL_connexion_erreur.Size = new System.Drawing.Size(35, 13);
+            this.LBL_connexion_erreur.TabIndex = 6;
+            this.LBL_connexion_erreur.Text = "label1";
             // 
             // FormConnexion
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(258, 159);
+            this.Controls.Add(this.LBL_connexion_erreur);
             this.Controls.Add(this.TXT_ConnexionMdp);
             this.Controls.Add(this.TXT_ConnxionNom);
             this.Controls.Add(this.LBL_ConnexionMdp);
@@ -102,6 +115,7 @@
         private System.Windows.Forms.Label LBL_ConnexionMdp;
         private System.Windows.Forms.TextBox TXT_ConnxionNom;
         private System.Windows.Forms.TextBox TXT_ConnexionMdp;
+        private System.Windows.Forms.Label LBL_connexion_erreur;
     }
 }
 

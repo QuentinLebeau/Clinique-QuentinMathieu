@@ -16,6 +16,7 @@ namespace DAL
 
         public List<Clients> GetAll()
         {
+            cnx = ConnectionBDD.SeConnecter();
             try
             {
                 DataTable maDataTable = new DataTable();
@@ -24,7 +25,8 @@ namespace DAL
 
                 SqlCommand cmd = (SqlCommand) cnx.CreateCommand();
                 cmd.CommandText = " SELECT * " +
-                                  " FROM Clients ";
+                                  " FROM Clients " +
+                                  " WHERE Archive = 0 ; ";
 
                 monAdapter.SelectCommand = cmd;
                 monAdapter.Fill(maDataTable);
@@ -48,6 +50,7 @@ namespace DAL
 
         public Clients GetOne(Guid? pCodeClient)
         {
+            cnx = ConnectionBDD.SeConnecter();
             try
             {
                 DataTable maDataTable = new DataTable();
@@ -77,8 +80,42 @@ namespace DAL
             }
         }
 
+        public Clients GetOneWithoutArchive(Guid? pCodeClient)
+        {
+            cnx = ConnectionBDD.SeConnecter();
+            try
+            {
+                DataTable maDataTable = new DataTable();
+                SqlDataAdapter monAdapter = new SqlDataAdapter();
+                SqlParameter monParametre;
+
+                SqlCommand cmd = (SqlCommand)cnx.CreateCommand();
+                cmd.CommandText = " SELECT * " +
+                                  " FROM Clients " +
+                                  " WHERE CodeClient = @codeClient " +
+                                  " AND Archive = 0 ;";
+
+                monParametre = new SqlParameter("@codeClient", pCodeClient);
+                cmd.Parameters.Add(monParametre);
+
+                monAdapter.SelectCommand = cmd;
+                monAdapter.Fill(maDataTable);
+
+                return new Clients(maDataTable.Rows[0]);
+            }
+            catch (Exception ex)
+            {
+                throw new Exception("Une erreur c'est produite lors de la séléction d'un client non archivé :\n" + ex.Message);
+            }
+            finally
+            {
+                cnx.Close();
+            }
+        }
+
         public void Add(Clients unClient)
         {
+            cnx = ConnectionBDD.SeConnecter();
             try
             {
                 SqlParameter monParametre;
@@ -121,6 +158,7 @@ namespace DAL
 
         public void Update(Clients unClient)
         {
+            cnx = ConnectionBDD.SeConnecter();
             try
             {
                 SqlParameter monParametre;
@@ -166,13 +204,14 @@ namespace DAL
 
         public void Delete(Guid pCodeClient)
         {
+            cnx = ConnectionBDD.SeConnecter();
             try
             {
                 SqlParameter monParametre;
 
                 SqlCommand cmd = (SqlCommand)cnx.CreateCommand();
-                cmd.CommandText = " DELETE FROM Clients " +
-                                  " WHERE CodeClient = @codeClient ; ";
+                cmd.CommandText = " UPDATE Animaux SET Archive = 1 WHERE CodeClient = @codeClient ; " +
+                                  " UPDATE Clients SET Archive = 1 WHERE CodeClient = @codeClient ; ";
 
                 monParametre = new SqlParameter("@codeClient", pCodeClient);
                 cmd.Parameters.Add(monParametre);
@@ -189,19 +228,20 @@ namespace DAL
             }
         }
 
-        public static List<Clients> Rechercher(string nomClient)
+        public static Clients Rechercher(string nomClient)
         {
             using (DbConnection cnx = ConnectionBDD.SeConnecter())
             {
-                List<Clients> listeClient = new List<Clients>();
+                Clients unClient = new Clients();
                 SqlDataAdapter monAdapter = new SqlDataAdapter();
                 DataTable maDataTable = new DataTable();
                 SqlParameter monParametre;
 
                 SqlCommand cmd = (SqlCommand)cnx.CreateCommand();
-                cmd.CommandText = " SELECT * " +
+                cmd.CommandText = " SELECT TOP(1) * " +
                                   " FROM Clients" +
-                                  " WHERE NomClient LIKE '%' + @nomClient + '%'";
+                                  " WHERE NomClient LIKE '%' + @nomClient + '%'" +
+                                  " AND Archive = 0 ;";
 
                 monParametre = new SqlParameter("@nomClient", nomClient);
                 cmd.Parameters.Add(monParametre);
@@ -209,12 +249,13 @@ namespace DAL
                 monAdapter.SelectCommand = cmd;
                 monAdapter.Fill(maDataTable);
 
-                foreach (DataRow unClient in maDataTable.Rows)
+                foreach (DataRow clientEnCours in maDataTable.Rows)
                 {
-                    listeClient.Add(new Clients(unClient));
+                    unClient = new Clients(clientEnCours);
+                    break;
                 }
 
-                return listeClient;
+                return unClient;
             }
         }
     }

@@ -30,7 +30,8 @@ namespace DAL
 
                 SqlCommand cmd = (SqlCommand)maConnexion().CreateCommand();
                 cmd.CommandText = " SELECT * " +
-                                  " FROM Animaux ";
+                                  " FROM Animaux " +
+                                  " WHERE Archive = 0 ; ";
 
                 monAdapter.SelectCommand = cmd;
                 monAdapter.Fill(maDataTable);
@@ -183,7 +184,7 @@ namespace DAL
                 SqlParameter monParametre;
 
                 SqlCommand cmd = (SqlCommand)maConnexion().CreateCommand();
-                cmd.CommandText = " DELETE FROM Animaux " +
+                cmd.CommandText = " UPDATE Animaux SET Archive = 1" +
                                   " WHERE CodeAnimal = @codeAnimal ; ";
 
                 monParametre = new SqlParameter("@codeAnimal", pCodeAnimal);

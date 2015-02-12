@@ -102,5 +102,31 @@ namespace clinique
             monEcran.MdiParent = this;
             monEcran.Show();
         }
+
+        private void dossierClientAnimauxCTRLAToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            EcranClients monEcran;
+            monEcran = new EcranClients();
+            monEcran.MdiParent = this;
+            monEcran.Show();
+        }
+
+        private void relancesCTRLRToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            EcranRelance monEcran;
+            monEcran = new EcranRelance();
+            monEcran.MdiParent = this;
+            monEcran.Show();
+        }
+
+        private void toolStripButtonRelance_Click(object sender, EventArgs e)
+        {
+            EcranRelance monEcran;
+            monEcran = new EcranRelance();
+            monEcran.MdiParent = this;
+            monEcran.Show();
+        }
+
+
     }
 }
