@@ -10,32 +10,28 @@ using System.Data.SqlClient;
 
 namespace DAL
 {
-    public class ADO_relance
+    public class ADO_Relance
     {
-        public static DataTable getListeClients()
+        public static DataTable GetAll()
         {
             using (DbConnection cnx = ConnectionBDD.SeConnecter())
             {
-                List<Clients> listeClient = new List<Clients>();
                 SqlDataAdapter monAdapter = new SqlDataAdapter();
                 DataTable resultat = new DataTable();
 
                 SqlCommand cmd = (SqlCommand)cnx.CreateCommand();
-                cmd.CommandText = " select lc.CodeConsultation, lc.DateVigueur, lc.Prix, " +
-                                  " DATEADD(MONTH, v.PeriodeValidite, lc.DateVigueur) as dateConsultationValidite " +
-                                  " from Clients c" +
-                                  " inner join Animaux a on c.CodeClient = a.CodeClient " +
-                                  " inner join Consultations co on a.CodeAnimal = co.CodeAnimal " +
-                                  " inner join LignesConsultations lc on co.CodeConsultation = lc.CodeConsultation " +
-                                  " inner join Baremes b on lc.CodeGroupement = b.CodeGroupement " +
-                                  " inner join Vaccins v on b.CodeVaccin = v.CodeVaccin;  ";
+                cmd.CommandText = " SELECT A.NomAnimal AS Animal, (C.NomClient + ' ' + C.PrenomClient) AS Propriétaire " +
+                                  " FROM Factures F " +
+                                  " INNER JOIN Clients C ON F.CodeClient = C.CodeClient " +
+                                  " INNER JOIN Animaux A ON A.CodeClient = C.CodeClient " +
+                                  " INNER JOIN Consultations Consu ON Consu.NumFacture = F.NumFacture " +
+                                  " INNER JOIN LignesConsultations LC ON LC.CodeConsultation = Consu.CodeConsultation " +
+                                  " INNER JOIN Baremes B ON LC.CodeGroupement = B.CodeGroupement AND LC.DateVigueur = B.DateVigueur " +
+                                  " INNER JOIN Vaccins V ON B.CodeVaccin = V.CodeVaccin " +
+                                  " WHERE DATEDIFF(DAY, DATEADD(MONTH, V.PeriodeValidite, CONVERT(datetime,RIGHT(LC.DateVigueur ,2)+LEFT(LC.DateVigueur ,2)+SUBSTRING(LC.DateVigueur ,4,2))), SYSDATETIME()) >= 0 ;";
+                
                 monAdapter.SelectCommand = cmd;
                 monAdapter.Fill(resultat);
-
-                //foreach (DataRow unClient in resultat.Rows)
-                //{
-                //    listeClient.Add(new Clients(unClient));
-                //}
 
                 return resultat;
             }

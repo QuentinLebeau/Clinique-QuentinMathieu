@@ -57,13 +57,13 @@
             this.label1 = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
             this.groupBox2 = new System.Windows.Forms.GroupBox();
-            this.groupBox3 = new System.Windows.Forms.GroupBox();
-            this.LBL_clients_telephone = new System.Windows.Forms.Label();
-            this.LBL_clients_assureur = new System.Windows.Forms.Label();
-            this.LBL_clients_mail = new System.Windows.Forms.Label();
-            this.TXT_clients_tel = new System.Windows.Forms.TextBox();
-            this.TXT_clients_mail = new System.Windows.Forms.TextBox();
             this.TXT_clients_assureur = new System.Windows.Forms.TextBox();
+            this.TXT_clients_mail = new System.Windows.Forms.TextBox();
+            this.TXT_clients_tel = new System.Windows.Forms.TextBox();
+            this.LBL_clients_mail = new System.Windows.Forms.Label();
+            this.LBL_clients_assureur = new System.Windows.Forms.Label();
+            this.LBL_clients_telephone = new System.Windows.Forms.Label();
+            this.groupBox3 = new System.Windows.Forms.GroupBox();
             this.groupBox1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataGrid_clients)).BeginInit();
             this.groupBox2.SuspendLayout();
@@ -350,6 +350,54 @@
             this.groupBox2.TabStop = false;
             this.groupBox2.Text = "Informations client";
             // 
+            // TXT_clients_assureur
+            // 
+            this.TXT_clients_assureur.Location = new System.Drawing.Point(359, 123);
+            this.TXT_clients_assureur.Name = "TXT_clients_assureur";
+            this.TXT_clients_assureur.Size = new System.Drawing.Size(207, 20);
+            this.TXT_clients_assureur.TabIndex = 29;
+            // 
+            // TXT_clients_mail
+            // 
+            this.TXT_clients_mail.Location = new System.Drawing.Point(78, 148);
+            this.TXT_clients_mail.Name = "TXT_clients_mail";
+            this.TXT_clients_mail.Size = new System.Drawing.Size(488, 20);
+            this.TXT_clients_mail.TabIndex = 28;
+            // 
+            // TXT_clients_tel
+            // 
+            this.TXT_clients_tel.Location = new System.Drawing.Point(78, 122);
+            this.TXT_clients_tel.Name = "TXT_clients_tel";
+            this.TXT_clients_tel.Size = new System.Drawing.Size(207, 20);
+            this.TXT_clients_tel.TabIndex = 27;
+            // 
+            // LBL_clients_mail
+            // 
+            this.LBL_clients_mail.AutoSize = true;
+            this.LBL_clients_mail.Location = new System.Drawing.Point(46, 151);
+            this.LBL_clients_mail.Name = "LBL_clients_mail";
+            this.LBL_clients_mail.Size = new System.Drawing.Size(26, 13);
+            this.LBL_clients_mail.TabIndex = 26;
+            this.LBL_clients_mail.Text = "Mail";
+            // 
+            // LBL_clients_assureur
+            // 
+            this.LBL_clients_assureur.AutoSize = true;
+            this.LBL_clients_assureur.Location = new System.Drawing.Point(305, 125);
+            this.LBL_clients_assureur.Name = "LBL_clients_assureur";
+            this.LBL_clients_assureur.Size = new System.Drawing.Size(48, 13);
+            this.LBL_clients_assureur.TabIndex = 25;
+            this.LBL_clients_assureur.Text = "Assureur";
+            // 
+            // LBL_clients_telephone
+            // 
+            this.LBL_clients_telephone.AutoSize = true;
+            this.LBL_clients_telephone.Location = new System.Drawing.Point(14, 125);
+            this.LBL_clients_telephone.Name = "LBL_clients_telephone";
+            this.LBL_clients_telephone.Size = new System.Drawing.Size(58, 13);
+            this.LBL_clients_telephone.TabIndex = 24;
+            this.LBL_clients_telephone.Text = "Téléphone";
+            // 
             // groupBox3
             // 
             this.groupBox3.Controls.Add(this.dataGrid_clients);
@@ -362,54 +410,6 @@
             this.groupBox3.TabIndex = 23;
             this.groupBox3.TabStop = false;
             this.groupBox3.Text = "Animaux";
-            // 
-            // LBL_clients_telephone
-            // 
-            this.LBL_clients_telephone.AutoSize = true;
-            this.LBL_clients_telephone.Location = new System.Drawing.Point(14, 125);
-            this.LBL_clients_telephone.Name = "LBL_clients_telephone";
-            this.LBL_clients_telephone.Size = new System.Drawing.Size(58, 13);
-            this.LBL_clients_telephone.TabIndex = 24;
-            this.LBL_clients_telephone.Text = "Téléphone";
-            // 
-            // LBL_clients_assureur
-            // 
-            this.LBL_clients_assureur.AutoSize = true;
-            this.LBL_clients_assureur.Location = new System.Drawing.Point(305, 125);
-            this.LBL_clients_assureur.Name = "LBL_clients_assureur";
-            this.LBL_clients_assureur.Size = new System.Drawing.Size(48, 13);
-            this.LBL_clients_assureur.TabIndex = 25;
-            this.LBL_clients_assureur.Text = "Assureur";
-            // 
-            // LBL_clients_mail
-            // 
-            this.LBL_clients_mail.AutoSize = true;
-            this.LBL_clients_mail.Location = new System.Drawing.Point(46, 151);
-            this.LBL_clients_mail.Name = "LBL_clients_mail";
-            this.LBL_clients_mail.Size = new System.Drawing.Size(26, 13);
-            this.LBL_clients_mail.TabIndex = 26;
-            this.LBL_clients_mail.Text = "Mail";
-            // 
-            // TXT_clients_tel
-            // 
-            this.TXT_clients_tel.Location = new System.Drawing.Point(78, 122);
-            this.TXT_clients_tel.Name = "TXT_clients_tel";
-            this.TXT_clients_tel.Size = new System.Drawing.Size(207, 20);
-            this.TXT_clients_tel.TabIndex = 27;
-            // 
-            // TXT_clients_mail
-            // 
-            this.TXT_clients_mail.Location = new System.Drawing.Point(78, 148);
-            this.TXT_clients_mail.Name = "TXT_clients_mail";
-            this.TXT_clients_mail.Size = new System.Drawing.Size(207, 20);
-            this.TXT_clients_mail.TabIndex = 28;
-            // 
-            // TXT_clients_assureur
-            // 
-            this.TXT_clients_assureur.Location = new System.Drawing.Point(359, 123);
-            this.TXT_clients_assureur.Name = "TXT_clients_assureur";
-            this.TXT_clients_assureur.Size = new System.Drawing.Size(207, 20);
-            this.TXT_clients_assureur.TabIndex = 29;
             // 
             // EcranClients
             // 

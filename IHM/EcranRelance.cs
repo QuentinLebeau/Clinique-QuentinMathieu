@@ -1,4 +1,6 @@
-﻿using System;
+﻿using BLL;
+using BO;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -15,7 +17,9 @@ namespace Clinique
         public EcranRelance()
         {
             InitializeComponent();
-            //TXT_relance.Text = ("Bonjour");
+
+            GRID_Relance.DataSource = MgtRelance.AfficheTout();
+            
         }
     }
 }
