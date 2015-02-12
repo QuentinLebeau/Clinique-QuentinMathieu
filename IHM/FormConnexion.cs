@@ -41,15 +41,11 @@ namespace clinique
         private void TXT_ConnxionNom_MouseClick(object sender, MouseEventArgs e)
         {
             LBL_connexion_erreur.Visible = false;
-            TXT_ConnxionNom.Text = null;
-            TXT_ConnexionMdp.Text = null;
         }
 
         private void TXT_ConnexionMdp_MouseClick(object sender, MouseEventArgs e)
         {
             LBL_connexion_erreur.Visible = false;
-            TXT_ConnxionNom.Text = null;
-            TXT_ConnexionMdp.Text = null;
         }
     }
 }
