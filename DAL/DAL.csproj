@@ -46,7 +46,7 @@
     <Compile Include="ADO_Clients.cs" />
     <Compile Include="ADO_Consultations.cs" />
     <Compile Include="ADO_LigneConsultations.cs" />
-    <Compile Include="ADO_relance.cs" />
+    <Compile Include="ADO_Relance.cs" />
     <Compile Include="ADO_UsersLogins.cs" />
     <Compile Include="ADO_Vaccins.cs" />
     <Compile Include="ADO_Veterinaires.cs" />
