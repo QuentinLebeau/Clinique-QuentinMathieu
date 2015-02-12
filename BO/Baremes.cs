@@ -97,11 +97,11 @@ namespace BO
 
         public Baremes(DataRow monBaremes)
         {
-            this.CodeGroupement = monBaremes["CodeGroupement"].ToString();
+            
             this.DateVigueur = monBaremes["DateVigueur"].ToString();
             this.TypeActe = monBaremes["TypeActe"].ToString();
             this.Libelle = monBaremes["Libelle"].ToString();
-
+            this.CodeGroupement = monBaremes["CodeGroupement"].ToString();
             if (!String.IsNullOrWhiteSpace(monBaremes["TarifFixe"].ToString()))
             {
                 this.TarifFixe = float.Parse(monBaremes["TarifFixe"].ToString());

@@ -36,6 +36,9 @@
             this.BYN_ajotuVeto_Annuler = new System.Windows.Forms.Button();
             this.TXT_ajoutVeto_prenom = new System.Windows.Forms.TextBox();
             this.LBL_ajoutVeto_prenom = new System.Windows.Forms.Label();
+            this.LBL_ajoutVeto_erreur = new System.Windows.Forms.Label();
+            this.groupBoxAjoutVetoErreur = new System.Windows.Forms.GroupBox();
+            this.groupBoxAjoutVetoErreur.SuspendLayout();
             this.SuspendLayout();
             // 
             // LBL_ajoutVeto_Nom
@@ -62,6 +65,7 @@
             this.TXT_ajoutVeto_Nom.Name = "TXT_ajoutVeto_Nom";
             this.TXT_ajoutVeto_Nom.Size = new System.Drawing.Size(100, 20);
             this.TXT_ajoutVeto_Nom.TabIndex = 2;
+            this.TXT_ajoutVeto_Nom.TextChanged += new System.EventHandler(this.TXT_ajoutVeto_Nom_TextChanged);
             // 
             // TXT_ajoutVeto_motPasse
             // 
@@ -69,10 +73,11 @@
             this.TXT_ajoutVeto_motPasse.Name = "TXT_ajoutVeto_motPasse";
             this.TXT_ajoutVeto_motPasse.Size = new System.Drawing.Size(272, 20);
             this.TXT_ajoutVeto_motPasse.TabIndex = 3;
+            this.TXT_ajoutVeto_motPasse.TextChanged += new System.EventHandler(this.TXT_ajoutVeto_motPasse_TextChanged);
             // 
             // BTN_ajoutVeto_ajouter
             // 
-            this.BTN_ajoutVeto_ajouter.Location = new System.Drawing.Point(141, 75);
+            this.BTN_ajoutVeto_ajouter.Location = new System.Drawing.Point(124, 73);
             this.BTN_ajoutVeto_ajouter.Name = "BTN_ajoutVeto_ajouter";
             this.BTN_ajoutVeto_ajouter.Size = new System.Drawing.Size(75, 23);
             this.BTN_ajoutVeto_ajouter.TabIndex = 4;
@@ -82,7 +87,7 @@
             // 
             // BYN_ajotuVeto_Annuler
             // 
-            this.BYN_ajotuVeto_Annuler.Location = new System.Drawing.Point(222, 75);
+            this.BYN_ajotuVeto_Annuler.Location = new System.Drawing.Point(205, 73);
             this.BYN_ajotuVeto_Annuler.Name = "BYN_ajotuVeto_Annuler";
             this.BYN_ajotuVeto_Annuler.Size = new System.Drawing.Size(75, 23);
             this.BYN_ajotuVeto_Annuler.TabIndex = 5;
@@ -96,6 +101,7 @@
             this.TXT_ajoutVeto_prenom.Name = "TXT_ajoutVeto_prenom";
             this.TXT_ajoutVeto_prenom.Size = new System.Drawing.Size(100, 20);
             this.TXT_ajoutVeto_prenom.TabIndex = 6;
+            this.TXT_ajoutVeto_prenom.TextChanged += new System.EventHandler(this.TXT_ajoutVeto_prenom_TextChanged);
             // 
             // LBL_ajoutVeto_prenom
             // 
@@ -106,11 +112,30 @@
             this.LBL_ajoutVeto_prenom.TabIndex = 7;
             this.LBL_ajoutVeto_prenom.Text = "Prenom";
             // 
+            // LBL_ajoutVeto_erreur
+            // 
+            this.LBL_ajoutVeto_erreur.AutoSize = true;
+            this.LBL_ajoutVeto_erreur.Location = new System.Drawing.Point(6, 16);
+            this.LBL_ajoutVeto_erreur.Name = "LBL_ajoutVeto_erreur";
+            this.LBL_ajoutVeto_erreur.Size = new System.Drawing.Size(35, 13);
+            this.LBL_ajoutVeto_erreur.TabIndex = 8;
+            this.LBL_ajoutVeto_erreur.Text = "label1";
+            // 
+            // groupBoxAjoutVetoErreur
+            // 
+            this.groupBoxAjoutVetoErreur.Controls.Add(this.LBL_ajoutVeto_erreur);
+            this.groupBoxAjoutVetoErreur.Location = new System.Drawing.Point(86, 102);
+            this.groupBoxAjoutVetoErreur.Name = "groupBoxAjoutVetoErreur";
+            this.groupBoxAjoutVetoErreur.Size = new System.Drawing.Size(272, 59);
+            this.groupBoxAjoutVetoErreur.TabIndex = 9;
+            this.groupBoxAjoutVetoErreur.TabStop = false;
+            // 
             // EcranVetoAjouter
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(430, 107);
+            this.ClientSize = new System.Drawing.Size(430, 164);
+            this.Controls.Add(this.groupBoxAjoutVetoErreur);
             this.Controls.Add(this.LBL_ajoutVeto_prenom);
             this.Controls.Add(this.TXT_ajoutVeto_prenom);
             this.Controls.Add(this.BYN_ajotuVeto_Annuler);
@@ -121,6 +146,8 @@
             this.Controls.Add(this.LBL_ajoutVeto_Nom);
             this.Name = "EcranVetoAjouter";
             this.Text = "Ajouter Vétérinaire";
+            this.groupBoxAjoutVetoErreur.ResumeLayout(false);
+            this.groupBoxAjoutVetoErreur.PerformLayout();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -136,5 +163,7 @@
         private System.Windows.Forms.Button BYN_ajotuVeto_Annuler;
         private System.Windows.Forms.TextBox TXT_ajoutVeto_prenom;
         private System.Windows.Forms.Label LBL_ajoutVeto_prenom;
+        private System.Windows.Forms.Label LBL_ajoutVeto_erreur;
+        private System.Windows.Forms.GroupBox groupBoxAjoutVetoErreur;
     }
 }

@@ -17,6 +17,7 @@ namespace Clinique
         public EcranVetoAjouter()
         {
             InitializeComponent();
+            groupBoxAjoutVetoErreur.Visible = false;
         }
 
         private void BYN_ajotuVeto_Annuler_Click(object sender, EventArgs e)
@@ -34,15 +35,32 @@ namespace Clinique
             {
                 MgtVeterinaires.addVeto(TXT_ajoutVeto_Nom.Text, TXT_ajoutVeto_prenom.Text
                     , TXT_ajoutVeto_motPasse.Text);
+                EcranVeterinaires _ecranVeto = new EcranVeterinaires();
+                _ecranVeto.EcranVeterinaires_Load(sender, e);
+                this.Close();
             }
             catch (Exception ex)
             {
-
-                throw new Exception("Problème dans les informations saisies. \n" + ex.Message);
+                LBL_ajoutVeto_erreur.Text = ("Problème dans les informations saisies. \n" + ex.Message);
+                LBL_ajoutVeto_erreur.ForeColor = System.Drawing.Color.Red;
+                groupBoxAjoutVetoErreur.Visible = true;
+                TXT_ajoutVeto_Nom.Focus();
             }
-            EcranVeterinaires _ecranVeto = new EcranVeterinaires();
-            _ecranVeto.EcranVeterinaires_Load(sender, e);
-            this.Close();
+        }
+
+        private void TXT_ajoutVeto_Nom_TextChanged(object sender, EventArgs e)
+        {
+            groupBoxAjoutVetoErreur.Visible = false;
+        }
+
+        private void TXT_ajoutVeto_prenom_TextChanged(object sender, EventArgs e)
+        {
+            groupBoxAjoutVetoErreur.Visible = false;
+        }
+
+        private void TXT_ajoutVeto_motPasse_TextChanged(object sender, EventArgs e)
+        {
+            groupBoxAjoutVetoErreur.Visible = false;
         }
     }
 }

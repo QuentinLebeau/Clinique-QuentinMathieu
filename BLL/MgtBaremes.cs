@@ -39,6 +39,7 @@ namespace BLL
         {
             return ADO_Baremes.ComboTypeActeBareme();
         }
+
         public static List<Baremes> ComboLibelle(string typeActe)
         {
             return ADO_Baremes.ComboLibelle(typeActe);

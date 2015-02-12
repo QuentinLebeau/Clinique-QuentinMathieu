@@ -75,5 +75,9 @@ namespace BO
             this.Archive = bool.Parse(monVaccins["Archive"].ToString());
         }
 
+        public override string ToString()
+        {
+            return this.NomVaccin;
+        }
     }
 }

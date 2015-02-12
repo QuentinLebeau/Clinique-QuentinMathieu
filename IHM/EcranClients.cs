@@ -62,6 +62,7 @@ namespace Clinique
             pCodeClient =  MgtClient.GetInstance().ClientsListe.ElementAt(_courant);
             dataGrid_clients.DataSource = _animal.AfficherTout().FindAll(x => x.CodeClient == pCodeClient.CodeClient.Value);
             TXT_clients_code.Enabled = false;
+            
         }
 
         private void NavBarre_Navigation(object sender, ControlsLibrary.NavBarEventArgs e)

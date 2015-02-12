@@ -45,17 +45,17 @@
             this.TXT_baremes_tarifMaxi = new System.Windows.Forms.TextBox();
             this.TXT_baremes_tarifMini = new System.Windows.Forms.TextBox();
             this.TXT_baremes_tarifFixe = new System.Windows.Forms.TextBox();
-            this.BTN_baremes_annuler = new System.Windows.Forms.Button();
             this.BTN_baremes_Modifier = new System.Windows.Forms.Button();
             this.groupBoxBaremesModif = new System.Windows.Forms.GroupBox();
             this.BTN_bareme_supprimer = new System.Windows.Forms.Button();
             this.BTN_baremeAjout_ajouterBareme = new System.Windows.Forms.Button();
             this.GroupBoxAjoutBareme = new System.Windows.Forms.GroupBox();
+            this.LBL_baremeAjout_erreur = new System.Windows.Forms.Label();
             this.comboBox_ajoutBareme_Libelle = new System.Windows.Forms.ComboBox();
             this.BTN_baremesAjout_ajout = new System.Windows.Forms.Button();
             this.comboBox_baremeAjout_TypeAct = new System.Windows.Forms.ComboBox();
-            this.label1 = new System.Windows.Forms.Label();
             this.button2 = new System.Windows.Forms.Button();
+            this.label1 = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
             this.TXT_baremesAjout_tarifFixe = new System.Windows.Forms.TextBox();
             this.label3 = new System.Windows.Forms.Label();
@@ -211,15 +211,6 @@
             this.TXT_baremes_tarifFixe.Size = new System.Drawing.Size(100, 20);
             this.TXT_baremes_tarifFixe.TabIndex = 17;
             // 
-            // BTN_baremes_annuler
-            // 
-            this.BTN_baremes_annuler.Location = new System.Drawing.Point(452, 76);
-            this.BTN_baremes_annuler.Name = "BTN_baremes_annuler";
-            this.BTN_baremes_annuler.Size = new System.Drawing.Size(75, 23);
-            this.BTN_baremes_annuler.TabIndex = 18;
-            this.BTN_baremes_annuler.Text = "Annuler";
-            this.BTN_baremes_annuler.UseVisualStyleBackColor = true;
-            // 
             // BTN_baremes_Modifier
             // 
             this.BTN_baremes_Modifier.Location = new System.Drawing.Point(290, 76);
@@ -235,7 +226,6 @@
             this.groupBoxBaremesModif.Controls.Add(this.BTN_bareme_supprimer);
             this.groupBoxBaremesModif.Controls.Add(this.LBL_baremes_codeGroupement);
             this.groupBoxBaremesModif.Controls.Add(this.LBL_baremes_DateVigueur);
-            this.groupBoxBaremesModif.Controls.Add(this.BTN_baremes_annuler);
             this.groupBoxBaremesModif.Controls.Add(this.BTN_baremeAjout_ajouterBareme);
             this.groupBoxBaremesModif.Controls.Add(this.BTN_baremes_Modifier);
             this.groupBoxBaremesModif.Controls.Add(this.TXT_baremes_tarifFixe);
@@ -280,6 +270,7 @@
             // 
             // GroupBoxAjoutBareme
             // 
+            this.GroupBoxAjoutBareme.Controls.Add(this.LBL_baremeAjout_erreur);
             this.GroupBoxAjoutBareme.Controls.Add(this.comboBox_ajoutBareme_Libelle);
             this.GroupBoxAjoutBareme.Controls.Add(this.BTN_baremesAjout_ajout);
             this.GroupBoxAjoutBareme.Controls.Add(this.comboBox_baremeAjout_TypeAct);
@@ -300,10 +291,19 @@
             this.GroupBoxAjoutBareme.Controls.Add(this.TXT_baremesAjout_codeGroupement);
             this.GroupBoxAjoutBareme.Location = new System.Drawing.Point(4, 442);
             this.GroupBoxAjoutBareme.Name = "GroupBoxAjoutBareme";
-            this.GroupBoxAjoutBareme.Size = new System.Drawing.Size(724, 105);
+            this.GroupBoxAjoutBareme.Size = new System.Drawing.Size(724, 158);
             this.GroupBoxAjoutBareme.TabIndex = 21;
             this.GroupBoxAjoutBareme.TabStop = false;
             this.GroupBoxAjoutBareme.Text = "Ajout d\'un bareme";
+            // 
+            // LBL_baremeAjout_erreur
+            // 
+            this.LBL_baremeAjout_erreur.AutoSize = true;
+            this.LBL_baremeAjout_erreur.Location = new System.Drawing.Point(183, 107);
+            this.LBL_baremeAjout_erreur.Name = "LBL_baremeAjout_erreur";
+            this.LBL_baremeAjout_erreur.Size = new System.Drawing.Size(35, 13);
+            this.LBL_baremeAjout_erreur.TabIndex = 38;
+            this.LBL_baremeAjout_erreur.Text = "label9";
             // 
             // comboBox_ajoutBareme_Libelle
             // 
@@ -312,6 +312,8 @@
             this.comboBox_ajoutBareme_Libelle.Name = "comboBox_ajoutBareme_Libelle";
             this.comboBox_ajoutBareme_Libelle.Size = new System.Drawing.Size(121, 21);
             this.comboBox_ajoutBareme_Libelle.TabIndex = 23;
+            this.comboBox_ajoutBareme_Libelle.SelectedIndexChanged += new System.EventHandler(this.comboBox_ajoutBareme_Libelle_SelectedIndexChanged);
+            this.comboBox_ajoutBareme_Libelle.SelectionChangeCommitted += new System.EventHandler(this.comboBox_ajoutBareme_Libelle_SelectionChangeCommitted);
             // 
             // BTN_baremesAjout_ajout
             // 
@@ -330,15 +332,7 @@
             this.comboBox_baremeAjout_TypeAct.Name = "comboBox_baremeAjout_TypeAct";
             this.comboBox_baremeAjout_TypeAct.Size = new System.Drawing.Size(121, 21);
             this.comboBox_baremeAjout_TypeAct.TabIndex = 22;
-            // 
-            // label1
-            // 
-            this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(7, 20);
-            this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(65, 13);
-            this.label1.TabIndex = 20;
-            this.label1.Text = "Groupement";
+            this.comboBox_baremeAjout_TypeAct.SelectedIndexChanged += new System.EventHandler(this.comboBox_baremeAjout_TypeAct_SelectedIndexChanged);
             // 
             // button2
             // 
@@ -349,6 +343,15 @@
             this.button2.Text = "Annuler";
             this.button2.UseVisualStyleBackColor = true;
             this.button2.Click += new System.EventHandler(this.button2_Click);
+            // 
+            // label1
+            // 
+            this.label1.AutoSize = true;
+            this.label1.Location = new System.Drawing.Point(7, 20);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(65, 13);
+            this.label1.TabIndex = 20;
+            this.label1.Text = "Groupement";
             // 
             // label2
             // 
@@ -459,7 +462,7 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(732, 552);
+            this.ClientSize = new System.Drawing.Size(732, 612);
             this.Controls.Add(this.GroupBoxAjoutBareme);
             this.Controls.Add(this.groupBoxBaremesModif);
             this.Controls.Add(this.dataGridView_baremes);
@@ -493,7 +496,6 @@
         private System.Windows.Forms.TextBox TXT_baremes_tarifMaxi;
         private System.Windows.Forms.TextBox TXT_baremes_tarifMini;
         private System.Windows.Forms.TextBox TXT_baremes_tarifFixe;
-        private System.Windows.Forms.Button BTN_baremes_annuler;
         private System.Windows.Forms.Button BTN_baremes_Modifier;
         private System.Windows.Forms.GroupBox groupBoxBaremesModif;
         private System.Windows.Forms.GroupBox GroupBoxAjoutBareme;
@@ -517,5 +519,6 @@
         private System.Windows.Forms.Button BTN_bareme_supprimer;
         private System.Windows.Forms.ComboBox comboBox_ajoutBareme_Libelle;
         private System.Windows.Forms.ComboBox comboBox_baremeAjout_TypeAct;
+        private System.Windows.Forms.Label LBL_baremeAjout_erreur;
     }
 }

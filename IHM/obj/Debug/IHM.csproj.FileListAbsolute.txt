@@ -171,3 +171,7 @@ C:\Users\d1410alheincm\Desktop\CliniqueProjet\IHM\obj\Debug\Clinique.exe
 C:\Users\d1410alheincm\Desktop\CliniqueProjet\IHM\obj\Debug\Clinique.EcranBaremes.resources
 C:\Users\d1409LEBEAUq\Desktop\Clinique\IHM\obj\Debug\Clinique.EcranBaremes.resources
 C:\Users\d1410alheincm\Desktop\CliniqueProjet\IHM\bin\Debug\ControlsLibrary.dll
+C:\Users\d1410alheincm\Desktop\CliniqueProjet\IHM\bin\Debug\Clinique.exe.manifest
+C:\Users\d1410alheincm\Desktop\CliniqueProjet\IHM\bin\Debug\Clinique.application
+C:\Users\d1410alheincm\Desktop\CliniqueProjet\IHM\obj\Debug\Clinique.exe.manifest
+C:\Users\d1410alheincm\Desktop\CliniqueProjet\IHM\obj\Debug\Clinique.application
